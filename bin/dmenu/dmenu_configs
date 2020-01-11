@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Dmenu for editing configs 
+#
+# Requires:
+#   + rofi: need to have rofi installed
+# 
+# Author:   mitschix (is181803@fhstp.ac.at)
+# Created:  20191007
+#
+#
+# Last Updated: 20191011 - mitschix
+#
+
+config_options="zshrc
+zsh_prompt
+bashrc
+profile
+i3
+vimrc"
+
+choice=$(echo "$config_options" | rofi -dmenu -location 2 -lines 3 -theme Monokai -p "Choose config")
+
+case "$choice" in
+  zsh_prompt) cfile="$HOME/.zprompt.zsh";;
+  i3) cfile="$HOME/.config/i3/config";;
+  *) cfile="$HOME/.$choice";;
+esac
+
+[ -n "$choice" ] && $TERMINAL -e vim -n "$cfile" &> /dev/null

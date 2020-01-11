@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# Dmenu for editing configs 
+#
+# Requires:
+#   + rofi: need to have rofi installed
+# 
+# Author:   mitschix (is181803@fhstp.ac.at)
+# Created:  20191007
+#
+#
+# Last Updated: 20191007 - mitschix
+#
+
+rofi_cmd="rofi -dmenu -location 2 -lines 3 -theme Monokai -p "
+SUDO_PASS="rofi -dmenu -p Password -password -location 2 -lines 0 -theme Monokai"
+
+# copied from lukesmith.xyz
+
+# Gives a dmenu prompt to mount unmounted drives.
+# If they're in /etc/fstab, they'll be mounted automatically.
+# Otherwise, you'll be prompted to give a mountpoint from already existsing directories.
+# If you input a novel directory, it will prompt you to create that directory.
+
+getmount() { \
+	[ -z "$chosen" ] && exit 1
+	mp="$(find $1 2>/dev/null | $rofi_cmd "Type in mount point.")"
+	[ "$mp" = "" ] && exit 1
+	if [ ! -d "$mp" ]; then
+		mkdiryn=$(printf "No\\nYes" | $rofi_cmd "$mp does not exist. Create it?")
+		[ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || echo "$PASS" | sudo -S mkdir -p "$mp")
+	fi
+	}
+
+mountusb() { \
+	chosen="$(echo "$usbdrives" | $rofi_cmd "Mount which drive?" | awk '{print $1}')"
+	[ -z "$chosen" ] && exit 1
+  PASS=$($SUDO_PASS)
+	echo "$PASS" | sudo -S mount "$chosen" 2>/dev/null && notify-send "💻 USB mounting" "$chosen mounted." && exit 0
+	alreadymounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not \\( -path *%s -prune \\) \\ \n",$3}')
+	getmount "/mnt /media -maxdepth 5 -type d $alreadymounted"
+	partitiontype="$(lsblk -no "fstype" "$chosen")"
+	case "$partitiontype" in
+		"vfat") echo "$PASS" | sudo mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
+		*) echo "$PASS" | sudo -S mount "$chosen" "$mp"; user="$(whoami)"; echo "$PASS" | sudo -S chown "$user":"$user" "$mp";;
+	esac
+  unset PASS
+	notify-send "💻 USB mounting" "$chosen mounted to $mp."
+	}
+
+usbdrives="$(lsblk -rpo "name,type,size,mountpoint" | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}')"
+
+if [ -z "$usbdrives" ]; then
+	echo "No USB drive detected" && exit
+else
+	if [ -z "$anddrives" ]; then
+		echo "USB drive(s) detected."
+	       	mountusb
+	fi
+fi
