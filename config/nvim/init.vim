@@ -20,6 +20,7 @@ endif
 
 syntax on
 set showcmd
+set hidden          " let modified buffers move to the background
 set number relativenumber         " Zeilennummern angeben
 set showmatch               " Show matching brackets.
 
@@ -55,9 +56,6 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-
-" force writing RO file
-cmap w!! %!sudo tee > /dev/null %
 
 " import additional vim settings
 function! SourceMyScripts()
