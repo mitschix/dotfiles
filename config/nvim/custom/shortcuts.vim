@@ -1,6 +1,9 @@
 " remap leader
 let mapleader ="§"
 
+" force writing RO file
+cmap w!! %!sudo tee > /dev/null %
+
 " key mappings for copy paste
 vnoremap <silent> <C-y> :"+y<CR>
 nnoremap <C-p> "+P
@@ -53,8 +56,8 @@ inoremap {;<CR> {<CR>};<ESC>O
 inoremap <leader>t <++><Esc>
 map <leader>t <Esc>i<++><Esc>
 
-inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-map <leader><leader> <Esc>/<++><Enter>"_c4l
+inoremap <leader>T <Esc>/<++><Enter>"_c4l
+map <leader>T <Esc>/<++><Enter>"_c4l
 
 inoremap <leader><space> <Esc>/<++><Enter>
 map <leader><space> <Esc>/<++><Enter>
