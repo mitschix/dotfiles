@@ -42,12 +42,15 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey -M vicmd "j" down-line-or-beginning-search
 fi
 
-if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
-fi
-if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
-fi
+# if [[ "${terminfo[khome]}" != "" ]]; then
+#   bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
+# fi
+# if [[ "${terminfo[kend]}" != "" ]]; then
+#   bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
+# fi
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+
 
 bindkey '^ ' magic-space                               # [Space] - do history expansion
 
