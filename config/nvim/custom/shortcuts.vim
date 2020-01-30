@@ -20,8 +20,8 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <silent> <C-n> :tabnext<Enter>
-nmap <silent> <Tab> :tabnext<Enter>
+map <silent> <S-Tab> :tabnext<Enter>
+nmap <silent> <Tab> :bnext<Enter>
 
 " Toggle whitespace characters
 map <silent> <leader>L :set list!<CR>
