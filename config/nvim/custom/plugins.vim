@@ -5,15 +5,29 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'dense-analysis/ale',{'on':'ALEToggle'}
 Plug 'tpope/vim-fugitive'
-Plug 'kkoomen/vim-doge'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'flrnprz/plastic.vim'
+" install fzf as command and as plugin
 Plug 'junegunn/fzf', {'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" completion
+Plug 'ycm-core/YouCompleteMe'
+Plug 'sirver/ultisnips'
+" themes
+Plug 'flrnprz/plastic.vim'
+
+" others might delete
+" Plug 'dense-analysis/ale',{'on':'ALEToggle'}
+" Plug 'kkoomen/vim-doge'
 call plug#end()
+
+" call nnn picker
+map <silent> <f2> :NnnPicker '%:p:h'<CR>
+" plugin shortcuts
+map <silent> <F4> :call ToggleGStatus()<CR>
+" Toggle goyo plugin
+map <silent> <leader>G :Goyo<CR>
 
 " YCM settings
 let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
@@ -34,29 +48,13 @@ function! ToggleGStatus()
       endif
     endif
 endfunction
-command ToggleGStatus :call ToggleGStatus()
 
-" netrw file explorer settings
-let g:NetrwIsOpen=0
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+" add theme of plugin
+colorscheme plastic
 
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
+" adjust theme colors
+hi Normal ctermbg=none ctermfg=white
+hi LineNr ctermbg=none ctermfg=180
+hi CursorLineNr ctermbg=none ctermfg=173
+hi Comment ctermbg=none ctermfg=145
 

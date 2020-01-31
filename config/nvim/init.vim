@@ -18,11 +18,18 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+" save on focus lost
+au FocusLost * :w
+
 syntax on
+" set title                " change the terminal's title
+set autoread       " Automatically read a file that has changed on disk 
 set showcmd
 set hidden          " let modified buffers move to the background
 set number relativenumber         " Zeilennummern angeben
 set showmatch               " Show matching brackets.
+set noshowmode      " dont show mode in command line
+set laststatus=2    " permanently set statusline
 
 "set mouse=a        " Mausunterstüzung aktivieren
 
@@ -34,12 +41,6 @@ set tabstop=4 expandtab shiftwidth=4 smartindent
 
 " Toggle whitespace characters
 set listchars=tab:»─,nbsp:·,eol:¬,trail:-,extends:»,precedes:«
-
-"set foldenable
-"set foldlevelstart=10
-"set foldnestmax=10
-"nnoremap <space> za 
-"set foldmethod=indent
 
 " fix cursor of zsh-vi-mode
 autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
@@ -57,6 +58,30 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
+" netrw file explorer settings
+let g:NetrwIsOpen=0
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
 " import additional vim settings
 function! SourceMyScripts()
       let file_list = split(globpath("~/.config/nvim/custom", "*.vim"), '\n')
@@ -70,18 +95,13 @@ call SourceMyScripts()
 " fix colorscheme to use 256 Colors
 set t_Co=256
 
-colorscheme plastic
-
 " change theme for completion windows
 highlight Pmenu ctermfg=blue ctermbg=black
-
-" adjust theme colors
-hi Normal ctermbg=none ctermfg=white
-hi LineNr ctermbg=none ctermfg=180
-hi CursorLineNr ctermbg=none ctermfg=173
-hi Comment ctermbg=none ctermfg=145
 
 " adjust color of tabline
 hi TabLine ctermfg=green ctermbg=235
 hi TabLineSel ctermfg=204 ctermbg=59
 hi TabLineFill ctermfg=235
+
+" abbrevations
+iabbrev todo TODO

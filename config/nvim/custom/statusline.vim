@@ -28,6 +28,7 @@ function! WordCount(...)
     end
 endfunction
 
+
 "statusline settings and functions
 function! StatuslineGit()
   let l:branchname = fugitive#head()
@@ -90,7 +91,6 @@ function! GetMode()
   return l:out
 endfunction
 
-set laststatus=2
 set statusline=
 set statusline+=%#MoreMsg#\ %{GetTabs()}\ 
 set statusline+=%#DiffAdd#%{StatuslineGit()}%*
