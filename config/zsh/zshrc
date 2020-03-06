@@ -10,10 +10,8 @@ eval `dircolors -b` # needed to load ls colors for completion
 src_files=(
 	# git clone https://github.com/zsh-users/zsh-autosuggestions
 	/home/$USER/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-	# autojump
-	/usr/share/autojump/autojump.zsh
 	# nnn https://github.com/jarun/nnn.git
-	/home/$USER/.config/nnn/misc/quitcd/quitcd.zsh
+	/home/$USER/.config/nnn/misc/quitcd/quitcd.bash_zsh
 )
 
 src_folder=(
@@ -37,6 +35,8 @@ source_folder(){
 # source files and folder
 for f in $src_files;do source_file $f;done
 for fol in $src_folder;do source_folder $fol;done
+
+eval "$(fasd --init auto)"
 
 
 # expand alias with space
@@ -127,18 +127,11 @@ unset GREP_OPTIONS
 unset VCS_FOLDERS
 unfunction grep-flag-available
 
-# fix scrolling in st terminal
-#do_nothing(){
-#}
-#zle -N do_nothing
-#bindkey '^E' do_nothing
-#bindkey '^Y' do_nothing
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# launch sway when logging under tty1
 export XKB_DEFAULT_LAYOUT=de
+# setup env vars when in tty1
 if [ $(tty) = "/dev/tty1" ];then
 
     # set PATH so it includes user's private bin if it exists
@@ -152,17 +145,4 @@ if [ $(tty) = "/dev/tty1" ];then
     export TERMINAL="termite"
     export EDITOR="nvim"
     export PAGER="less"
-
-    # sway config
-    export LD_LIBRARY_PATH="/usr/local/lib"
-    export QT_QPA_PLATFORM=wayland
-    export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-    export ELM_DISPLAY=wl
-    export ENCORE_EVAN_ENGINE=wayland_shm
-    export MOZ_ENABLE_WAYLAND=1
-
-    eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-    export SSH_AUTH_SOCK
-	sway
-	exit 0
 fi
