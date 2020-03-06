@@ -61,5 +61,6 @@
     "vim.changeWordIncludesWhitespace": true,
     "vim.camelCaseMotion.enable": true,
     "vim.useCtrlKeys": false,
-    "todo-tree.highlights.enabled": true
+    "todo-tree.highlights.enabled": true,
+    "todo-tree.tree.showScanModeButton": false
 }
