@@ -20,6 +20,7 @@ Plug 'flrnprz/plastic.vim'
 " others might delete
 " Plug 'dense-analysis/ale',{'on':'ALEToggle'}
 " Plug 'kkoomen/vim-doge'
+Plug 'gerw/vim-latex-suite'
 call plug#end()
 
 " call nnn picker
