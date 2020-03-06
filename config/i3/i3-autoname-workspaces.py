@@ -63,6 +63,7 @@ WINDOW_ICONS = {
 	'google-chrome': fa.icons['chrome'],
 	'vscodium': fa.icons['code'],
 	'kicad': fa.icons['microchip'],
+        'kite': fa.icons['python'],
 	'libreoffice': fa.icons['file-alt'],
 	'mirage': fa.icons['image'],
 	'multimc': fa.icons['cube'],
