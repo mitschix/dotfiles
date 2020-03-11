@@ -14,7 +14,7 @@ set $mod Mod4
 # used variables -> need to be absolut path
 set $bgpic "/home/mitschix/pix/waterfall_grass_dark_nature_92752_1920x1080.jpg"
 # set $i3lock "i3lock -n -e -c 000000 -d" 
-set $i3lock "betterlockscreen -l && betterlockscreen -u /home/mitschix/nc/Photos/lockscreens" 
+set $i3lock 'betterlockscreen -l dim ; betterlockscreen -u /home/mitschix/nc/Photos/lockscreens'
 
 
 # Font for window titles. Will also be used by the bar unless a different font
