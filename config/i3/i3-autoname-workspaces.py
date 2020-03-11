@@ -89,6 +89,7 @@ WINDOW_ICONS = {
 	'vim': fa.icons['code'],
 	'virt-manager': fa.icons['desktop'],
 	'virtualbox manager': fa.icons['desktop'],
+	'vmware': fa.icons['desktop'],
 	'zathura': fa.icons['file-pdf'],
 }
 
