@@ -39,6 +39,6 @@ export NNN_CONTEXT_COLORS='2641'
 export NNN_COPIER="/home/$USER/.local/bin/nnn/misc/clipboard-copier/copier"
 
 # source more custom nnn configs, like note and bookmarks
-source ~/.nnn_env_extra
+source ~/.config/nnn/nnn_env_extra
 fi
 
