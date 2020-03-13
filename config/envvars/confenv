@@ -1,0 +1,5 @@
+MYZSHRC="~/.config/zsh/.zshrc"
+MYZSHPROMPT="~/.config/zsh/custom/zprompt.zsh"
+MYI3RC="~/.config/i3/config"
+MYNVIMRC="~/.config/nvim/init.vim"
+MYPY3STATUSRC="~/.config/py3status/i3status.conf"
