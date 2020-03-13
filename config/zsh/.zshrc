@@ -36,7 +36,10 @@ source_folder(){
 for f in $src_files;do source_file $f;done
 for fol in $src_folder;do source_folder $fol;done
 
-eval "$(fasd --init auto)"
+
+if [ $(command -v fasd) ]
+    then eval "$(fasd --init auto)"
+fi
 
 
 # expand alias with space
