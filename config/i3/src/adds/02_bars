@@ -1,0 +1,21 @@
+################################
+## == i3 bar configuration == ##
+################################
+
+bar {
+    position bottom
+	status_command py3status -c $i3barconf
+	tray_output none
+	font xft:Droid Sans Mono, FontAwesome 10
+    binding_mode_indicator no
+}
+
+bar {
+	position top
+	tray_output eDP-1
+	tray_padding 0
+	workspace_buttons no
+	font xft:Droid Sans Mono, FontAwesome 12
+	status_command exec ~/.config/i3/fortune_bar.sh
+}
+

@@ -1,0 +1,30 @@
+###################################
+## == i3 startup applications == ##
+###################################
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# autostart programs
+#exec --no-startup-id blueman-applet
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id picom
+
+#mine
+exec --no-startup-id nextcloud
+exec --no-startup-id redshift-gtk -l 48.210033:16.363449 
+exec --no-startup-id clipit 
+exec --no-startup-id keepassxc
+
+#exec --no-startup-id /home/mitschix/.config/Conky/startconky.sh 
+exec --no-startup-id feh --bg-scale $bgpic
+
+
+exec --no-startup-id xautolock -time 5 -locker $i3lock -corners 000-
+exec_always ~/.config/i3/i3-autoname-workspaces.py &
+

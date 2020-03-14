@@ -1,0 +1,11 @@
+#####################################
+## == Dcalc plugin with python3 == ##
+#####################################
+
+# dropdown calc conf
+for_window [class="dcalc"] floating enable move position center
+for_window [class="dcalc"] move scratchpad 
+bindsym $mod+m [class="dcalc"] scratchpad show
+
+exec --no-startup-id $TERMINAL --class="dcalc" -e "python3"
+
