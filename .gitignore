@@ -1,2 +1,4 @@
 *.pyc
 config/i3/config*
+config/zsh/.zcompdump
+

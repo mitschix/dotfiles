@@ -9,7 +9,7 @@ eval `dircolors -b` # needed to load ls colors for completion
 
 src_files=(
 	# git clone https://github.com/zsh-users/zsh-autosuggestions
-	/home/$USER/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+	/home/$USER/.config/zsh/plugs/zsh-autosuggestions/zsh-autosuggestions.zsh
 	# nnn https://github.com/jarun/nnn.git
 	/home/$USER/.config/nnn/misc/quitcd/quitcd.bash_zsh
 )
