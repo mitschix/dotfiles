@@ -81,6 +81,7 @@ WINDOW_ICONS = {
 	'subl': fa.icons['file-alt'],
 	'subl3': fa.icons['file-alt'],
 	'telegram-desktop-bin': fa.icons['telegram'],
+	'telegram-desktop': fa.icons['telegram'],
 	'terminator': fa.icons['terminal'],
 	'terraria': fa.icons['tree'],
 	'thunar': fa.icons['folder'],
