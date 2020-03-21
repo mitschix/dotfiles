@@ -1,5 +1,6 @@
 # alias basics
 alias mkdir='mkdir -pv'
+alias mkx='chmod u+x'
 alias rmd='rm -rf'
 alias vim='nvim'
 alias ls='ls --color'
