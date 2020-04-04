@@ -7,6 +7,7 @@ alias ls='ls --color'
 alias sv='sudo nvim'
 alias cl='clear'
 alias xopen='xdg-open'
+alias za='zathura'
 
 # show disk info
 alias du='du -kh'
@@ -82,3 +83,4 @@ alias capmap="setxkbmap -option caps:escape"
 # fi
 # unset is_advcp
 
+alias corona='curl "https://corona-stats.online/AT" && curl "https://corona-stats.online/AT?source=2"'
