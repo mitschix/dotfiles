@@ -62,5 +62,10 @@
     "vim.camelCaseMotion.enable": true,
     "vim.useCtrlKeys": false,
     "todo-tree.highlights.enabled": true,
-    "todo-tree.tree.showScanModeButton": false
+    "todo-tree.tree.showScanModeButton": false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.external.build.command": "make",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.outDir": "out/"
 }
