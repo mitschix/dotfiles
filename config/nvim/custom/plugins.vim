@@ -10,17 +10,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', {'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " little buggy
+
 " completion
-Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'sirver/ultisnips'
+
+" useful tools
+Plug 'vimwiki/vimwiki'
+
 " themes
 Plug 'flrnprz/plastic.vim'
 
 " others might delete
 " Plug 'dense-analysis/ale',{'on':'ALEToggle'}
 " Plug 'kkoomen/vim-doge'
-Plug 'gerw/vim-latex-suite'
+" Plug 'gerw/vim-latex-suite'
 call plug#end()
 
 " call nnn picker
@@ -49,6 +54,10 @@ function! ToggleGStatus()
       endif
     endif
 endfunction
+
+" vimwiki settings
+let g:vimwiki_list = [{'path': '~/docs/vimwiki',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " add theme of plugin
 colorscheme plastic
