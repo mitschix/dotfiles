@@ -84,3 +84,4 @@ alias capmap="setxkbmap -option caps:escape"
 # unset is_advcp
 
 alias corona='curl "https://corona-stats.online/AT" && curl "https://corona-stats.online/AT?source=2"'
+alias info_termite='curl https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo | sudo tic -x -'
