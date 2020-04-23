@@ -32,13 +32,30 @@ endfunction
 "statusline settings and functions
 function! StatuslineGit()
   let l:branchname = fugitive#head()
-  return strlen(l:branchname) > 0?' '.l:branchname.' ':''
+  return strlen(l:branchname) > 0?printf('  %s ', l:branchname):''
 endfunction
 
+" vim gitgutter statusline
+function! GitStatus()
+    let l:changes = ''
+    let hunks_symbols = ['+', '~', '-'] " changes this if you want to have other symbols [add, change, delete]
+    let hunks = GitGutterGetHunkSummary()
+    for i in [0, 1, 2]
+        if hunks[i] > 0
+            let l:changes .= printf(' %s%d', hunks_symbols[i], hunks[i])
+        endif
+    endfor
+    if strlen(l:changes) > 0
+        let l:changes = printf(' %s ', l:changes)
+    endif
+    return l:changes
+endfunction
+
+" display number of tabs
 function! GetTabs()
   let l:maxtabnr = tabpagenr('$')
   let l:curtab = tabpagenr()
-  return maxtabnr == 1?l:curtab:l:curtab.'/'.l:maxtabnr
+  return maxtabnr > 1?printf('  %d/%d ', l:curtab, l:maxtabnr):''
 endfunction
 
 function! GetMode()
@@ -92,7 +109,8 @@ function! GetMode()
 endfunction
 
 set statusline=
-set statusline+=%#MoreMsg#\ %{GetTabs()}\ 
+set statusline+=%#MoreMsg#%{GetTabs()}%*
+set statusline+=%{GitStatus()}
 set statusline+=%#DiffAdd#%{StatuslineGit()}%*
 set statusline+=%#ModeColor#%{GetMode()}%*\ 
 set statusline+=%F

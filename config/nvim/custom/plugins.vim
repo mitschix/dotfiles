@@ -1,11 +1,14 @@
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" vim -- curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" nvim -- curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " add plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tomtom/tcomment_vim'
+" git plugins
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " install fzf as command and as plugin
 Plug 'junegunn/fzf', {'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -21,11 +24,6 @@ Plug 'vimwiki/vimwiki'
 
 " themes
 Plug 'flrnprz/plastic.vim'
-
-" others might delete
-" Plug 'dense-analysis/ale',{'on':'ALEToggle'}
-" Plug 'kkoomen/vim-doge'
-" Plug 'gerw/vim-latex-suite'
 call plug#end()
 
 " call nnn picker
@@ -68,3 +66,11 @@ hi LineNr ctermbg=none ctermfg=180
 hi CursorLineNr ctermbg=none ctermfg=173
 hi Comment ctermbg=none ctermfg=145
 
+" adjust git colors
+hi GitGutterAdd ctermfg=2
+hi GitGutterChange ctermfg=180
+hi GitGutterDelete ctermfg=204
+nmap ) <Plug>(GitGutterNextHunk)
+nmap ( <Plug>(GitGutterPrevHunk)
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
