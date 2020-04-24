@@ -49,6 +49,11 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
 " Toggle whitespace characters
 map <silent> <leader>L :set list!<CR>
 

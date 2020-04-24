@@ -42,6 +42,9 @@ set tabstop=4 expandtab shiftwidth=4 smartindent
 " Toggle whitespace characters
 set listchars=tab:»─,nbsp:·,eol:¬,trail:-,extends:»,precedes:«
 
+" change split behaviour
+set splitbelow splitright
+
 " fix cursor of zsh-vi-mode
 autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
 autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
