@@ -1,7 +1,6 @@
 
 
-
-" === PLUGINS ===
+" === PLUGINS & PLUGIN SETTINGS ===
 
 
 " automatically load vim-plug and install plugins

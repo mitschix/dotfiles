@@ -1,3 +1,8 @@
+
+
+" === SHORTCUTS ===
+
+
 " remap leader
 let mapleader = ","
 

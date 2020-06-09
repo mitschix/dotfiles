@@ -1,6 +1,7 @@
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
+
+
+" === MAIN VIMRC ===
+
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well

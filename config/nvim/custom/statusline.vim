@@ -1,3 +1,8 @@
+
+
+" === STATUSLINE SETTINGS & FUNCTIONS ===
+
+
 " Toggle word count in the panel if you hit <leader>wc
 " Update the word count if you hit <leader>wu, display in statusline
 " Add %{g:word_count} to statusline to see wordcount.
