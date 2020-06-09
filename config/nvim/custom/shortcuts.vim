@@ -91,6 +91,38 @@ nmap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nmap <C-b> :Buffers<cr>
 nmap <C-f> :Files<cr>
 
+" ----------------------------------------------------------------------------
+" #!! | Shebang
+" ----------------------------------------------------------------------------
+inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
+
+" ----------------------------------------------------------------------------
+" co? : Toggle options
+" ----------------------------------------------------------------------------
+function! s:map_change_option(...)
+    let [key, opt] = a:000[0:1]
+    " remap for number to disable number and relativenumberO
+    if key == "n"
+        execute printf("nnoremap co%s :set number! relativenumber!<CR>", key)
+    elseif key == "g"
+        execute printf("nnoremap co%s :Goyo<CR>", key)
+    else
+        let op = get(a:, 3, 'set '.opt.'!')
+        execute printf("nnoremap co%s :%s<bar>set %s?<CR>", key, op, opt)
+    endif
+endfunction
+
+
+call s:map_change_option('p', 'paste')
+call s:map_change_option('n', 'number')
+call s:map_change_option('w', 'wrap')
+call s:map_change_option('g', 'Goyo')
+call s:map_change_option('h', 'hlsearch')
+call s:map_change_option('m', 'mouse', 'let &mouse = &mouse == "" ? "a" : ""')
+call s:map_change_option('t', 'textwidth', 'let &textwidth = input("textwidth (". &textwidth ."): ")<bar>redraw')
+call s:map_change_option('b', 'background', 'let &background = &background == "dark" ? "light" : "dark"<bar>redraw')
+
+
 " settings for TODO management
 
 " Navigating with guides
