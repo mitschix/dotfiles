@@ -81,6 +81,10 @@ imap {;<CR> {<CR>};<ESC>O
 " remove trailing withspaces from lines
 nmap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Fzf easy commands
+nmap <C-b> :Buffers<cr>
+nmap <C-f> :Files<cr>
+
 " settings for TODO management
 
 " Navigating with guides
