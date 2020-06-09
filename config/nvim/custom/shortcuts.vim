@@ -49,6 +49,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Movement in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
