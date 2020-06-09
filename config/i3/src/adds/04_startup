@@ -22,8 +22,9 @@ exec --no-startup-id clipit
 exec --no-startup-id keepassxc
 
 #exec --no-startup-id /home/mitschix/.config/Conky/startconky.sh 
-exec --no-startup-id feh --bg-scale $bgpic
-
+# exec --no-startup-id feh --bg-scale $bgpic
+exec --no-startup-id /usr/bin/feh --no-fehbg --bg-scale --randomize -r $wallpaper_folder
+exec --no-startup-id systemd-run --on-calendar="*:0/5" --user -- /usr/bin/feh --no-fehbg --bg-scale --randomize -r $wallpaper_folder
 
 exec --no-startup-id xautolock -time 5 -locker $i3lock -corners 000-
 exec_always ~/.config/i3/i3-autoname-workspaces.py &
