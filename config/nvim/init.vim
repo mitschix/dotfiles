@@ -26,17 +26,17 @@ syntax on
 " set title                " change the terminal's title
 set autoread       " Automatically read a file that has changed on disk 
 set showcmd
+set noshowmode      " dont show mode in command line
 set hidden          " let modified buffers move to the background
 set number relativenumber         " Zeilennummern angeben
 set showmatch               " Show matching brackets.
-set noshowmode      " dont show mode in command line
 set laststatus=2    " permanently set statusline
 
-set incsearch nohlsearch ignorecase
-"set hlsearch       " Suchresultate farbig hervorheben
+" searching
+set incsearch nohlsearch smartcase
 
-set tabstop=4 expandtab shiftwidth=4 smartindent
-"set softtabstop=2  " Weicher Tabulator
+" indention and formatting
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smartindent
 
 " Toggle whitespace characters
 set listchars=tab:»─,nbsp:·,eol:¬,trail:-,extends:»,precedes:«
@@ -100,6 +100,10 @@ call SourceMyScripts()
 " fix colorscheme to use 256 Colors
 set t_Co=256
 
+" add visible column
+set colorcolumn=90
+hi ColorColumn ctermbg=green
+
 " change theme for completion windows
 highlight Pmenu ctermfg=blue ctermbg=black
 
@@ -110,3 +114,7 @@ hi TabLineFill ctermfg=235
 
 " abbrevations
 iabbrev todo TODO
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages available in Debian.
+runtime! debian.vim
