@@ -31,8 +31,6 @@ set showmatch               " Show matching brackets.
 set noshowmode      " dont show mode in command line
 set laststatus=2    " permanently set statusline
 
-"set mouse=a        " Mausunterstüzung aktivieren
-
 set incsearch nohlsearch ignorecase
 "set hlsearch       " Suchresultate farbig hervorheben
 
@@ -44,6 +42,9 @@ set listchars=tab:»─,nbsp:·,eol:¬,trail:-,extends:»,precedes:«
 
 " change split behaviour
 set splitbelow splitright
+
+" Unset paste on InsertLeave.
+autocmd InsertLeave * silent! set nopaste
 
 " fix cursor of zsh-vi-mode
 autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
