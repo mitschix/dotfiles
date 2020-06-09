@@ -1,6 +1,7 @@
 " remap leader
 let mapleader = ","
 
+" edit nvim config
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
@@ -42,8 +43,12 @@ map <silent> <f3> :call ToggleNetrw()<CR>
 set pastetoggle=<F5>
 map <f6> :setlocal spell! spelllang=de_DE<CR>
 
-" remap motion keys
+" Open new line below and above current line
 map <leader><Enter> o<esc>
+nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>
+
+" remap motion keys
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -103,12 +108,12 @@ function! s:map_change_option(...)
     let [key, opt] = a:000[0:1]
     " remap for number to disable number and relativenumberO
     if key == "n"
-        execute printf("nnoremap co%s :set number! relativenumber!<CR>", key)
+        execute printf("nnoremap <leader>c%s :set number! relativenumber!<CR>", key)
     elseif key == "g"
-        execute printf("nnoremap co%s :Goyo<CR>", key)
+        execute printf("nnoremap <leader>c%s :Goyo<CR>", key)
     else
         let op = get(a:, 3, 'set '.opt.'!')
-        execute printf("nnoremap co%s :%s<bar>set %s?<CR>", key, op, opt)
+        execute printf("nnoremap <leader>c%s :%s<bar>set %s?<CR>", key, op, opt)
     endif
 endfunction
 
