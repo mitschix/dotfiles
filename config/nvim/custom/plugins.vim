@@ -1,3 +1,16 @@
+
+
+
+" === PLUGINS ===
+
+
+" automatically load vim-plug and install plugins
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" manual installation
 " vim -- curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " nvim -- curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -24,6 +37,11 @@ Plug 'vimwiki/vimwiki'
 
 " themes
 Plug 'flrnprz/plastic.vim'
+
+" others
+
+Plug 'ThePrimeagen/vim-be-good'
+
 call plug#end()
 
 " call nnn picker
