@@ -67,5 +67,6 @@
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.external.build.command": "make",
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.outDir": "out/"
+    "latex-workshop.latex.outDir": "out/",
+    "latex-workshop.latex.autoBuild.run": "never"
 }
