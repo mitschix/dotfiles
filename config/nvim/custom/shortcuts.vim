@@ -27,16 +27,19 @@ cmap w!! %!sudo tee > /dev/null %
 " vnoremap <silent> <C-y> :"+y<R
 " nnoremap <C-p> "+P
 
+" Prevent selecting and pasting from overwriting what you originally copied.
+xnoremap p pgvy
+
 " Insert Mode Completion {{{
 imap <c-f> <c-x><c-f>
 imap <c-]> <c-x><c-]>
 imap <c-l> <c-x><c-l>
 " }}}
 
-
 " Movement remapping {{{
 nmap H ^
 nmap L $
+
 " remap movement up and down on wrapped files
 nnoremap j gj
 nnoremap k gk
