@@ -15,8 +15,10 @@ endif
 
 " add plugins
 call plug#begin('~/.config/nvim/plugged')
+" useful tools
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
 " git plugins
 Plug 'tpope/vim-fugitive'
@@ -24,23 +26,19 @@ Plug 'airblade/vim-gitgutter'
 " install fzf as command and as plugin
 Plug 'junegunn/fzf', {'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " little buggy
-
 " completion
 Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'sirver/ultisnips'
-
-" useful tools
-Plug 'vimwiki/vimwiki'
+" syntax
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " themes
 Plug 'flrnprz/plastic.vim'
 
 " others
-
 Plug 'ThePrimeagen/vim-be-good'
 
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " little buggy
 call plug#end()
 
 " call nnn picker
