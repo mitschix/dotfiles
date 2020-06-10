@@ -19,18 +19,22 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'tomtom/tcomment_vim'
-" git plugins
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'mbbill/undotree'
 " install fzf as command and as plugin
 Plug 'junegunn/fzf', {'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" git plugins
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " completion
 Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'sirver/ultisnips'
 " syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
+" programming
+Plug 'tomtom/tcomment_vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'dbeniamine/cheat.sh-vim'
 
 " themes
 Plug 'flrnprz/plastic.vim'
