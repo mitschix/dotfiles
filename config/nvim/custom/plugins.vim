@@ -48,11 +48,14 @@ map <silent> <f2> :NnnPicker '%:p:h'<CR>
 " plugin shortcuts
 map <silent> <F4> :call ToggleGStatus()<CR>
 " Toggle goyo plugin
-map <silent> <leader>G :Goyo<CR>
+map <silent> <Leader>G :Goyo<CR>
 
 " YCM settings
 let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 set completeopt-=preview
+nnoremap <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <Leader>gf :YcmCompleter FixIt<CR>
+
 
 " NnnPicker settings
 let g:nnn#layout = { 'left': '~20%' } "
