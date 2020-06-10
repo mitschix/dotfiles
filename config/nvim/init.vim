@@ -33,7 +33,7 @@ set showmatch               " Show matching brackets.
 set laststatus=2    " permanently set statusline
 
 " searching
-set incsearch nohlsearch smartcase
+set incsearch nohlsearch ignorecase "smartcase
 
 " indention and formatting
 set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smartindent
