@@ -28,7 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " completion
 Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
-Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 " syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
 " programming
@@ -58,6 +58,14 @@ set completeopt-=preview
 nnoremap <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <Leader>gf :YcmCompleter FixIt<CR>
 
+" Ultisnips settings
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<C-s>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " NnnPicker settings
 let g:nnn#layout = { 'left': '~20%' } "
@@ -78,6 +86,8 @@ endfunction
 " vimwiki settings
 let g:vimwiki_list = [{'path': '~/docs/vimwiki',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+" disable global vimwiki filetype for .md
+let g:vimwiki_global_ext = 0
 
 " add theme of plugin
 colorscheme plastic
