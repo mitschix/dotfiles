@@ -47,6 +47,11 @@ nnoremap gj j
 nnoremap gk k
 " }}}
 
+" jk | Escaping!
+inoremap jk <Esc>
+xnoremap jk <Esc>
+cnoremap jk <C-c>
+
 map <silent> <f3> :call ToggleNetrw()<CR>
 set pastetoggle=<F5>
 map <f6> :setlocal spell! spelllang=de_DE<CR>
