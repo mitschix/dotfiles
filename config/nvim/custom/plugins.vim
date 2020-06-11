@@ -90,18 +90,26 @@ let g:vimwiki_list = [{'path': '~/docs/vimwiki',
 let g:vimwiki_global_ext = 0
 
 " add theme of plugin
-colorscheme plastic
+" adjust colors per function
+function! AdaptColorscheme()
+    hi Normal ctermbg=none ctermfg=white
+    hi LineNr ctermbg=none ctermfg=180
+    hi CursorLineNr ctermbg=none ctermfg=173
+    hi Comment ctermbg=none ctermfg=145
 
-" adjust theme colors
-hi Normal ctermbg=none ctermfg=white
-hi LineNr ctermbg=none ctermfg=180
-hi CursorLineNr ctermbg=none ctermfg=173
-hi Comment ctermbg=none ctermfg=145
+    " adjust git gutter colors
+    hi GitGutterAdd ctermfg=2
+    hi GitGutterChange ctermfg=180
+    hi GitGutterDelete ctermfg=204
+endfunction
+" call it all the time when colorscheme is changed
+" because of Goyo
+autocmd ColorScheme * call AdaptColorscheme()
 
-" adjust git colors
-hi GitGutterAdd ctermfg=2
-hi GitGutterChange ctermfg=180
-hi GitGutterDelete ctermfg=204
+" set plastic if installed silent to suppress errors if not
+silent! colorscheme plastic
+
+" further gitgutter changes
 nmap ) <Plug>(GitGutterNextHunk)
 nmap ( <Plug>(GitGutterPrevHunk)
 let g:gitgutter_enabled = 1
