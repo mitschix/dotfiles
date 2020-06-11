@@ -41,6 +41,9 @@ set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smartindent
 " Toggle whitespace characters
 set listchars=tab:»─,nbsp:·,eol:¬,trail:-,extends:»,precedes:«
 
+" <BS> <Space> h l <Left> <Right> can change lines
+set whichwrap=b,s,h,l   
+
 " change split behaviour
 set splitbelow splitright
 
@@ -89,10 +92,11 @@ endfunction
 
 " import additional vim settings
 function! SourceMyScripts()
-      let file_list = split(globpath("~/.config/nvim/custom", "*.vim"), '\n')
-
+    let file_list = split(globpath("~/.config/nvim/custom", "*.vim"), '\n')
     for file in file_list
-            execute( 'source '.file )
+        if filereadable(file)
+            execute 'source' file
+        endif
     endfor
 endfunction
 call SourceMyScripts()
@@ -115,6 +119,11 @@ hi TabLineFill ctermfg=235
 " abbrevations
 iabbrev todo TODO
 
+" #!! | Shebang
+" ----------------------------------------------------------------------------
+inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
+
+" ----------------------------------------------------------------------------
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
