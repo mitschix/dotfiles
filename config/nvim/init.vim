@@ -122,8 +122,12 @@ iabbrev todo TODO
 " #!! | Shebang
 " ----------------------------------------------------------------------------
 inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
-
 " ----------------------------------------------------------------------------
+
+" Create a doc string - need the docstring file
+" <date> will be replaced by current date YYYYMMDD format x2
+inoreabbrev __dcstr <ESC>:r!cat ~/.local/gits/dotfiles/.docstring<CR>?<date><CR>ciW<C-R>=strftime('%Y%m%d')<CR><ESC>?<date><CR>ciW<C-R>=strftime('%Y%m%d')<CR>
+
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
