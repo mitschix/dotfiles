@@ -80,18 +80,25 @@ let g:vimwiki_list = [{'path': '~/docs/vimwiki',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " add theme of plugin
+" adjust colors per function
+function! AdaptColorscheme()
+    hi Normal ctermbg=none ctermfg=white
+    hi LineNr ctermbg=none ctermfg=180
+    hi CursorLineNr ctermbg=none ctermfg=173
+    hi Comment ctermbg=none ctermfg=145
+
+    " adjust git gutter colors
+    hi GitGutterAdd ctermfg=2
+    hi GitGutterChange ctermfg=180
+    hi GitGutterDelete ctermfg=204
+endfunction
+" call it all the time when colorscheme is changed
+" because of Goyo
+autocmd ColorScheme * call AdaptColorscheme()
+
 colorscheme plastic
 
-" adjust theme colors
-hi Normal ctermbg=none ctermfg=white
-hi LineNr ctermbg=none ctermfg=180
-hi CursorLineNr ctermbg=none ctermfg=173
-hi Comment ctermbg=none ctermfg=145
-
-" adjust git colors
-hi GitGutterAdd ctermfg=2
-hi GitGutterChange ctermfg=180
-hi GitGutterDelete ctermfg=204
+" further gitgutter changes
 nmap ) <Plug>(GitGutterNextHunk)
 nmap ( <Plug>(GitGutterPrevHunk)
 let g:gitgutter_enabled = 1
