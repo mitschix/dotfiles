@@ -54,7 +54,8 @@ cnoremap jk <C-c>
 
 map <silent> <f3> :call ToggleNetrw()<CR>
 set pastetoggle=<F5>
-map <f6> :setlocal spell! spelllang=de_DE<CR>
+map <f6> :setlocal spell! spelllang=de_at<CR>
+map <f7> :setlocal spell! spelllang=en_us<CR>
 
 " Open new line below and above current line
 map <leader><Enter> o<esc>

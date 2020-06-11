@@ -133,7 +133,7 @@ set statusline+=%F
 set statusline+=\ %#Statement#%h%r%m%w%*
 set statusline+=%=
 set statusline+=%#DiffDelete#%{&paste?'\.PASTE\.':''}%*
-set statusline+=%#DiffChange#%{&spell?'\.SPELL\.':''}%*
+set statusline+=%#DiffChange#%{&spell?'\.SPELL-\['.&spelllang.']\.':''}%*
 set statusline+=%#WildMenu#%{g:word_count}%*
 set statusline+=\ %y\ \|
 set statusline+=\ %l/%L\ \-\ %c\ \|
