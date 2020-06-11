@@ -23,9 +23,14 @@ nmap <silent> <Tab> :bnext<Enter>
 " force writing RO file
 cmap w!! %!sudo tee > /dev/null %
 
-" key mappings for copy paste
-" vnoremap <silent> <C-y> :"+y<R
-" nnoremap <C-p> "+P
+" Copying/pasting text to the system clipboard.
+noremap  <leader>p "+p
+vnoremap <leader>y "+y
+nnoremap <leader>y V"+y
+nnoremap <leader>Y "+y
+
+" Yank to end of line
+nnoremap Y y$
 
 " Prevent selecting and pasting from overwriting what you originally copied.
 xnoremap p pgvy
