@@ -108,7 +108,7 @@ imap {<tab> {}<Left>
 imap {<CR> {<CR>}<ESC>O
 imap {;<CR> {<CR>};<ESC>O
 
-" remove trailing withspaces from lines
+" remove trailing whitespace from lines
 nmap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Fzf easy commands
@@ -116,16 +116,11 @@ nmap <C-b> :Buffers<cr>
 nmap <C-f> :Files<cr>
 
 " ----------------------------------------------------------------------------
-" #!! | Shebang
-" ----------------------------------------------------------------------------
-inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
-
-" ----------------------------------------------------------------------------
 " co? : Toggle options
 " ----------------------------------------------------------------------------
 function! s:map_change_option(...)
     let [key, opt] = a:000[0:1]
-    " remap for number to disable number and relativenumberO
+    " remap for number to disable number and relativenumber
     if key == "n"
         execute printf("nnoremap <leader>c%s :set number! relativenumber!<CR>", key)
     elseif key == "g"
