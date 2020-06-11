@@ -36,31 +36,42 @@ endfunction
 
 "statusline settings and functions
 function! StatuslineGit()
-  let l:branchname = fugitive#head()
-  return strlen(l:branchname) > 0?printf('  %s ', l:branchname):''
+    if exists(':Git')
+        " check if vim-fugitive is installed to prevent errors on first setup
+        let l:branchname = fugitive#head()
+        return strlen(l:branchname) > 0?printf('  %s ', l:branchname):''
+    else
+        return ""
+    endif
 endfunction
 
 " vim gitgutter statusline
 function! GitStatus()
-    let l:changes = ''
-    let hunks_symbols = ['+', '~', '-'] " changes this if you want to have other symbols [add, change, delete]
-    let hunks = GitGutterGetHunkSummary()
-    for i in [0, 1, 2]
-        if hunks[i] > 0
-            let l:changes .= printf(' %s%d', hunks_symbols[i], hunks[i])
+    " check if gitgutter is installed to prevent errors on first setup
+    if exists(':GitGutter')
+        let l:changes = ''
+        let hunks_symbols = ['+', '~', '-'] " changes this if you want to have other symbols [add, change, delete]
+        let hunks = GitGutterGetHunkSummary()
+        for i in [0, 1, 2]
+            if hunks[i] > 0
+                let l:changes .= printf(' %s%d', hunks_symbols[i], hunks[i])
+
+            endif
+        endfor
+        if strlen(l:changes) > 0
+            let l:changes = printf(' %s ', l:changes)
         endif
-    endfor
-    if strlen(l:changes) > 0
-        let l:changes = printf(' %s ', l:changes)
+        return l:changes
+    else
+        return ""
     endif
-    return l:changes
 endfunction
 
 " display number of tabs
 function! GetTabs()
-  let l:maxtabnr = tabpagenr('$')
-  let l:curtab = tabpagenr()
-  return maxtabnr > 1?printf('  %d/%d ', l:curtab, l:maxtabnr):''
+    let l:maxtabnr = tabpagenr('$')
+    let l:curtab = tabpagenr()
+    return maxtabnr > 1?printf('  %d/%d ', l:curtab, l:maxtabnr):''
 endfunction
 
 function! GetMode()
@@ -83,34 +94,34 @@ function! GetMode()
     "     \ 'r?' : 'Confirm',
     "     \ '!'  : 'Shell',
     "     \ 't'  : 'Terminal'
-    
-  let l:curmode = mode()
-  if l:curmode == 'n'
-    hi ModeColor ctermfg=204 ctermbg=235
-    let l:out = '. N .'
-  elseif l:curmode == 'i'
-    hi ModeColor ctermfg=114 ctermbg=235
-    let l:out = '. I .'
-  elseif l:curmode == 'r'
-    hi ModeColor ctermfg=39 ctermbg=235
-    let l:out = '. R .'
-  elseif l:curmode ==# 'v'
-    hi ModeColor ctermfg=170 ctermbg=235
-    let l:out = '. V .'
-  elseif l:curmode ==# 'V'
-    hi ModeColor ctermfg=180 ctermbg=235
-    let l:out = '. VL .'
-  elseif l:curmode ==# '^V'
-    hi ModeColor ctermfg=173 ctermbg=235
-    let l:out = '. VB .'
-  elseif l:curmode == 'c'
-    hi ModeColor ctermfg=blue ctermbg=235
-    let l:out = '. C .'
-  else
-    hi ModeColor ctermfg=173 ctermbg=235
-    let l:out = '. VB .'
-  endif
-  return l:out
+
+    let l:curmode = mode()
+    if l:curmode == 'n'
+        hi ModeColor ctermfg=204 ctermbg=235
+        let l:out = '. N .'
+    elseif l:curmode == 'i'
+        hi ModeColor ctermfg=114 ctermbg=235
+        let l:out = '. I .'
+    elseif l:curmode == 'r'
+        hi ModeColor ctermfg=39 ctermbg=235
+        let l:out = '. R .'
+    elseif l:curmode ==# 'v'
+        hi ModeColor ctermfg=170 ctermbg=235
+        let l:out = '. V .'
+    elseif l:curmode ==# 'V'
+        hi ModeColor ctermfg=180 ctermbg=235
+        let l:out = '. VL .'
+    elseif l:curmode ==# '^V'
+        hi ModeColor ctermfg=173 ctermbg=235
+        let l:out = '. VB .'
+    elseif l:curmode == 'c'
+        hi ModeColor ctermfg=blue ctermbg=235
+        let l:out = '. C .'
+    else
+        hi ModeColor ctermfg=173 ctermbg=235
+        let l:out = '. VB .'
+    endif
+    return l:out
 endfunction
 
 set statusline=

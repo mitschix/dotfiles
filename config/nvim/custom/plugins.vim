@@ -96,7 +96,8 @@ endfunction
 " because of Goyo
 autocmd ColorScheme * call AdaptColorscheme()
 
-colorscheme plastic
+" set plastic if installed silent to suppress errors if not
+silent! colorscheme plastic
 
 " further gitgutter changes
 nmap ) <Plug>(GitGutterNextHunk)
