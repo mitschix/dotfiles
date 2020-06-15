@@ -6,6 +6,6 @@
 set $bgpic "/home/mitschix/pix/waterfall_grass_dark_nature_92752_1920x1080.jpg"
 set $wallpaper_folder "/home/mitschix/pix/wallpaper"
 # set $i3lock "i3lock -n -e -c 000000 -d" 
-set $i3lock "betterlockscreen -l dim ; betterlockscreen -u /home/$USER/nc/Photos/lockscreens"
+set $i3lock betterlockscreen -l dim && betterlockscreen -u /home/$USER/nc/Photos/lockscreens
 set $i3barconf "/home/mitschix/.config/py3status/i3status.conf"
 
