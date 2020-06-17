@@ -2,12 +2,15 @@
 alias mkdir='mkdir -pv'
 alias mkx='chmod u+x'
 alias rmd='rm -rf'
-alias vim='nvim'
 alias ls='ls --color'
-alias sv='sudo nvim'
 alias cl='clear'
 alias xopen='xdg-open'
 alias za='zathura'
+
+# nvim alias
+alias ve='nvim .'
+alias sv='sudo nvim'
+alias ,ev='nvim -S ~/.config/nvim/nvim_config_session.vim'
 
 # show disk info
 alias du='du -kh'
@@ -62,7 +65,7 @@ alias gst='git stash'
 alias gb='git branch'
 alias gm='git merge'
 alias gch='git checkout'
-alias gcm='git commit -m'
+alias gcm='git commit -m"'
 alias glg='git log --stat'
 alias gpo='git push origin HEAD'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
@@ -83,5 +86,4 @@ alias capmap="setxkbmap -option caps:escape"
 # fi
 # unset is_advcp
 
-alias corona='curl "https://corona-stats.online/AT" && curl "https://corona-stats.online/AT?source=2"'
 alias info_termite='curl https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo | sudo tic -x -'
