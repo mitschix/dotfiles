@@ -19,6 +19,11 @@ alias df='df -kTh'
 # more ls alias
 alias ..='cd ..'
 
+# global alias
+alias -g L='| less'
+alias -g G='| grep'
+alias -g RG='| rg'
+
 # package manager alias
 is_arch=$(command -v pacman)
 command -v powerpill > /dev/null && pkg="powerpill" || pkg="pacman"
