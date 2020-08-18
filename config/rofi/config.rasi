@@ -1,11 +1,12 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "window,run,ssh";
+	lines: 3;
+	location: 2;
+	theme: "Monokai";
 /*	width: 50;*/
-/*	lines: 15;*/
 /*	columns: 1;*/
 /*	font: "mono 12";*/
 /*	bw: 1;*/
-/*	location: 0;*/
 /*	padding: 5;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -50,7 +51,6 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-/*	theme: ;*/
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
