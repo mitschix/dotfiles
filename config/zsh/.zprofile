@@ -13,7 +13,10 @@ if [ $(tty) = "/dev/tty1" ];then
     export EDITOR="nvim"
     export PAGER="less"
 
+    # clipmenu end settings
     export CM_LAUNCHER=rofi
+    export CM_DIR=/tmp
+    export CM_SELECTIONS=clipboard
 
     # nnn config
     export NNN_COLORS='2641' 
