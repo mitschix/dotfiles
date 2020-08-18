@@ -8,6 +8,3 @@ bindsym $mod+Shift+m exec telegram-desktop
 bindsym $mod+Shift+s exec signal-desktop
 bindsym $mod+Shift+w exec firefox --new-window web.whatsapp.com
 
-# fn controls
-bindsym XF86Tools exec $TERMiNAL -e vim ~/.config/i3/config
-
