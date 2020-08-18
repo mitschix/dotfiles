@@ -18,7 +18,8 @@ exec --no-startup-id picom
 #mine
 exec --no-startup-id nextcloud
 exec --no-startup-id redshift-gtk -l 48.210033:16.363449 
-exec --no-startup-id clipit 
+# exec --no-startup-id clipit 
+exec --no-startup-id clipmenud
 exec --no-startup-id keepassxc
 
 #exec --no-startup-id /home/mitschix/.config/Conky/startconky.sh 
