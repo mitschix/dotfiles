@@ -19,7 +19,7 @@ if [ $(tty) = "/dev/tty1" ];then
     export NNN_COLORS='2641' 
 
     # install qt5ct and setup dark color
-    export QT_QPA_PLATFORMTHEME=qt5ct
+    # export QT_QPA_PLATFORMTHEME=qt5ct
 	
 	exec startx
 fi
