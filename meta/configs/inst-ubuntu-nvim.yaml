@@ -1,2 +1,7 @@
 - shell:
-    - [sudo apt install neovim, "Install neovim]
+    -
+        command: sudo apt install neovim
+        description: "Install neovim"
+        stdin: true
+        stdout: true
+        stderr: true

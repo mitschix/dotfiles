@@ -1,2 +1,7 @@
 - shell:
-    - [pacman -S neovim, "Install neovim]
+    -
+        command: sudo pacman -S neovim
+        description: "Install neovim"
+        stdin: true
+        stdout: true
+        stderr: true
