@@ -91,4 +91,4 @@ alias capmap="setxkbmap -option caps:escape"
 # fi
 # unset is_advcp
 
-alias info_termite='curl https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo | sudo tic -x -'
+alias info_termite='echo "curl https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo | sudo tic -x -" | xsel -bi'
