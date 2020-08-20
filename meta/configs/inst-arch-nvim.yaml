@@ -1,0 +1,2 @@
+- shell:
+    - [pacman -S neovim, "Install neovim]

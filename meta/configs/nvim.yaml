@@ -1,0 +1,10 @@
+- shell:
+    - ["git submodule update --init --recursive", "Installing submodules"]
+
+- link:
+    ~/.config/nvim: config/nvim
+
+- shell:
+    - [pip3 install pynvim, "Install python nvim extension"]
+    - [nvim -c PlugUpdate -c qall, "Install/Update Plugins"]
+
