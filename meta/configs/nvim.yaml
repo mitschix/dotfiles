@@ -5,6 +5,5 @@
     ~/.config/nvim: config/nvim
 
 - shell:
-    - [pip3 install pynvim, "Install python nvim extension"]
     - [nvim -c PlugUpdate -c qall, "Install/Update Plugins"]
 

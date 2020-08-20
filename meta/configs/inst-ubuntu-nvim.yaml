@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo apt install neovim
+        command: sudo apt install neovim python-pynvim
         description: "Install neovim"
         stdin: true
         stdout: true
