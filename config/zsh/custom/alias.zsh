@@ -2,6 +2,7 @@
 alias mkdir='mkdir -pv'
 alias mkx='chmod u+x'
 alias rmd='rm -rf'
+alias yeet='rm -rf'
 alias ls='ls --color'
 alias cl='clear'
 alias xopen='xdg-open'
