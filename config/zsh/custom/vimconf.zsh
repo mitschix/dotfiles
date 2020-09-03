@@ -43,5 +43,14 @@ function zle-keymap-select zle-line-init {
 	zle reset-prompt
 }
 
+# use vim keys in normal mode to fuzzy find history back/forward
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+# Fix backspace bug when switching modes
+bindkey "^?" backward-delete-char
