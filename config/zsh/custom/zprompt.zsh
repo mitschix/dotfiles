@@ -1,13 +1,3 @@
-# Activate vim mode.
-bindkey -v
-
-# Remove mode switching delay.
-KEYTIMEOUT=5
-
-# configure vimodes and set for startup
-IMODE="%K{22}%F{green} I %f%k"
-NMODE="%K{88}%F{red} N %f%k"
-
 ZSH_THEME_GIT_PROMPT_PREFIX=" %F{green} -<[ %F{white}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f %F{green}]>-%f"
 
@@ -33,42 +23,12 @@ precmd () {
 setprompt () {
 	setopt prompt_subst
 	autoload colors
-	case ${KEYMAP} in
-		(vicmd)      VIMODE=${NMODE} ;;
-		(main|viins) VIMODE=${IMODE} ;;
-		(*)          VIMODE=${IMODE} ;;
-	esac
+    change-vim-mode
   VENV="\$(virtualenv_info)";
   VM="\$(vm_info)";
 
   prompt="${VM}${VENV}%F{wwhite}[%*]%f ${VIMODE}$(git_prompt_info) %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f
 > "
-}
-
-# Use beam shape cursor for vi insert mode (default)
-make_beam() {
-	echo -ne '\e[5 q'
-}
-
-# Use block shape cursor for vi normal mode
-make_block() {
-  echo -ne '\e[1 q'
-}
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select zle-line-init {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-        make_block
-
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-				make_beam 
-  fi
-	setprompt
-	zle reset-prompt
 }
 
 # function to check and display python virtualenvs
