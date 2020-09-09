@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm sxiv htop feh keepassxc
+        command: sudo pacman -S --needed --noconfirm sxiv htop feh keepassxc picom
         description: "Install other command line utils"
         stdin: true
         stdout: true
