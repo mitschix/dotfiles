@@ -1,7 +1,13 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm i3-gaps
-        description: "Install rofi"
+        command: sudo pacman -S --needed --noconfirm i3-gaps xorg-xprop
+        description: "Install i3 gaps"
+        stdin: true
+        stdout: true
+        stderr: true
+    -
+        command: pip install i3ipc fontawesome
+        description: "Install dependencies for icons in tray"
         stdin: true
         stdout: true
         stderr: true
