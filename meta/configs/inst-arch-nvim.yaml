@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --noconfirm neovim python-pynvim
+        command: sudo pacman -S --needed --noconfirm neovim python-pynvim ctags
         description: "Install neovim"
         stdin: true
         stdout: true
