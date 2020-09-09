@@ -1,0 +1,7 @@
+- shell:
+    -
+        command: sudo pacman -S --needed --noconfirm i3status py3status
+        description: "Install py3status"
+        stdin: true
+        stdout: true
+        stderr: true

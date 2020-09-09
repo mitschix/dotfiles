@@ -1,0 +1,3 @@
+- link:
+    ~/.config/zsh: config/zsh
+    ~/.zshenv: config/envvars/zshenv

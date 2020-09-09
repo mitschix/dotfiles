@@ -1,0 +1,7 @@
+- shell:
+    -
+        command: sudo pacman -S --needed --noconfirm rofi
+        description: "Install rofi"
+        stdin: true
+        stdout: true
+        stderr: true
