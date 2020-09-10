@@ -3,6 +3,7 @@ inst-arch-py3status
 inst-arch-rofi
 inst-arch-zsh
 inst-arch-nvim
+inst-arch-utils
 zsh
 py3status
 rofi
