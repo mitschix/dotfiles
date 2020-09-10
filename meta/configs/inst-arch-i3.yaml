@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm i3-gaps xorg-xprop
+        command: sudo pacman -S --needed --noconfirm i3-gaps xorg-xprop xautolock
         description: "Install i3 gaps"
         stdin: true
         stdout: true
