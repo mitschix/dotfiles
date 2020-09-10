@@ -11,7 +11,6 @@ alias za='zathura'
 # nvim alias
 alias ve='nvim .'
 alias sv='sudo nvim'
-alias ,ev='nvim -S ~/.config/nvim/nvim_config_session.vim'
 
 # show disk info
 alias du='du -kh'
