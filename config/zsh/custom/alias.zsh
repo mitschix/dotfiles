@@ -62,6 +62,7 @@ alias p1='ping 1.1.1.1'
 
 # git alias
 alias ga='git add'
+alias gaa='git add -A'
 alias gd='git diff'
 alias gp='git pull'
 alias gf='git fetch'
