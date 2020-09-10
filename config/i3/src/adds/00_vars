@@ -3,9 +3,9 @@
 ########################
 
 # used variables -> need to be absolut path
-set $bgpic "/home/mitschix/pix/waterfall_grass_dark_nature_92752_1920x1080.jpg"
+# set $bgpic "TODO"
 set $wallpaper_folder "/home/mitschix/pix/wallpaper"
 # set $i3lock "i3lock -n -e -c 000000 -d" 
-set $i3lock betterlockscreen -l dim && betterlockscreen -u /home/$USER/pix/lockscreens
+set $i3lock multilockscreen -l dim && multilockscreen -u /home/$USER/pix/lockscreens --fx dim
 set $i3barconf "/home/mitschix/.config/py3status/i3status.conf"
 
