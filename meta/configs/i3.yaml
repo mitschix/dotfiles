@@ -1,0 +1,7 @@
+- link:
+    ~/.config/i3: 
+        path: config/i3
+        force: true # overwrite existing i3
+
+- shell:
+    - ["cd ~/.config/i3 && make" , "Link and make i3 config"]

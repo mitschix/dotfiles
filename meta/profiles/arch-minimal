@@ -1,8 +1,10 @@
-inst-arch-nvim
-inst-arch-rofi
+inst-arch-i3
 inst-arch-py3status
+inst-arch-rofi
 inst-arch-zsh
-nvim
+inst-arch-nvim
 zsh
-rofi
 py3status
+rofi
+i3
+nvim
