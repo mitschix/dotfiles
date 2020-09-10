@@ -1,0 +1,7 @@
+- shell:
+    -
+        command: sudo pacman -S --needed --noconfirm dunst
+        description: "Install dunst notifiation"
+        stdin: true
+        stdout: true
+        stderr: true
