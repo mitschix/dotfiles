@@ -1,9 +1,10 @@
 - shell:
-    - ["git submodule update --init --recursive", "Installing submodules"]
+    - ["git submodule update --remote --merge --recursive", "Installing submodules"]
 
 - link:
     ~/.config/nvim: config/nvim
 
 - shell:
     - [nvim -c PlugUpdate -c qall, "Install/Update Plugins"]
-
+    - [nvim -c 'CocInstall -sync coc-explorer coc-json coc-python coc-powershell coc-sh coc-snippets coc-vimlsp coc-yaml|qall', "Install/Update Plugins for Coc"]
+    - [pip install pylint autopep8 jedi, "Install additional dependencies for coc-python"] 
