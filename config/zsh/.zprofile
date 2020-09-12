@@ -6,20 +6,12 @@ if [ $(tty) = "/dev/tty1" ];then
     fi
 
     export PATH="/usr/sbin:/sbin:$PATH"
-    export export QT_QPA_PLATFORMTHEME=qt5ct
+    export QT_QPA_PLATFORMTHEME=qt5ct
 
     # custom env vars
     export TERMINAL="termite"
     export EDITOR="nvim"
     export PAGER="less"
-
-    # clipmenu end settings
-    export CM_LAUNCHER=rofi
-    export CM_DIR=/tmp
-    export CM_SELECTIONS=clipboard
-
-    # nnn config
-    export NNN_COLORS='2641' 
 
     # install qt5ct and setup dark color
     # export QT_QPA_PLATFORMTHEME=qt5ct

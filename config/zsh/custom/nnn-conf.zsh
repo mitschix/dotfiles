@@ -1,3 +1,12 @@
+# nnn config file 
+export NNN_COLORS='2641' 
+export NNN_OPTS="Eeao"
+export NNN_PLUG='u:getplugs;p:preview-tui;i:imgview;d:dragdrop;m:nmount;s:suedit'
+
+
+[ -f nnn-bookmarks.zsh ] && source nnn-bookmarks.zsh
+
+
 n ()
 {
     # Block nesting of nnn in subshells
@@ -11,12 +20,6 @@ n ()
     #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
     # NOTE: NNN_TMPFILE is fixed, should not be modified
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
 
     nnn "$@"
 
