@@ -4,7 +4,7 @@ export NNN_OPTS="Eeao"
 export NNN_PLUG='u:getplugs;p:preview-tui;i:imgview;d:dragdrop;m:nmount;s:suedit'
 
 
-[ -f nnn-bookmarks.zsh ] && source nnn-bookmarks.zsh
+[ -f ~/.config/zsh/nnn-bookmarks.zsh ] && source ~/.config/zsh//nnn-bookmarks.zsh
 
 
 n ()
