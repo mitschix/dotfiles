@@ -14,6 +14,9 @@ export PAGER="less"
 # install qt5ct and setup dark color
 # export QT_QPA_PLATFORMTHEME=qt5ct
 
+# source clipmenu config before starting x
+source ~/.config/zsh/custom/clipmenu-conf.zsh
+
 # start gui if on tty1
 if [ $(tty) = "/dev/tty1" ];then
     exec startx
