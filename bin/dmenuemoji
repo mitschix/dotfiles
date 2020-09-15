@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# The modified famous "get a menu of emojis to copy" script from lukesmith.xyz
+
+# list with emojis with short names can be downloaded via 
+# https://github.com/mitschix/emoji-short-name-list
+# !! rofi needed
+
+
+# Get user selection via dmenu from emoji file.
+chosen=$(cut -d ';' -f1 ~/.local/share/emoji | rofi -dmenu -i -l 10 | sed "s/ .*//")
+echo $chosen
+
+# Exit if none chosen.
+[ -z "$chosen" ] && exit
+
+# show a message that the emoji has been copied.
+echo "$chosen" | tr -d '\n' | xsel -bi
+notify-send "'$chosen' copied to clipboard." &
