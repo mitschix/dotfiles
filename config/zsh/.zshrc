@@ -1,7 +1,7 @@
-# == basic settings 
+# == basic settings
 autoload -U compinit
 compinit
-	
+
 # ls colors
 autoload -U colors && colors
 
@@ -39,8 +39,23 @@ for fol in $src_folder;do source_folder $fol;done
 
 # == source plugin files
 # init fasd
-if [ $(command -v fasd) ]
-    then eval "$(fasd --init auto)"
+if [ $(command -v fasd) ]; then
+    # available alias with fasd
+    # alias a='fasd -a'        # any
+    # alias s='fasd -si'       # show / search / select
+    # alias d='fasd -d'        # directory
+    # alias f='fasd -f'        # file
+    # alias sd='fasd -sid'     # interactive directory selection
+    # alias sf='fasd -sif'     # interactive file selection
+    # alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+    # alias zz='fasd_cd -d -i' # cd with interactive selection
+    
+    fasd_cache="$HOME/.cache/fasd-init-zsh"
+    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+        fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install>| "$fasd_cache"
+    fi
+    source "$fasd_cache"
+    unset fasd_cache
 fi
 # fzf installed via nvim
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
