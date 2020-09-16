@@ -60,6 +60,7 @@ alias getip='curl ipinfo.io/ip'
 alias p1='ping 1.1.1.1'
 
 # git alias
+alias g='lazygit' # need lazygit installed
 alias ga='git add'
 alias gaa='git add -A'
 alias gd='git diff'
