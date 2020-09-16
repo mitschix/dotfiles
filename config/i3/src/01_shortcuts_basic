@@ -2,7 +2,7 @@
 ## == Basic i3 shortcuts == ##
 ##############################
 
-# Use pactl to adjust volume in PulseAudio.
+# Use pactl to adjust volume in PulseAudio. !! py3status with volume_status used!
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && py3-cmd refresh volume_status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && py3-cmd refresh volume_status
@@ -19,6 +19,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && py3-cm
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
 # custom commands
 bindsym $mod+d exec --no-startup-id rofi -location 2 -lines 3 -show run -theme Monokai
 bindsym Control+$mod+l exec --no-startup-id $i3lock
