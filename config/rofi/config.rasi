@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,run,ssh";
+	modi: "window,run,ssh,drun";
 	lines: 3;
 	location: 2;
 	theme: "Monokai";
