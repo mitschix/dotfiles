@@ -38,10 +38,12 @@ for fol in $src_folder;do source_folder $fol;done
 
 
 # == source plugin files
+# init fasd
 if [ $(command -v fasd) ]
     then eval "$(fasd --init auto)"
 fi
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf installed via nvim
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 
 # from archlabs
