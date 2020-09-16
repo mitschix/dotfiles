@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Dmenu for editing configs 
+# Dmenu for mounting devices
 #
 # Requires:
 #   + rofi: need to have rofi installed
@@ -65,15 +65,6 @@ exec_umount() {
     [ -z "$drives" ] && echo "No drives to unmount." && exit
     echo "Unmountable USB drive detected."
     unmountusb
-    # else
-    # 	if [ -z "$drives" ]
-    # 	then
-    # 		echo "Unmountable Android device detected."
-    # 	       	unmountandroid
-    # 	else
-    # 		echo "Unmountable USB drive(s) and Android device(s) detected."
-    # 		asktype
-    # 	fi
 }
 
 exec_mount() {
