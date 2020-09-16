@@ -12,10 +12,11 @@ bar {
 
 bar {
 	position top
-	tray_output eDP-1
+	tray_output primary
 	tray_padding 0
 	workspace_buttons no
 	font xft:Droid Sans Mono, FontAwesome 12
 	status_command exec ~/.config/i3/fortune_bar.sh
 }
 
+# vim: filetype=i3

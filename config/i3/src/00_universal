@@ -156,3 +156,4 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# vim: filetype=i3

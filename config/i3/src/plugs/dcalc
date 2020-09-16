@@ -9,3 +9,4 @@ bindsym $mod+m [class="dcalc"] scratchpad show
 
 exec --no-startup-id $TERMINAL --class="dcalc" -e "python3"
 
+# vim: filetype=i3

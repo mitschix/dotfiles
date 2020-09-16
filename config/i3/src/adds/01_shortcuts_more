@@ -9,3 +9,5 @@ bindsym $mod+Shift+s exec signal-desktop
 bindsym $mod+Shift+w exec firefox --new-window web.whatsapp.com
 
 bindsym Control+Mod1+h exec --no-startup-id clipmenu
+
+# vim: filetype=i3

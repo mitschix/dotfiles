@@ -28,3 +28,4 @@ mode "$mode_kb_select" {
 bindsym $mod+t mode "$mode_system"
 bindsym $mod+c mode "$mode_kb_select"
 
+# vim: filetype=i3

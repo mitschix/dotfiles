@@ -3,3 +3,8 @@
 # all will be added to the config
 
 # NOTE: The file format need to be 00_filename where the number defines the order
+
+
+
+
+# vim: filetype=i3

@@ -28,3 +28,4 @@ bindsym Control+$mod+l exec --no-startup-id $i3lock
 bindsym $mod+minus move scratchpad
 bindsym $mod+comma scratchpad show 
 
+# vim: filetype=i3
