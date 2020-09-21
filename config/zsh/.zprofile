@@ -16,8 +16,9 @@ export PAGER="less"
 
 # source clipmenu config before starting x
 source ~/.config/zsh/custom/clipmenu-conf.zsh
+source ~/.config/zsh/custom/xdgbase-conf.zsh
 
 # start gui if on tty1
 if [ $(tty) = "/dev/tty1" ];then
-    exec startx
+    exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 fi
