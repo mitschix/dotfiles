@@ -8,6 +8,11 @@ alias cl='clear'
 alias xopen='xdg-open'
 alias za='zathura'
 
+# history alias
+alias h='history'
+alias hg='history | grep'
+alias hgi='history | grep -i'
+
 # nvim alias
 alias ve='nvim .'
 alias sv='sudo nvim'
