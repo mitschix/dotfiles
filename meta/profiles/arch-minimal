@@ -1,7 +1,7 @@
-inst-arch-i3
-inst-arch-py3status
-inst-arch-rofi
-inst-arch-zsh
-inst-arch-nvim
-inst-arch-dunst
-inst-arch-utils
+inst-arch/inst-arch-i3
+inst-arch/inst-arch-py3status
+inst-arch/inst-arch-rofi
+inst-arch/inst-arch-zsh
+inst-arch/inst-arch-nvim
+inst-arch/inst-arch-dunst
+inst-arch/inst-arch-utils
