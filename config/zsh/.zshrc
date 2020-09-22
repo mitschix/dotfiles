@@ -10,32 +10,25 @@ eval `dircolors -b` # needed to load ls colors for completion
 
 # == source files/folders
 
-src_files=(
-    # ENTER SINGLE FILES FOR SOURCING HERE
-)
+# source omz files
+source ~/.config/zsh/omz-conf/omz-clipboard.zsh
+source ~/.config/zsh/omz-conf/omz-completion.zsh
+source ~/.config/zsh/omz-conf/omz-directories.zsh
+source ~/.config/zsh/omz-conf/omz-history.zsh
+source ~/.config/zsh/omz-conf/omz-key-bindings.zsh
+source ~/.config/zsh/omz-conf/omz-spectrum.zsh
 
-src_folder=(
-	/home/$USER/.config/zsh/omz-conf
-	/home/$USER/.config/zsh/custom
-)
-
-# functions to source files
-source_file(){
-	[ -f $1 ] && source $1
-}
-source_folder(){
-# Load all files from .shell/zshrc.d directory
-	if [ -d $1 ]; then
-	  for file in $1/*; do
-		source $file
-	  done
-	fi
-}
-
-# source files and folder
-for f in $src_files;do source_file $f;done
-for fol in $src_folder;do source_folder $fol;done
-
+# source config files
+source ~/.config/zsh/custom/zplug.zsh
+source ~/.config/zsh/custom/vim-conf.zsh
+source ~/.config/zsh/custom/zprompt.zsh
+source ~/.config/zsh/custom/alias.zsh
+source ~/.config/zsh/custom/functions.zsh
+source ~/.config/zsh/custom/grep-config.zsh
+source ~/.config/zsh/custom/keybinds.zsh
+	
+# overwrite history settings from omz installed with zplug
+HISTFILE="$HOME/.config/zsh/zhist"
 
 # == source plugin files
 # init fasd
