@@ -7,6 +7,8 @@ alias ls='ls --color'
 alias cl='clear'
 alias xopen='xdg-open'
 alias za='zathura'
+alias _='sudo '
+
 
 # history alias
 alias h='history'
