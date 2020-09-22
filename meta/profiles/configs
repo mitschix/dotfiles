@@ -7,3 +7,5 @@ nvim
 dunst
 gtk3
 termite
+dmenu-bins
+local-bins

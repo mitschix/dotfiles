@@ -1,0 +1,4 @@
+- link:
+    ~/.local/bin/ascii: bin/ascii
+    ~/.local/bin/color: bin/color
+    ~/.local/bin/f_renamer.py: bin/f_renamer.py
