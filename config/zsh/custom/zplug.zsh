@@ -15,6 +15,17 @@ zplug "ael-code/zsh-colored-man-pages"
 zplug "paulmelnikow/zsh-startup-timer"
 zplug "MichaelAquilina/zsh-emojis"
 
+
+# dont source omz things with zplug -> downloads whole repo
+# # libs
+# zplug "lib/clipboard",   from:oh-my-zsh
+# zplug "lib/completion",   from:oh-my-zsh
+# zplug "lib/directories",   from:oh-my-zsh
+# zplug "lib/history",   from:oh-my-zsh
+# zplug "lib/key-bindings",   from:oh-my-zsh
+# zplug "lib/spectrum",   from:oh-my-zsh
+
+
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 
