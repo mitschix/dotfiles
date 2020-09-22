@@ -54,17 +54,3 @@ fi
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 
-# from archlabs
-# better ls and cd from archlabs
-unalias ls >/dev/null 2>&1
-ls()
-{
-  command ls --color=auto -F "$@"
-}
-
-unalias cd >/dev/null 2>&1
-cd()
-{
-  builtin cd "$@" && command ls --color=auto -F
-}
-

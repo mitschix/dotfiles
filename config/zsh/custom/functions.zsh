@@ -8,6 +8,20 @@ zle -N globalias
 
 bindkey ' ' globalias   # [Space] - do alias expansion
 
+# from archlabs
+# better ls and cd from archlabs
+unalias ls >/dev/null 2>&1
+ls()
+{
+  command ls --color=auto -F "$@"
+}
+
+unalias cd >/dev/null 2>&1
+cd()
+{
+  builtin cd "$@" && command ls --color=auto -F
+}
+
 
 # useful functions
 # extract function from omz
