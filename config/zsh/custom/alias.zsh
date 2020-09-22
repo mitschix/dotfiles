@@ -31,6 +31,14 @@ alias -g L='| less'
 alias -g G='| grep'
 alias -g RG='| rg'
 
+# "inspired" by https://github.com/Jxck/dotfiles/blob/master/zsh/common.zsh
+alias -g N="1>/dev/null 2>/dev/null"          # No Output
+alias -g B="1>/dev/null 2>/dev/null &"        # Background
+alias -g A="2>&1"                             # All (merge stdout/err)
+alias -g C="2>&1 | color"                     # Color (All then colorize) --> bin from jxck
+alias -g H="| xxd -g 1 -c 4"                  # Hex
+
+
 # package manager alias
 is_arch=$(command -v pacman)
 command -v powerpill > /dev/null && pkg="powerpill" || pkg="pacman"
