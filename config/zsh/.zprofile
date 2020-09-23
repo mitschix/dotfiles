@@ -3,6 +3,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# add completion from dotfiles repo
+fpath=( ~/.config/zsh/compl $fpath )
+
 export PATH="/usr/sbin:/sbin:$PATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
