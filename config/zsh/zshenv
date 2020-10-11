@@ -1,0 +1,11 @@
+ZDOTDIR=~/.config/zsh/
+
+# add completion from dotfiles repo
+fpath=(~/.config/zsh/compl $fpath)
+
+# custom env vars
+export TERMINAL="termite"
+export EDITOR="nvim"
+export PAGER="less"
+
+source ~/.config/zsh/custom/nnn-conf.zsh
