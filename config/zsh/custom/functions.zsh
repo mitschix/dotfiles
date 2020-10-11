@@ -1,13 +1,3 @@
-# expand alias with space
-function globalias()
-{
-	zle _expand_alias
-	zle self-insert
-}
-zle -N globalias
-
-bindkey ' ' globalias   # [Space] - do alias expansion
-
 # from archlabs
 # better ls and cd from archlabs
 unalias ls >/dev/null 2>&1

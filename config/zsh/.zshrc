@@ -26,6 +26,7 @@ source ~/.config/zsh/custom/alias.zsh
 source ~/.config/zsh/custom/functions.zsh
 source ~/.config/zsh/custom/grep-config.zsh
 source ~/.config/zsh/custom/keybinds.zsh
+source ~/.config/zsh/omz-plugs/globalias/globalias.plugin.zsh
 	
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"

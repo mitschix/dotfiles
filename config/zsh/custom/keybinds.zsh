@@ -1,7 +1,5 @@
 # custom keybindings -> add/fix to omz keys
 
-bindkey '^ ' magic-space                               # [Space] - do history expansion
-
 bindkey '^F' forward-word                        # [Ctrl-F] - move forward one word
 bindkey '^D' backward-word                       # [Ctrl-D] - move backward one word
 bindkey '^K' forward-char                       # [Ctrl-K] - move forward one char -- accept autosuggestion
