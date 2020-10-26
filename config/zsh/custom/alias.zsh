@@ -16,7 +16,7 @@ alias hg='history | grep'
 alias hgi='history | grep -i'
 
 # nvim alias
-alias nvim="nvr -s"
+alias nvims="nvr -s"
 alias ve='nvim .'
 alias sv='sudo nvim'
 
