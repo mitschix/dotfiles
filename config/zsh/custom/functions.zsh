@@ -99,6 +99,19 @@ function ex() {
 }
 
 
+is_fzf=$(command -v fzf)
+is_arch=$(command -v pacman)
+if [ -n "$is_fzf" ] && [ -n "$is_arch" ];then
+    function pacs() {
+        packages=$(pacman -Ssq | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview) 
+        if [ -n "$packages" ];then
+            sudo pacman -Syy $packages
+        fi
+    }
+fi
+unset is_fzf
+unset is_arch
+
 # from OMZ plugin
 # Remove python compiled byte-code and mypy/pytest cache in either the current
 # directory or in a list of specified directories (including sub directories).
