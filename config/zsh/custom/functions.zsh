@@ -3,13 +3,13 @@
 unalias ls >/dev/null 2>&1
 ls()
 {
-  command ls --color=auto -F "$@"
+  command ls --color=auto --classify --literal --human-readable "$@"
 }
 
 unalias cd >/dev/null 2>&1
 cd()
 {
-  builtin cd "$@" && command ls --color=auto -F
+  builtin cd "$@" && command ls --color=auto --classify --literal --human-readable 
 }
 
 
