@@ -105,7 +105,7 @@ if [ -n "$is_fzf" ] && [ -n "$is_arch" ];then
     function pacs() {
         packages=$(pacman -Ssq | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview) 
         if [ -n "$packages" ];then
-            sudo pacman -Syy $packages
+            sudo pacman -Syy --needed $packages
         fi
     }
 fi
