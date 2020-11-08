@@ -29,7 +29,8 @@ if [ $(command -v fasd) ]; then
     unset fasd_cache
 fi
 
-
+# source navi interactive cheatsheet
+# https://github.com/denisidoro/navi
 if [ $(command -v navi) ]; then
     eval "$(navi widget zsh)"
 fi
