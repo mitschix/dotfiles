@@ -29,6 +29,11 @@ if [ $(command -v fasd) ]; then
     unset fasd_cache
 fi
 
+
+if [ $(command -v navi) ]; then
+    eval "$(navi widget zsh)"
+fi
+
 # fzf installed via nvim
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
