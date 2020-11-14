@@ -108,6 +108,12 @@ if [ -n "$is_fzf" ] && [ -n "$is_arch" ];then
             sudo pacman -Syy --needed $packages
         fi
     }
+    function blpacs() {
+        packages=$(pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview) 
+        if [ -n "$packages" ];then
+            sudo pacman -Syy --needed $packages
+        fi
+    }
 fi
 unset is_fzf
 unset is_arch
