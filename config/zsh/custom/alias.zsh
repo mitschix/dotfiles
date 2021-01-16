@@ -21,6 +21,7 @@ alias ve='nvim .'
 alias sv='sudo nvim'
 
 # show disk info
+alias duh='du -khd1'
 alias du='du -kh'
 alias df='df -kTh'
 
