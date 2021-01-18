@@ -14,21 +14,23 @@ ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%f"
 # Enter when in normal mode (a new line would come up in insert mode,
 # but normal mode would be indicated)
 precmd () {
-		setprompt
-# Use beam shape cursor for each new prompt.
-		make_beam
+    # Use beam shape cursor for each new prompt.
+    make_beam
 }
 
 # set prompt and configs
 setprompt () {
-	setopt prompt_subst
-	autoload colors
+    setopt prompt_subst
+    autoload colors
     change-vim-mode
-  VENV="\$(virtualenv_info)";
-  VM="\$(vm_info)";
+    NEWLINE=$'\n'
+    VENV="\$(virtualenv_info)"
+    VM="\$(vm_info)"
+    # show status of last command
+    EXIT_STATUS="%(0?.%F{green}✔.%F{red}✘)%f "
 
-  prompt="${VM}${VENV}%F{wwhite}[%*]%f ${VIMODE}$(git_prompt_info) %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f
-> "
+    RPS1="${EXIT_STATUS}"
+    PROMPT="${VM}${VENV}%F{wwhite}[%*]%f ${VIMODE}$(git_prompt_info) %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f${NEWLINE}> "
 }
 
 # function to check and display python virtualenvs
@@ -47,14 +49,14 @@ function virtualenv_info(){
 # function to check if VM
 # need to have hostnamectl installed
 function vm_info(){
-  if hostnamectl status | grep -q vm; then
-    vm="%F{red}VM%f"
-  elif hostnamectl status | grep -q arm; then
-    vm="%F{red}PI%f"
-  else
-    vm=""
-  fi
-  [[ -n "$vm" ]] && echo "$vm "
+    if hostnamectl status | grep -q vm; then
+        vm="%F{red}VM%f"
+    elif hostnamectl status | grep -q arm; then
+        vm="%F{red}PI%f"
+    else
+        vm=""
+    fi
+    [[ -n "$vm" ]] && echo "$vm "
 }
 
 
@@ -63,50 +65,50 @@ function vm_info(){
 #
 # Outputs current branch info in prompt format
 function git_prompt_info() {
-  local ref
-  if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
-    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+    local ref
+    if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
+        ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+        ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
         echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$(git_commits_behind)$(git_commits_ahead)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-  fi
+    fi
 }
 
 # Checks if working tree is dirty
 function parse_git_dirty() {
-  local STATUS
-  local -a FLAGS
-  FLAGS=('--porcelain' '--ignore-submodules=dirty')
-  if [[ "$(command git config --get oh-my-zsh.hide-dirty)" != "1" ]]; then
-    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
-      FLAGS+='--untracked-files=no'
+    local STATUS
+    local -a FLAGS
+    FLAGS=('--porcelain' '--ignore-submodules=dirty')
+    if [[ "$(command git config --get oh-my-zsh.hide-dirty)" != "1" ]]; then
+        if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
+            FLAGS+='--untracked-files=no'
+        fi
+        STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
     fi
-    STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-  fi
-  if [[ -n $STATUS ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  fi
+    if [[ -n $STATUS ]]; then
+        echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    else
+        echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    fi
 }
 
 # Gets the number of commits ahead from remote
 function git_commits_ahead() {
-  if command git rev-parse --git-dir &>/dev/null; then
-    local commits="$(git rev-list --count @{upstream}..HEAD 2>/dev/null)"
-    if [[ -n "$commits" && "$commits" != 0 ]]; then
-      echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$commits$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
+    if command git rev-parse --git-dir &>/dev/null; then
+        local commits="$(git rev-list --count @{upstream}..HEAD 2>/dev/null)"
+        if [[ -n "$commits" && "$commits" != 0 ]]; then
+            echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$commits$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
+        fi
     fi
-  fi
 }
 
 # Gets the number of commits behind remote
 function git_commits_behind() {
-  if command git rev-parse --git-dir &>/dev/null; then
-    local commits="$(git rev-list --count HEAD..@{upstream} 2>/dev/null)"
-    if [[ -n "$commits" && "$commits" != 0 ]]; then
-      echo "$ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX$commits$ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX"
+    if command git rev-parse --git-dir &>/dev/null; then
+        local commits="$(git rev-list --count HEAD..@{upstream} 2>/dev/null)"
+        if [[ -n "$commits" && "$commits" != 0 ]]; then
+            echo "$ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX$commits$ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX"
+        fi
     fi
-  fi
 }
 # -- end
 
