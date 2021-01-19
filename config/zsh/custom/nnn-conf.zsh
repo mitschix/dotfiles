@@ -1,5 +1,9 @@
 # nnn config file 
 export NNN_COLORS='2641' 
+# -a uto-setup temporary NNN_FIFO (described in ENVIRONMENT section)
+# -e open text files in $VISUAL (else $EDITOR, fallback vi)
+# -E use $EDITOR for internal undetached edits
+# -o open files only on Enter key
 export NNN_OPTS="Eeao"
 export NNN_PLUG='u:getplugs;p:preview-tui;i:imgview;d:dragdrop;m:nmount;s:suedit'
 
@@ -28,3 +32,10 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+
+# bat theme config if installed and used for preview
+is_bat=$(command -v bat)
+if [ -n "$is_bat" ];then
+    export BAT_THEME=Coldark-Dark
+fi
+unset is_bat
