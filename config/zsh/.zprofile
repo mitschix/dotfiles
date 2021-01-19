@@ -12,7 +12,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # custom env vars
 export TERMINAL="termite"
 export EDITOR="nvim"
-export PAGER="less"
+export PAGER="less -R"
 
 # install qt5ct and setup dark color
 # export QT_QPA_PLATFORMTHEME=qt5ct
