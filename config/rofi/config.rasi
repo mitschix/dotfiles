@@ -3,6 +3,7 @@ configuration {
 	lines: 3;
 	location: 2;
 	theme: "Monokai";
+	ssh-command: "{terminal} -e '{ssh-client} {host}'";
 /*	width: 50;*/
 /*	columns: 1;*/
 /*	font: "mono 12";*/
