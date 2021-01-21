@@ -1,0 +1,10 @@
+#############################
+## == notetaking plugin == ##
+#############################
+
+
+# needs notetaker script from bin
+for_window [class="notetaker"] floating enable
+bindsym $mod+Shift+n exec --no-startup-id notetaker
+
+# vim: filetype=i3
