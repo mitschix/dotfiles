@@ -28,7 +28,7 @@ This will refer to the **configs** script in **meta/profiles/** which has a list
 
 With the second script `install-standalone` you can select single config files to install:
 ```sh
-./install-profile nvim
+./install-standalone nvim
 ```
 
 For further information please read the [dotbot wiki](https://github.com/anishathalye/dotbot/wiki/Tips-and-Tricks).
