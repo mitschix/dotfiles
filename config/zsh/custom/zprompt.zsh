@@ -25,9 +25,12 @@ setprompt () {
     change-vim-mode
     NEWLINE=$'\n'
     VENV="\$(virtualenv_info)"
-    VM="\$(vm_info)"
     # show status of last command
     EXIT_STATUS="%(0?.%F{green}✔.%F{red}✘)%f "
+
+    # hostnamectl sometimes breaks! use with caution!
+    # VM="\$(vm_info)"
+    VM=""
 
     RPS1="${EXIT_STATUS}"
     PROMPT="${VM}${VENV}%F{wwhite}[%*]%f ${VIMODE}$(git_prompt_info) %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f${NEWLINE}> "
@@ -48,6 +51,7 @@ function virtualenv_info(){
 
 # function to check if VM
 # need to have hostnamectl installed
+# @todo hostnamectl breaks sometimes = slows down prompt
 function vm_info(){
     if hostnamectl status | grep -q vm; then
         vm="%F{red}VM%f"
