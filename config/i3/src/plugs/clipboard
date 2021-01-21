@@ -1,0 +1,13 @@
+#########################################
+## == clipmenu/edit settings plugin == ##
+#########################################
+
+# needs clipmenu installed and setup
+# needs clipedit script from bin
+for_window [class="clipedit"] floating enable 
+
+bindsym Control+Mod1+h exec --no-startup-id clipmenu
+bindsym Control+Shift+Mod1+h exec --no-startup-id clipedit
+
+exec --no-startup-id clipmenud
+# vim: filetype=i3

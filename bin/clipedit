@@ -1,0 +1,13 @@
+#!/bin/sh -e
+# script from https://aduros.com/blog/simple-clipboard-management/
+
+file=`mktemp /tmp/clipboard-XXX`
+
+xsel --clipboard > "$file"
+# to use a floating window in i3 add the following to the config
+# for_window [class="clipedit"] floating enable
+$TERMINAL --class="clipedit" -e "$EDITOR -c 'set nofixeol' \"$file\""
+xsel --clipboard < "$file"
+
+rm "$file"
+exit
