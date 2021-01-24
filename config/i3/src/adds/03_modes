@@ -20,7 +20,7 @@ mode "$mode_system" {
 set $mode_kb_select Set keyboard layout -- (d)e, (e)n
 mode "$mode_kb_select" {
 	bindsym d exec --no-startup-id "setxkbmap -layout de", mode "default"
-	bindsym e exec --no-startup-id "setxkbmap -layout us -variant intl", mode "default"
+	bindsym e exec --no-startup-id "setxkbmap -layout us -variant altgr-intl", mode "default"
 	bindsym Escape mode "default"
 }
 
