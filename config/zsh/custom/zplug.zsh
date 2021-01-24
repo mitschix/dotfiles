@@ -8,7 +8,7 @@ export ZPLUG_HOME=/home/$USER/.config/zsh/plugs/
 source /home/$USER/.config/zsh/plugs/init.zsh
 
 # zplug "Aloxaf/fzf-tab"
-zplug "wookayin/fzf-fasd"
+# zplug "wookayin/fzf-fasd"
 zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "ael-code/zsh-colored-man-pages"

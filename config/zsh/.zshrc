@@ -20,6 +20,8 @@ if [ $(command -v fasd) ]; then
     # alias sf='fasd -sif'     # interactive file selection
     # alias z='fasd_cd -d'     # cd, same functionality as j in autojump
     # alias zz='fasd_cd -d -i' # cd with interactive selection
+
+    export _FASD_DATA=$HOME/.local/share/fasd
     
     fasd_cache="$HOME/.cache/fasd-init-zsh"
     if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
