@@ -16,6 +16,7 @@ ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%f"
 precmd () {
     # Use beam shape cursor for each new prompt.
     make_beam
+    setprompt
 }
 
 # set prompt and configs
@@ -25,6 +26,8 @@ setprompt () {
     change-vim-mode
     NEWLINE=$'\n'
     VENV="\$(virtualenv_info)"
+    GIT_STATUS="$(git_prompt_info)"
+
     # show status of last command
     EXIT_STATUS="%(0?.%F{green}✔.%F{red}✘)%f "
 
@@ -33,7 +36,7 @@ setprompt () {
     VM=""
 
     RPS1="${EXIT_STATUS}"
-    PROMPT="${VM}${VENV}%F{wwhite}[%*]%f ${VIMODE}$(git_prompt_info) %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f${NEWLINE}> "
+    PROMPT="${VM}${VENV}%F{white}[%*]%f ${VIMODE}$GIT_STATUS %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f${NEWLINE}> "
 }
 
 # function to check and display python virtualenvs
