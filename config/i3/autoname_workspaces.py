@@ -205,8 +205,6 @@ if __name__ == '__main__':
     )
     args = parser.parse_args()
 
-    RENUMBER_WORKSPACES = not args.norenumber_workspaces
-
     logging.basicConfig(level=logging.INFO)
 
     ensure_window_icons_lowercase()
