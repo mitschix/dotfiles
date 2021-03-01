@@ -7,6 +7,7 @@ autoload -U colors && colors
 
 # load configs from ohmyzsh l
 eval `dircolors -b` # needed to load ls colors for completion
+LS_COLORS+=':ow=01;33' # quickfix for windoof folder permissions
 
 # == source plugin files
 # init fasd
