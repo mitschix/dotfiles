@@ -77,3 +77,6 @@ source ~/.config/zsh/omz-plugs/zsh_reload/zsh_reload.plugin.zsh
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"
 
+# load local zshrc file if it exists
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local ] && \
+    source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local
