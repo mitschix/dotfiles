@@ -115,8 +115,27 @@ if [ -n "$is_fzf" ] && [ -n "$is_arch" ];then
         fi
     }
 fi
-unset is_fzf
 unset is_arch
+
+is_fasd=$(command -v fasd)
+if [ -n "$is_fzf" ] && [ -n "$is_fasd" ];then
+function nf(){
+    local filepatterrn=$1
+
+    # need to save arrays instead of just string or it will be handled as one element for the editor
+	if (( $# == 0 )); then
+        filenames=( $(fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
+    else
+        filenames=( $(fasd -fl "$filepatterrn" | fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
+    fi
+
+    # 
+    if [ ${#filenames[@]} -gt 0 ]; then
+        $EDITOR $filenames 
+    fi
+}
+fi
+unset is_fzf
 
 # from OMZ plugin
 # Remove python compiled byte-code and mypy/pytest cache in either the current

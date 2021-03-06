@@ -20,13 +20,6 @@ alias nvims="nvr -s"
 alias ve='nvim .'
 alias sv='sudo nvim'
 
-is_fzf=$(command -v fzf)
-if [ -n "$is_fzf" ];then
-alias nf='nvim `fzf`'
-fi
-unset is_fzf
-unset is_arch
-
 # show disk info
 alias duh='du -khd1'
 alias du='du -kh'
