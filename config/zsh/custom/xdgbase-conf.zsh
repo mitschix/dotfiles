@@ -7,6 +7,8 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 # disable less history
 export LESSHISTFILE=-
 
+# move go home
+export GOPATH="$XDG_DATA_HOME/go"
 # move ruby .cargo dir
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # move .npm/npm -> ! npmrc need to be created and edited
@@ -25,4 +27,3 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 # move fasd cache file
 export _FASD_DATA="$XDG_CACHE_HOME"/fasd-cache
-
