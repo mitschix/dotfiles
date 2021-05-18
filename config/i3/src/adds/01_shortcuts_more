@@ -2,10 +2,9 @@
 ## == More custom i3 shortcuts == ##
 ####################################
 
-bindsym $mod+n exec termite -e nnn
+bindsym $mod+n exec i3-sensible-terminal -e nnn
 bindsym $mod+i exec firefox
 bindsym $mod+Shift+m exec telegram-desktop
 bindsym $mod+Shift+s exec signal-desktop
-bindsym $mod+Shift+w exec firefox --new-window web.whatsapp.com
 
 # vim: filetype=i3

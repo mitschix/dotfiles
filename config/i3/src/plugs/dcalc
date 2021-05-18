@@ -3,10 +3,10 @@
 #####################################
 
 # dropdown calc conf
-for_window [class="dcalc"] floating enable move position center
-for_window [class="dcalc"] move scratchpad 
-bindsym $mod+m [class="dcalc"] scratchpad show
+for_window [instance="dcalc"] floating enable move position center
+for_window [instance="dcalc"] move scratchpad
+bindsym $mod+m [instance="dcalc"] scratchpad show
 
-exec --no-startup-id $TERMINAL --class="dcalc" -e "ipython"
+exec --no-startup-id i3-sensible-terminal --class="dcalc" -e "ipython"
 
 # vim: filetype=i3

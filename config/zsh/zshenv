@@ -4,8 +4,8 @@ ZDOTDIR=~/.config/zsh/
 fpath=(~/.config/zsh/compl $fpath)
 
 # custom env vars
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 export EDITOR="nvim"
-export PAGER="less"
+export PAGER="less -r"
 
 source ~/.config/zsh/custom/nnn-conf.zsh

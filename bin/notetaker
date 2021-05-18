@@ -10,9 +10,9 @@ fi
 
 # to use a floating window in i3 add the following to the config
 # for_window [class="notetaker"] floating enable
-$TERMINAL --class="notetaker" -e "$EDITOR -c 'norm Go' \
+$TERMINAL --class="notetaker" -e $EDITOR -c 'norm Go' \
     -c 'norm Go## $(date +%H:%M)' \
     -c 'norm G2o' \
     -c 'norm zz' \
     -c 'nnoremap q :q!<cr>'\
-    -c 'startinsert' $noteFilename"
+    -c 'startinsert' $noteFilename

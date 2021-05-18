@@ -2,6 +2,10 @@
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+if [ -d "$XDG_DATA_HOME/npm/bin" ] ; then
+    PATH="$XDG_DATA_HOME/npm/bin:$PATH"
+fi
+
 
 # add completion from dotfiles repo
 fpath=(~/.config/zsh/compl $fpath)
@@ -10,9 +14,9 @@ export PATH="/usr/sbin:/sbin:$PATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # custom env vars
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 export EDITOR="nvim"
-export PAGER="less -R"
+export PAGER="less -r"
 
 # install qt5ct and setup dark color
 # export QT_QPA_PLATFORMTHEME=qt5ct
