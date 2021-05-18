@@ -51,6 +51,7 @@ from util import *
 WINDOW_ICONS = {
     'Msgcompose': fa.icons['envelope-open'],
     'VirtualBox Manager': fa.icons['server'],
+    'alacritty': fa.icons['terminal'],
     'blueman-manager': fa.icons['bluetooth'],
     'burp-StartBurp': fa.icons['search'],
     'caja': fa.icons['folder-open'],
