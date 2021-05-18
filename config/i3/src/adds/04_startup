@@ -17,11 +17,9 @@ exec --no-startup-id picom
 
 #mine
 exec --no-startup-id nextcloud
-exec --no-startup-id redshift-gtk -l 48.210033:16.363449 
-# exec --no-startup-id clipit 
+exec --no-startup-id redshift-gtk -l 48.210033:16.363449
 exec --no-startup-id keepassxc
 
-#exec --no-startup-id /home/mitschix/.config/Conky/startconky.sh 
 # exec --no-startup-id feh --bg-scale $bgpic
 exec --no-startup-id /usr/bin/feh --no-fehbg --bg-scale --randomize -r $wallpaper_folder
 exec --no-startup-id systemd-run --on-calendar="*:0/5" --user -- /usr/bin/feh --no-fehbg --bg-scale --randomize -r $wallpaper_folder
