@@ -1,3 +1,4 @@
+alacritty
 zsh
 git
 py3status
@@ -6,6 +7,5 @@ i3
 nvim
 dunst
 gtk3
-termite
 dmenu-bins
 local-bins
