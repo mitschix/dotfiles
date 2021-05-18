@@ -19,6 +19,9 @@ alias hgi='history | grep -i'
 alias nvims="nvr -s"
 alias ve='nvim .'
 alias sv='sudo nvim'
+alias nnvim='VIMRUNTIME=$HOME/.local/opt/neovim/runtime \
+    $HOME/.local/opt/neovim/build/bin/nvim -u \
+    $HOME/.config/nvim-nightly/init.vim'
 
 # show disk info
 alias duh='du -khd1'
@@ -110,4 +113,4 @@ alias capmap="setxkbmap -option caps:escape"
 # fi
 # unset is_advcp
 
-alias info_termite='echo "curl https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo | sudo tic -x -" | xsel -bi'
+alias info_termite='echo "curl https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | sudo tic -x -" | xsel -bi'
