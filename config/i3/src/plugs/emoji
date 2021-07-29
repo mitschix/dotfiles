@@ -1,0 +1,8 @@
+#############################
+## == emojo plugin ==      ##
+#############################
+
+# needs dm_emoji script from bin
+bindsym $mod+period exec --no-startup-id dm_emoji
+
+# vim: filetype=i3
