@@ -2,7 +2,6 @@ configuration {
 	modi: "window,run,ssh,drun";
 	lines: 3;
 	location: 2;
-	theme: "Monokai";
 	ssh-command: "{terminal} -e {ssh-client} {host}";
 /*	width: 50;*/
 /*	columns: 1;*/
@@ -138,3 +137,4 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+@theme "Monokai"
