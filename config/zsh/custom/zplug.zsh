@@ -9,7 +9,7 @@ source /home/$USER/.config/zsh/plugs/init.zsh
 
 # zplug "Aloxaf/fzf-tab"
 # zplug "wookayin/fzf-fasd"
-zplug "zdharma/fast-syntax-highlighting"
+zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "ael-code/zsh-colored-man-pages"
 zplug "paulmelnikow/zsh-startup-timer"
