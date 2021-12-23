@@ -137,4 +137,4 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@theme "Monokai"
+@theme "/usr/share/rofi/themes/arthur.rasi"
