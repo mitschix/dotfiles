@@ -6,7 +6,7 @@
 # set $bgpic "TODO"
 set $wallpaper_folder "/home/mitschix/pix/wallpaper"
 # set $i3lock "i3lock -n -e -c 000000 -d"
-set $i3lock sh -c "multilockscreen -l dim && multilockscreen -u /home/$USER/pix/lockscreens --fx dim"
+set $i3lock sh -c "betterlockscreen -l dim && betterlockscreen -u /home/$USER/pix/lockscreens --fx dim"
 set $i3barconf "/home/mitschix/.config/py3status/i3status.conf"
 
 # vim: filetype=i3

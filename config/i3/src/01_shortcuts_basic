@@ -21,7 +21,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && py3-cm
 #bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 # custom commands
-bindsym $mod+d exec --no-startup-id rofi -location 2 -lines 3 -show run -theme Monokai
+bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym Control+$mod+l exec --no-startup-id $i3lock
 
 # floating scratchpad
