@@ -35,8 +35,18 @@ setprompt () {
     # VM="\$(vm_info)"
     VM=""
 
+    USER_HOST="$(set_user_host)"
+
     RPS1="${EXIT_STATUS}"
-    PROMPT="${VM}${VENV}%F{white}[%*]%f ${VIMODE}$GIT_STATUS %F{yellow}`whoami`@%m%f %F{cyan}[%~]%f${NEWLINE}> "
+    PROMPT="${VM}${VENV}%F{white}[%*]%f ${VIMODE}$GIT_STATUS ${USER_HOST} %F{cyan}[%~]%f${NEWLINE}> "
+}
+
+function set_user_host(){
+    # color for server hostname from .zprofile.local generated in .zprofile
+    user="%F{yellow}`whoami`%f"
+    separator="%F{red}@%f"
+    hostname="%F{$SERVER_COLOR}%m%f"
+    echo "$user$separator$hostname"
 }
 
 # function to check and display python virtualenvs
