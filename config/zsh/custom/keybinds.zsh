@@ -16,3 +16,10 @@ bindkey -M vicmd '^[[A' up-line-or-beginning-search
 bindkey -M vicmd '^[[B' down-line-or-beginning-search
 bindkey -M vicmd '^[[H' beginning-of-line
 bindkey -M vicmd '^[[F' end-of-line
+
+# custom functions with zle
+bindkey "^xs" sudo-command-line
+bindkey "^x'" toggleSingleString
+bindkey '^x"' toggleDoubleString
+bindkey '^x;' clearString
+
