@@ -1,11 +1,45 @@
 [user]
 	name = mitschix
 	email = 23629789+mitschix@users.noreply.github.com
+
 [alias]
+	# View the current working tree status using the short format.
+	s = status -s
+
 	ch = checkout
 	br = branch
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    
+	# Remove the old tag with this name and tag the latest commit with it.
+	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+
+	# List aliases.
+	aliases = config --get-regexp alias
+
 [help]
 	autocorrect = 1
+
+[init]
+	defaultBranch = main
+
+[branch]
+
+	# Show most recently changed branches first.
+	sort = -committerdate
+	autosetupmerge = true
+
+[apply]
+
+	# Detect whitespace errors when applying a patch.
+	whitespace = fix
+
+
+
