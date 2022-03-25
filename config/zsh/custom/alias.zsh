@@ -43,6 +43,10 @@ alias -g A="2>&1"                             # All (merge stdout/err)
 alias -g C="2>&1 | color"                     # Color (All then colorize) --> bin from jxck
 alias -g H="| xxd -g 1 -c 4"                  # Hex
 
+is_dragon=$(command -v dragon-drop)
+if [ -n "$is_dragon" ];then
+    alias drag="dragon-drop -x -i"
+fi
 
 # package manager alias
 is_arch=$(command -v pacman)
