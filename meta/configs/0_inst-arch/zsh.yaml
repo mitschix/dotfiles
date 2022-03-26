@@ -7,14 +7,3 @@
       command: "echo $SHELL | grep zsh || chsh -s $(which zsh)"
       description: "Change shell to zsh. Please enter password for user."
       stdin: true
-    -
-      command: "ls /tmp/.zplug && exit || export ZPLUG_HOME=/tmp/.zplug && curl -sl --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
-      description: "Install zplug"
-      stderr: true
-      quiet: true
-    -
-      command: "ls /home/$USER/.config/zsh/plugs/init.zsh || ln -s /tmp/.zplug/init.zsh /home/$USER/.config/zsh/plugs/"
-      description: "Create zsh symlink"
-      stderr: true
-      quiet: true
-
