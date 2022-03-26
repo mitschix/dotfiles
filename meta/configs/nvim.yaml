@@ -5,4 +5,4 @@
     ~/.config/nvim: config/nvim
 
 - shell:
-    - [nvim -c PackerSync -c PackerCompile -c qall, "Install/Update Plugins"]
+    - ["nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'", "Install/Update Plugins"]
