@@ -14,20 +14,22 @@ cd()
 
 
 # useful functions
-countdown() {
-    start="$(( $(date '+%s') + $1))"
-    while [ $start -ge $(date +%s) ]; do
-        time="$(( $start - $(date +%s) ))"
-        printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+function countdown(){
+    date1=$((`date +%s` + $1));
+    while [ "$date1" -ge `date +%s` ]; do
+        echo -ne "\r$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)";
         sleep 0.1
     done
+    is_notify=$(command -v notify-send)
+    if [ -n "$is_notify" ] ;then
+        notify-send "countdown $1 ended"
+    fi
 }
 
-stopwatch() {
+function stopwatch() {
     start=$(date +%s)
     while true; do
-        time="$(( $(date +%s) - $start))"
-        printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+        echo -ne "\r$(date -u --date @$((`date +%s` - $start)) +%H:%M:%S)";
         sleep 0.1
     done
 }
