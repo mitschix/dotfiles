@@ -58,6 +58,7 @@ if [ -n "$is_arch" ];then
   alias pun="sudo $pkg -Rs"   # remove
   alias pcc="sudo $pkg -Scc"  # clear cache
   alias prm="sudo $pkg -Rnsc" # really remove, configs and all
+  alias plast="tac /var/log/pacman.log | sed -n '/full system upgrade/q;s/.*\[ALPM\] upgraded //p'"
   is_yay=$(command -v yay)
   if [ -n "$is_yay" ];then
     alias yls='yay -Qqm'        # list files
