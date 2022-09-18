@@ -13,7 +13,8 @@ ALACRITTY_CONFIG_NORM = {
         "background": '#1d1f21',
         "foreground": '#c5c8c6'
     }
-    }
+    },
+    "dynamic_title": True
 }
 
 ALACRITTY_CONFIG_LIGHT = {
@@ -23,7 +24,8 @@ ALACRITTY_CONFIG_LIGHT = {
         "foreground": '#1d1f21',
         "background": '#FFFFFF'
     }
-    }
+    },
+    "dynamic_title": True
 }
 
 
