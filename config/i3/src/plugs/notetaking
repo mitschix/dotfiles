@@ -5,6 +5,6 @@
 
 # needs notetaker script from bin
 for_window [instance="notetaker"] floating enable
-bindsym $mod+Shift+n exec --no-startup-id notetaker
+bindsym $mod+Mod1+n exec --no-startup-id notetaker
 
 # vim: filetype=i3

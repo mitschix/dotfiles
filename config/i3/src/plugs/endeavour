@@ -18,20 +18,16 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
-# Multimedia Keys
-
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
-# start blueberry app for managing bluetooth devices from tray:
-#exec --no-startup-id blueberry-tray
-
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 bindsym $mod+Shift+d exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
-bindsym $mod+Shift+t exec rofi -show window \
+bindsym Mod1+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
+
