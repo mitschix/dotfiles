@@ -17,6 +17,7 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 
 # open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
+bindsym $mod+Ctrl+n exec ~/.config/i3/scripts/empty_workspace move
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
