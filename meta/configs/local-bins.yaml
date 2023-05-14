@@ -1,4 +1,6 @@
 - link:
     ~/.local/bin/ascii: bin/ascii
     ~/.local/bin/color: bin/color
-    ~/.local/bin/f_renamer.py: bin/f_renamer.py
+    ~/.local/bin/xopen: bin/xopen
+    ~/.local/bin/shtart: bin/shtart
+    ~/.local/bin/sudo: bin/sudo

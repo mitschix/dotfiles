@@ -5,7 +5,6 @@ alias rmd='rm -rf'
 alias yeet='rm -rf'
 alias ls='ls --color'
 alias cl='clear'
-alias xopen='xdg-open'
 alias za='zathura'
 alias _='sudo '
 
