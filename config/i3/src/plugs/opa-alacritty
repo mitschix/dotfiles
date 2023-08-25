@@ -1,0 +1,9 @@
+##############################
+## == alacritty opacitiy == ##
+##############################
+# https://trunc8.github.io/2021/08/08/tut-toggle-alacritty-opacity
+
+## Toggling alacritty opacity in i3 (inside ~/bin)
+bindsym $mod+Shift+a exec --no-startup-id toggle_alacritty_opacity
+
+# vim: filetype=i3
