@@ -1,5 +1,6 @@
 add_newline = false
-format = '${custom.time_mood}$time$hostname$username$sudo$directory$cmd_duration$character'
+format = '''${custom.time_mood}$time$hostname$username$directory$cmd_duration
+$sudo$character'''
 right_format = '$all${custom.docker}'
 
 [time]
@@ -8,12 +9,12 @@ format = '[\[$time\]]($style) '
 time_format = '%T'
 
 [username]
-format = 'as [$user]($style)'
+format = 'as [$user]($style) '
 disabled = false
 
 [hostname]
 ssh_only = false
-format = '[$hostname](bold bright-green)[$ssh_symbol](bold blue) '
+format = '[$ssh_symbol](bold blue)[$hostname](bold bright-green) '
 disabled = false
 
 [character]
@@ -25,11 +26,19 @@ disabled = false
 format = '[!](bold red) '
 
 [directory]
-truncation_symbol = '_/'
-repo_root_style = 'bold purple'
+truncation_length = 5
+truncate_to_repo = false
+truncation_symbol = '.../'
 
-# [git_commit]
-# tag_disabled = false
+format = '[\[ $path \]]($style)[$read_only]($read_only_style) '
+repo_root_style = 'bold purple'
+repo_root_format = '[\[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path \]]($style)[$read_only]($read_only_style) '
+
+[git_commit]
+# perma show commit hash?
+# only_detached = false
+tag_disabled = false
+tag_max_candidates = 99
 
 [git_metrics]
 disabled = false
