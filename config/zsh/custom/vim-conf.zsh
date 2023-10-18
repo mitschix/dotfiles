@@ -37,11 +37,13 @@ function zle-keymap-select zle-line-init {
        [[ ${KEYMAP} == viins ]] ||
        [[ ${KEYMAP} = '' ]] ||
        [[ $1 = 'beam' ]]; then
-				make_beam 
+				make_beam
   fi
-	setprompt
 	zle reset-prompt
 }
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # use vim keys in normal mode to fuzzy find history back/forward
 bindkey -M vicmd "k" up-line-or-beginning-search

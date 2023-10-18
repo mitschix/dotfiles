@@ -1,0 +1,67 @@
+add_newline = false
+format = '${custom.time_mood}$time$hostname$username$sudo$directory$cmd_duration$character'
+right_format = '$all${custom.docker}'
+
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = '%T'
+
+[username]
+format = 'as [$user]($style)'
+disabled = false
+
+[hostname]
+ssh_only = false
+format = '[$hostname](bold bright-green)[$ssh_symbol](bold blue) '
+disabled = false
+
+[character]
+error_symbol = '[✗](bold red)'
+vimcmd_symbol = '[❯](inverted yellow)'
+
+[sudo]
+disabled = false
+format = '[!](bold red) '
+
+[directory]
+truncation_symbol = '_/'
+repo_root_style = 'bold purple'
+
+# [git_commit]
+# tag_disabled = false
+
+[git_metrics]
+disabled = false
+
+[python]
+# Don't trigger for files with the py extension
+detect_extensions = []
+format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
+
+[golang]
+format = '[](bold cyan) '
+
+[custom.docker]
+description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
+command = "echo 🐳"
+files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+when = """ command -v docker &> /dev/null; exit (echo $?); """
+
+[custom.time_mood]
+disabled = false
+command = """
+TIME=$(date +%H)
+if [[ "$TIME" -le 17 && "$TIME" -ge 8 ]];then
+    time_symbol="🌤"
+elif [[ "$TIME" -le 21 && "$TIME" -ge 18 ]];then
+    time_symbol="🌖"
+elif [[ "$TIME" -le 4 || "$TIME" -ge 22 ]];then
+    time_symbol="🌙"
+else
+    time_symbol="🌔"
+fi
+echo "$time_symbol _ "
+"""
+format = "[$output]($style)"
+when = "true"
