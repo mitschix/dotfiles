@@ -40,8 +40,10 @@ repo_root_format = '[\[ $before_root_path]($before_repo_root_style)[$repo_root](
 tag_disabled = false
 tag_max_candidates = 99
 
-[git_metrics]
-disabled = false
+[git_status]
+ahead = '[⇡${count}](bold green)'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
 
 [python]
 # Don't trigger for files with the py extension
