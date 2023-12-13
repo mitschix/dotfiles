@@ -79,5 +79,5 @@ HISTFILE="$HOME/.config/zsh/zhist"
 # load local zshrc file if it exists
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local ] && \
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local
-# source ~/.config/zsh/custom/zprompt.zsh
+
 eval "$(starship init zsh)"
