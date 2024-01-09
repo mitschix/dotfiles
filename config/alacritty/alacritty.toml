@@ -1,0 +1,13 @@
+# For more config options see 'man 5 alacritty'
+#B_STATE dark
+
+[colors.primary]
+background = '#1d1f21'
+foreground = '#c5c8c6'
+
+[font]
+size = 9.0
+
+[window]
+dynamic_title = true
+opacity = 0.9

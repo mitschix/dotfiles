@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+## If alacritty.yml does not exist, raise an alert
+[[ ! -f ~/.config/alacritty/alacritty.toml ]] &&
+	notify-send "alacritty.toml does not exist" && exit 0
+
+## Replace color values alacritty.toml
+make_dark() {
+	sed -i -e "s/\(#B_STATE\)\(.*\)/\1 dark/" \
+		-e "s/\(background =\)\(.*\)/\1 '#1d1f21'/" \
+		-e "s/\(foreground =\)\(.*\)/\1 '#c5c8c6'/" \
+		~/.config/alacritty/alacritty.toml
+}
+
+make_light() {
+	sed -i -e "s/\(#B_STATE\)\(.*\)/\1 light/" \
+		-e "s/\(background =\)\(.*\)/\1 '#c5c8c6'/" \
+		-e "s/\(foreground =\)\(.*\)/\1 '#1d1f21'/" \
+		~/.config/alacritty/alacritty.toml
+}
+
+## Fetch background_opacity from alacritty.yml
+bg_state=$(awk '$1 == "#B_STATE" {print $2; exit}' \
+	~/.config/alacritty/alacritty.toml)
+
+## Assign toggle opacity value
+case $bg_state in
+'dark')
+	make_light
+	;;
+*)
+	make_dark
+	;;
+esac

@@ -1,2 +1,4 @@
 - link:
     ~/.config/alacritty: config/alacritty
+    ~/.local/bin/toggle_alacritty_opacity: config/alacritty/toggle_alacritty_opacity
+    ~/.local/bin/toggle_alacritty_background: config/alacritty/toggle_alacritty_background
