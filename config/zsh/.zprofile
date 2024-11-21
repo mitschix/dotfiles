@@ -38,5 +38,5 @@ set_server_color
 
 # start gui if on tty1
 if [ $(tty) = "/dev/tty1" ];then
-    exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
+    exec startx "$XDG_CONFIG_HOME/X11/xinitrc" &> ~/startx.log
 fi
