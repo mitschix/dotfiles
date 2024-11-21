@@ -72,6 +72,7 @@ source ~/.config/zsh/omz-plugs/jsontools/jsontools.plugin.zsh
 source ~/.config/zsh/omz-plugs/magic-enter/magic-enter.plugin.zsh
 source ~/.config/zsh/omz-plugs/urltools/urltools.plugin.zsh
 source ~/.config/zsh/omz-plugs/zsh_reload/zsh_reload.plugin.zsh
+source ~/.config/zsh/omz-plugs/kubectl/kubectl.plugin.zsh
 
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"
