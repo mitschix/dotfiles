@@ -10,26 +10,25 @@ eval `dircolors -b` # needed to load ls colors for completion
 LS_COLORS+=':ow=01;33' # quickfix for windoof folder permissions
 
 # == source plugin files
-# init fasd
-if [ $(command -v fasd) ]; then
-    # available alias with fasd
-    # alias a='fasd -a'        # any
-    # alias s='fasd -si'       # show / search / select
-    # alias d='fasd -d'        # directory
-    # alias f='fasd -f'        # file
-    # alias sd='fasd -sid'     # interactive directory selection
-    # alias sf='fasd -sif'     # interactive file selection
-    # alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-    # alias zz='fasd_cd -d -i' # cd with interactive selection
+# init fasder
+if [ $(command -v fasder) ]; then
+    # available alias with fasder
+    # alias a='fasder'
+    # alias d='fasder -d'
+    # alias f='fasder -f'
+    # alias v='fasder -fe $EDITOR'
 
-    export _FASD_DATA=$HOME/.local/share/fasd
+    # available commands with fasder
+    # vv foo          # Interactive file edition with fzf
+    # j abc           # cd, same functionality as j in autojump (default j => change to z)
+    # jj foo          # Interactive directory navigation with fzf (default j => change to z)
 
-    fasd_cache="$HOME/.cache/fasd-init-zsh"
-    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-        fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install>| "$fasd_cache"
+    fasder_cache="$HOME/.cache/fasder-init-zsh"
+    if [ "$(command -v fasder)" -nt "$fasder_cache" -o ! -s "$fasder_cache" ]; then
+        fasder --init auto aliases >| "$fasder_cache"
     fi
-    source "$fasd_cache"
-    unset fasd_cache
+    source "$fasder_cache"
+    unset fasder_cache
 fi
 
 # source navi interactive cheatsheet

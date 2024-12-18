@@ -9,3 +9,7 @@ export EDITOR="nvim"
 export PAGER="less -r"
 
 source ~/.config/zsh/custom/nnn-conf.zsh
+
+# Begin added by argcomplete
+fpath=( /usr/lib/python3.12/site-packages/argcomplete/bash_completion.d "${fpath[@]}" )
+# End added by argcomplete

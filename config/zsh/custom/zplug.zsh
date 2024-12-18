@@ -3,18 +3,15 @@
 # export ZPLUG_HOME=/tmp/.zplug
 # curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
-
 export ZPLUG_HOME=/home/$USER/.config/zsh/plugs/
 source /home/$USER/.config/zsh/plugs/init.zsh
 
 # zplug "Aloxaf/fzf-tab"
-# zplug "wookayin/fzf-fasd"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "ael-code/zsh-colored-man-pages"
 zplug "paulmelnikow/zsh-startup-timer"
 zplug "MichaelAquilina/zsh-emojis"
-
 
 # dont source omz things with zplug -> downloads whole repo
 # # libs
@@ -25,9 +22,7 @@ zplug "MichaelAquilina/zsh-emojis"
 # zplug "lib/key-bindings",   from:oh-my-zsh
 # zplug "lib/spectrum",   from:oh-my-zsh
 
-
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
