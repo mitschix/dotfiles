@@ -9,9 +9,8 @@ ls()
 unalias cd >/dev/null 2>&1
 cd()
 {
-  builtin cd "$@" && command ls --color=auto --classify --literal --human-readable 
+  builtin cd "$@" && command ls --color=auto --classify --literal --human-readable
 }
-
 
 # useful functions
 function countdown(){
@@ -118,27 +117,25 @@ function ex() {
 	done
 }
 
-
 is_fzf=$(command -v fzf)
-is_arch=$(command -v pacman)
-if [ -n "$is_fzf" ] && [ -n "$is_arch" ];then
-    function pacs() {
-        packages=$(pacman -Ssq | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview) 
-        if [ -n "$packages" ];then
-            sudo pacman -Syy --needed $packages
-        fi
-    }
-    function blpacs() {
-        packages=$(pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview) 
-        if [ -n "$packages" ];then
-            sudo pacman -Syy --needed $packages
-        fi
-    }
-fi
-unset is_arch
+if [ -n "$is_fzf" ];then
+    is_arch=$(command -v pacman)
+    if [ -n "$is_arch" ];then
+        function pacs() {
+            packages=$(pacman -Ssq | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
+            if [ -n "$packages" ];then
+                sudo pacman -Syy --needed $packages
+            fi
+        }
+        function blpacs() {
+            packages=$(pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
+            if [ -n "$packages" ];then
+                sudo pacman -Syy --needed $packages
+            fi
+        }
+    fi
+    unset is_arch
 
-is_fasd=$(command -v fasd)
-if [ -n "$is_fzf" ] && [ -n "$is_fasd" ];then
 function nf(){
     local filepatterrn=$1
 
@@ -146,12 +143,16 @@ function nf(){
 	if (( $# == 0 )); then
         filenames=( $(fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
     else
-        filenames=( $(fasd -fl "$filepatterrn" | fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
+        is_fd=$(command -v fd)
+        if [ -n "$is_fd" ];then
+            filenames=( $(fd --type f "$filepatterrn" | fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
+        else
+            filenames=( $(find . -type f -name "$filepatterrn"| fzf -m --preview="head -n 20 {}" --preview-window=:hidden --bind=ctrl-space:toggle-preview) )
+        fi
     fi
 
-    # 
     if [ ${#filenames[@]} -gt 0 ]; then
-        $EDITOR $filenames 
+        $EDITOR $filenames
     fi
 }
 fi
@@ -167,7 +168,6 @@ function pyclean() {
     find ${ZSH_PYCLEAN_PLACES} -depth -type d -name ".mypy_cache" -exec rm -r "{}" +
     find ${ZSH_PYCLEAN_PLACES} -depth -type d -name ".pytest_cache" -exec rm -r "{}" +
 }
-
 
 # from OMZ
 function take() {
