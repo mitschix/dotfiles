@@ -1,30 +1,17 @@
-#!/bin/sh
-#
-# Dmenu for editing configs 
-#
-# Requires:
-#   + rofi: need to have rofi installed
-# 
-# Author:   mitschix (is181803@fhstp.ac.at)
-# Created:  20191007
-#
-#
-# Last Updated: 20191011 - mitschix
-#
+#!/usr/bin/env sh
+CONFIG_PATH="/home/mitschix/.local/gits/dotfiles/config"
 
-config_options="zshrc
-zsh_prompt
-bashrc
-profile
-i3
-vimrc"
+declare -A config_options=(
+["alacritty"]="$CONFIG_PATH/alacritty/alacritty.toml"
+["dunst"]="$CONFIG_PATH/dunst/dunstrc"
+["git"]="$CONFIG_PATH/git/config"
+["i3"]="$CONFIG_PATH/i3/config"
+["nvim"]="$CONFIG_PATH/nvim/init.lua"
+["py3status"]="$CONFIG_PATH/py3status/i3status.conf"
+["starship"]="$CONFIG_PATH/starship/starship.toml"
+["zsh"]="$CONFIG_PATH/zsh/.zshrc"
+)
 
-choice=$(echo "$config_options" | rofi -dmenu -location 2 -lines 3 -theme Monokai -p "Choose config")
+choice=$(printf '%s\n' "${!config_options[@]}" | rofi -dmenu -p "Choose config")
 
-case "$choice" in
-  zsh_prompt) cfile="$HOME/.zprompt.zsh";;
-  i3) cfile="$HOME/.config/i3/config";;
-  *) cfile="$HOME/.$choice";;
-esac
-
-[ -n "$choice" ] && $TERMINAL -e vim -n "$cfile" &> /dev/null
+[ -n "$choice" ] && $TERMINAL -e $EDITOR -n "${config_options[$choice]}" &> /dev/null
