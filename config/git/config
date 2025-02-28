@@ -8,10 +8,11 @@
 
 	ch = checkout
 	br = branch
+	sw = switch
+
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
 
 	# Remove the old tag with this name and tag the latest commit with it.
 	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
@@ -21,9 +22,7 @@
 	branches = branch --all
 	remotes = remote --verbose
 
-	# List aliases.
 	aliases = config --get-regexp alias
-	sw = switch
 
 [help]
 	autocorrect = 1
