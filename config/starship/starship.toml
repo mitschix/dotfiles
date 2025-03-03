@@ -25,6 +25,7 @@ vimcmd_symbol = '[❯](inverted yellow)'
 disabled = false
 format = '[!](bold red) '
 
+# TODO: https://github.com/starship/starship/issues/4577
 [directory]
 truncation_length = 5
 truncate_to_repo = false
