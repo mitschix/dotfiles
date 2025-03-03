@@ -3,5 +3,5 @@
 echo ""
 
 case $BLOCK_BUTTON in
-  1) rofi -show drun -show-icons -location 0 -lines 20 -drun-show-actions ;;
+1) rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi 2>/dev/null ;;
 esac
