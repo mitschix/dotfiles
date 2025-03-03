@@ -58,10 +58,12 @@ i3block k_layout {
 }
 
 rainbow time {
-  i3block clock {
-    command = '/home/$USER/.config/py3status/clock.sh'
-    interval = 1
-  }
+    clock{
+
+        format_time = "🗓️ %Y-%m-%d {icon} %H:%M:%S"
+        }
+}
+
 taskwarrior {
     format="✅ {tasks}"
 }
