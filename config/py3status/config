@@ -7,9 +7,9 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-  colors = true
-    interval = 5
-    output_format = "i3bar"
+    colors = true
+        interval = 5
+        output_format = "i3bar"
 }
 
 # order += "i3block news"
@@ -36,25 +36,24 @@ order += "rainbow time"
 order += "i3block launcher"
 
 i3block launcher {
-  command = '/home/$USER/.config/py3status/rofi-launcher.sh'
-    interval = 5
+    command = '/home/$USER/.config/py3status/rofi-launcher.sh'
+        interval = 5
 }
 
 i3block weather {
-  command = '/home/$USER/.config/py3status/weather.sh'
-    interval = 5
+    command = '/home/$USER/.config/py3status/weather.sh'
+        interval = 5
 }
 
 i3block k_layout {
-  command = '/home/$USER/.config/py3status/culture.sh'
-    interval = 5
+    command = '/home/$USER/.config/py3status/culture.sh'
+        interval = 5
 }
 
 rainbow time {
     clock{
-
         format_time = "🗓️ %Y-%m-%d {icon} %H:%M:%S"
-        }
+    }
 }
 
 taskwarrior {
@@ -63,42 +62,42 @@ taskwarrior {
 
 # mit py3status !
 battery 0 {
-  format = "%status %percentage %remaining"
-    status_bat = ""
-    status_chr = ""
-    status_full = ""
-    low_threshold = 30
-    threshold_type = percentage
-    integer_battery_capacity = true
-    color_good = "#0000FF"
+    format = "%status %percentage %remaining"
+        status_bat = ""
+        status_chr = ""
+        status_full = ""
+        low_threshold = 30
+        threshold_type = percentage
+        integer_battery_capacity = true
+        color_good = "#0000FF"
 }
 
 spotify {
     button_next = 3
-    button_play_pause = 1
-    button_previous = 2
-    format = "{title} by {artist}"
-    format_down = "-"
+        button_play_pause = 1
+        button_previous = 2
+        format = "{title} by {artist}"
+        format_down = "-"
 }
 
 arch_updates {
     hide_if_zero = True
-    format = "ARCH: {pacman}/{aur}"
+        format = "ARCH: {pacman}/{aur}"
 }
 
 bluetooth {
     format = ""
-    on_click 1 = "exec bluetoothctl power on"
-    on_click 2 = "exec blueman-applet"
-    on_click 3 = "exec bluetoothctl power off"
+        on_click 1 = "exec bluetoothctl power on"
+        on_click 2 = "exec blueman-applet"
+        on_click 3 = "exec bluetoothctl power off"
 }
 
 volume_status default{
     device = "alsa_output.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo"
-    command = 'pactl'
-    format = '♪ {percentage}%'
-    format_muted = ' {percentage}%'
-    on_click 2 = "exec pactl set-default-sink alsa_output.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo"
+        command = 'pactl'
+        format = '♪ {percentage}%'
+        format_muted = ' {percentage}%'
+        on_click 2 = "exec pactl set-default-sink alsa_output.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo"
 }
 
 # I also can activate a remote bluetooth speaker by clicking on this,
@@ -106,14 +105,14 @@ volume_status default{
 # to it by middle clicking or disconnect it by right clicking
 volume_status flybit {
     command = "pactl"
-    device = "bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
-    format = "[\?if=!percentage=? 🪰♪ {percentage}%][\?if=percentage=? 🪰]"
-    format_muted = '🪰 {percentage}%'
-    on_click 2 = "exec pactl set-default-sink bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
-    on_click 1 = "exec bluetoothctl connect 00:00:AB:CD:59:01"
-    on_click 3 = "exec bluetoothctl disconnect 00:00:AB:CD:59:01"
-    max_volume = 200
-    cache_timeout = 2
+        device = "bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
+        format = "[\?if=!percentage=? 🪰♪ {percentage}%][\?if=percentage=? 🪰]"
+        format_muted = '🪰 {percentage}%'
+        on_click 2 = "exec pactl set-default-sink bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
+        on_click 1 = "exec bluetoothctl connect 00:00:AB:CD:59:01"
+        on_click 3 = "exec bluetoothctl disconnect 00:00:AB:CD:59:01"
+        max_volume = 200
+        cache_timeout = 2
 }
 
 volume_status crusher {
@@ -130,98 +129,98 @@ volume_status crusher {
 
 volume_status mic {
     format = ' {percentage}%'
-    format_muted = ' {percentage}%'
-    command = 'pactl'
-    device = 'alsa_input.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo'
-	button_down = 5
-	button_mute = 1
-	button_up = 4
-	is_input = true
-	thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
+        format_muted = ' {percentage}%'
+        command = 'pactl'
+        device = 'alsa_input.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo'
+        button_down = 5
+        button_mute = 1
+        button_up = 4
+        is_input = true
+        thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
 }
 
 group pomodoro {
     open = False
-    button_next = 3
-    cycle = 0
-    format_button_closed = "<"
-    format_button_open = ">"
-    format = "⏲️ {output} {button}"
-    format_closed = "⏲️ {button}"
+        button_next = 3
+        cycle = 0
+        format_button_closed = "<"
+        format_button_open = ">"
+        format = "⏲️ {output} {button}"
+        format_closed = "⏲️ {button}"
 
-    pomodoro {
-        format = "{mmss} {bar}"
-    }
+        pomodoro {
+            format = "{mmss} {bar}"
+        }
 }
 
 # Create a disks group that will show space on '/' and '/home'
 # Change between disk modules every 30 seconds
 group disks {
-  open = False
-  button_next = 3
-    cycle = 0
-    format_button_closed = "<"
-    format_button_open = ">"
-    format = " {output} {button}"
-    format_closed = " {button}"
+    open = False
+        button_next = 3
+        cycle = 0
+        format_button_closed = "<"
+        format_button_open = ">"
+        format = " {output} {button}"
+        format_closed = " {button}"
 
-    disk "/" {
-      format = "%used/%total(%avail)"
-    }
+        disk "/" {
+            format = "%used/%total(%avail)"
+        }
     disk "/mnt/ssd0" {
-      format = "%used/%total(%avail)"
+        format = "%used/%total(%avail)"
     }
 }
 
 group sysdata {
-  open = False
-  button_next = 3
-    cycle = 0
-    format_button_closed = "<"
-    format_button_open = ">"
-    format = "{output} {button}"
-    format_closed = " {button}"
+    open = False
+        button_next = 3
+        cycle = 0
+        format_button_closed = "<"
+        format_button_open = ">"
+        format = "{output} {button}"
+        format_closed = " {button}"
 
-    sysdata load {
+        sysdata load {
 # need lm-sensors installed
-      format = '[\?color=cpu  {cpu_usage}%  {load1} {load5} {load15} ]'
-        format += '\|  {cpu_temp}{temp_unit}'
-        cache_timeout = 10
-    }
+            format = '[\?color=cpu  {cpu_usage}%  {load1} {load5} {load15} ]'
+                format += '\|  {cpu_temp}{temp_unit}'
+                cache_timeout = 10
+        }
 
-  sysdata mem {
-    format = '[\?color=mem  {mem_used}/{mem_total} GB ({mem_used_percent}%) ]'
-      format += '\| [\?color=swap  {swap_used}/{swap_total} GB]'
-      cache_timeout = 10
-  }
+    sysdata mem {
+        format = '[\?color=mem  {mem_used}/{mem_total} GB ({mem_used_percent}%) ]'
+            format += '\| [\?color=swap  {swap_used}/{swap_total} GB]'
+            cache_timeout = 10
+    }
 }
 
 group network {
-  open = False
-  button_next = 3
-    cycle = 0
-    format_button_closed = "<"
-    format_button_open = ">"
-    format = "{output} {button}"
-    format_closed = " {button}"
-    wireless _first_ {
-      format_up = " (%quality at %essid) %ip"
-        format_down = " down"
+    open = False
+        button_next = 3
+        cycle = 0
+        format_button_closed = "<"
+        format_button_open = ">"
+        format = "{output} {button}"
+        format_closed = " {button}"
+        wireless _first_ {
+            format_up = " (%quality at %essid) %ip"
+                format_down = " down"
+        }
+
+    ethernet _first_ {
+# if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
     }
 
-  ethernet _first_ {
-# if you use %speed, i3status requires root privileges
-    format_up = "E: %ip (%speed)"
-  }
+    ipv6 {
+        format_up = "IPv6: %ip"
+    }
 
-  ipv6 {
-    format_up = "IPv6: %ip"
-  }
+    i3block pubip {
+        command = 'echo "Pub IP: `curl --silent ipinfo.io/ip`"'
 
-  i3block pubip {
-    command = 'echo "Pub IP: `curl --silent ipinfo.io/ip`"'
-
-    interval = 60
-  }
+            interval = 60
+    }
 
 }
