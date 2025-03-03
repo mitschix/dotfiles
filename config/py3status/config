@@ -33,14 +33,7 @@ order += "i3block k_layout"
 order += "taskwarrior"
 order += "arch_updates"
 order += "rainbow time"
-order += "i3block launcher" 
-
-# i3block config
-# i3block news {
-#    command = '/home/$USER/.config/py3status/news.sh'
-#     interval = 60
-# }
-
+order += "i3block launcher"
 
 i3block launcher {
   command = '/home/$USER/.config/py3status/rofi-launcher.sh'
