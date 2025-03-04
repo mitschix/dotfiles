@@ -1,8 +1,6 @@
 *.pyc
-config/i3/config*
 config/zsh/.zcompdump
 config/zsh/.zcompcache
-
 
 config/zsh/*.local
 
