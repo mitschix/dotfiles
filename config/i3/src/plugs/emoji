@@ -1,8 +1,0 @@
-#############################
-## == emojo plugin ==      ##
-#############################
-
-# needs rofi
-bindsym $mod+period exec --no-startup-id rofi -show emoji -modi emoji -emoji-mode copy
-
-# vim: filetype=i3
