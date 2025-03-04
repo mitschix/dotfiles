@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# github.com/justbuchanan/i3scripts
+# https://github.com/justbuchanan/i3scripts
 #
 # This script listens for i3 events and updates workspace names to show icons
 # for running programs.  It contains icons for a few programs, but more can
@@ -30,11 +30,12 @@
 #   bindsym $mod+1 workspace number 1
 
 import argparse
-import i3ipc
 import logging
 import signal
 import sys
+
 import fontawesome as fa
+import i3ipc
 
 from util import *
 
@@ -49,68 +50,68 @@ from util import *
 # xprop (https://linux.die.net/man/1/xprop). Run `xprop | grep WM_CLASS`
 # then click on the application you want to inspect.
 WINDOW_ICONS = {
-    'Msgcompose': fa.icons['envelope-open'],
-    'VirtualBox Manager': fa.icons['server'],
-    'alacritty': fa.icons['terminal'],
-    'blueman-manager': fa.icons['bluetooth'],
-    'burp-StartBurp': fa.icons['search'],
-    'caja': fa.icons['folder-open'],
-    'chromium': fa.icons['chrome'],
-    'code': fa.icons['code'],
-    'discord': fa.icons['discord'],
-    'eclipse': fa.icons['code'],
-    'evince': fa.icons['file-pdf'],
-    'feh': fa.icons['image'],
-    'file-roller': fa.icons['compress'],
-    'firefox': fa.icons['firefox'],
-    'firefox-developer': fa.icons['firefox'],
-    'firefox-esr': fa.icons['firefox'],
-    'flameshot': fa.icons['camera'],
-    'gimp-2.10': fa.icons['file-image'],
-    'gimp-2.8': fa.icons['paint-brush'],
-    'gnome-todo': fa.icons['list-ul'],
-    'google-chrome': fa.icons['chrome'],
-    'keepassxc': fa.icons['key'],
-    'kite': fa.icons['python'],
-    'libreoffice': fa.icons['file-alt'],
-    'lua5.1': fa.icons['moon'],
-    'mail': fa.icons['envelope'],
-    'mate-terminal': fa.icons['terminal'],
-    'minecraft 1.12.2': fa.icons['cube'],
-    'mpv': fa.icons['video'],
-    'multimc': fa.icons['cube'],
-    'mupdf': fa.icons['file-pdf'],
-    'mysql-workbench-bin': fa.icons['database'],
-    'nm-connection-editor': fa.icons['wifi'],
-    'org-openstreetmap-josm-gui-mainapplication': fa.icons['map'],
-    'pavucontrol': fa.icons['volume-up'],
-    'pluma': fa.icons['file-alt'],
-    'postman': fa.icons['space-shuttle'],
-    'qbittorrent': fa.icons['download'],
-    'shutter': fa.icons['camera'],
-    'signal': fa.icons['comment'],
-    'spotify': fa.icons['spotify'],
-    'steam': fa.icons['steam'],
-    'telegram-desktop': fa.icons['telegram'],
-    'telegram-desktop-bin': fa.icons['telegram'],
-    'telegramdesktop': fa.icons['paper-plane'],
-    'terminator': fa.icons['terminal'],
-    'termite': fa.icons['terminal'],
-    'terraria': fa.icons['tree'],
-    'thunderbird': fa.icons['envelope'],
-    'vim': fa.icons['code'],
-    'virt-manager': fa.icons['desktop'],
-    'virtualbox manager': fa.icons['desktop'],
-    'vmware': fa.icons['desktop'],
-    'vscodium': fa.icons['code'],
-    'wine': fa.icons['windows'],
-    'xournal': fa.icons['file-alt'],
-    'zathura': fa.icons['file-pdf'],
-    'zenity': fa.icons['window-maximize'],
+    "Msgcompose": fa.icons["envelope-open"],
+    "VirtualBox Manager": fa.icons["server"],
+    "alacritty": fa.icons["terminal"],
+    "blueman-manager": fa.icons["bluetooth"],
+    "burp-StartBurp": fa.icons["search"],
+    "caja": fa.icons["folder-open"],
+    "chromium": fa.icons["chrome"],
+    "code": fa.icons["code"],
+    "discord": fa.icons["discord"],
+    "eclipse": fa.icons["code"],
+    "evince": fa.icons["file-pdf"],
+    "feh": fa.icons["image"],
+    "file-roller": fa.icons["compress"],
+    "firefox": fa.icons["firefox"],
+    "firefox-developer": fa.icons["firefox"],
+    "firefox-esr": fa.icons["firefox"],
+    "flameshot": fa.icons["camera"],
+    "gimp-2.10": fa.icons["file-image"],
+    "gimp-2.8": fa.icons["paint-brush"],
+    "gnome-todo": fa.icons["list-ul"],
+    "google-chrome": fa.icons["chrome"],
+    "keepassxc": fa.icons["key"],
+    "kite": fa.icons["python"],
+    "libreoffice": fa.icons["file-alt"],
+    "lua5.1": fa.icons["moon"],
+    "mail": fa.icons["envelope"],
+    "mate-terminal": fa.icons["terminal"],
+    "minecraft 1.12.2": fa.icons["cube"],
+    "mpv": fa.icons["video"],
+    "multimc": fa.icons["cube"],
+    "mupdf": fa.icons["file-pdf"],
+    "mysql-workbench-bin": fa.icons["database"],
+    "nm-connection-editor": fa.icons["wifi"],
+    "org-openstreetmap-josm-gui-mainapplication": fa.icons["map"],
+    "pavucontrol": fa.icons["volume-up"],
+    "pluma": fa.icons["file-alt"],
+    "postman": fa.icons["space-shuttle"],
+    "qbittorrent": fa.icons["download"],
+    "shutter": fa.icons["camera"],
+    "signal": fa.icons["comment"],
+    "spotify": fa.icons["spotify"],
+    "steam": fa.icons["steam"],
+    "telegram-desktop": fa.icons["telegram"],
+    "telegram-desktop-bin": fa.icons["telegram"],
+    "telegramdesktop": fa.icons["paper-plane"],
+    "terminator": fa.icons["terminal"],
+    "termite": fa.icons["terminal"],
+    "terraria": fa.icons["tree"],
+    "thunderbird": fa.icons["envelope"],
+    "vim": fa.icons["code"],
+    "virt-manager": fa.icons["desktop"],
+    "virtualbox manager": fa.icons["desktop"],
+    "vmware": fa.icons["desktop"],
+    "vscodium": fa.icons["code"],
+    "wine": fa.icons["windows"],
+    "xournal": fa.icons["file-alt"],
+    "zathura": fa.icons["file-pdf"],
+    "zenity": fa.icons["window-maximize"],
 }
 
 # This icon is used for any application not in the list above
-DEFAULT_ICON = '*'
+DEFAULT_ICON = "*"
 
 # Global setting that determines whether workspaces will be automatically
 # re-numbered in ascending order with a "gap" left on each monitor. This is
@@ -125,21 +126,20 @@ def ensure_window_icons_lowercase():
 
 def icon_for_window(window):
     # Try all window classes and use the first one we have an icon for
-    classes = xprop(window.window, 'WM_CLASS')
+    classes = xprop(window.window, "WM_CLASS")
     if classes != None and len(classes) > 0:
         for cls in classes:
             cls = cls.lower()  # case-insensitive matching
             if cls in WINDOW_ICONS:
                 return WINDOW_ICONS[cls]
-    logging.info(
-        'No icon available for window with classes: %s' % str(classes))
+    logging.info("No icon available for window with classes: %s" % str(classes))
     return DEFAULT_ICON
 
 
 # renames all workspaces based on the windows present
 # also renumbers them in ascending order, with one gap left between monitors
 # for example: workspace numbering on two monitors: [1, 2, 3], [5, 6]
-def rename_workspaces(i3, icon_list_format='default'):
+def rename_workspaces(i3, icon_list_format="default"):
     ws_infos = i3.get_workspaces()
     prev_output = None
     n = 1
@@ -161,12 +161,11 @@ def rename_workspaces(i3, icon_list_format='default'):
         n += 1
 
         new_name = construct_workspace_name(
-            NameParts(
-                num=new_num, shortname=name_parts.shortname, icons=new_icons))
+            NameParts(num=new_num, shortname=name_parts.shortname, icons=new_icons)
+        )
         if workspace.name == new_name:
             continue
-        i3.command(
-            'rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        i3.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
 
 
 # Rename workspaces to just numbers and shortnames, removing the icons.
@@ -174,35 +173,34 @@ def on_exit(i3):
     for workspace in i3.get_tree().workspaces():
         name_parts = parse_workspace_name(workspace.name)
         new_name = construct_workspace_name(
-            NameParts(
-                num=name_parts.num, shortname=name_parts.shortname,
-                icons=None))
+            NameParts(num=name_parts.num, shortname=name_parts.shortname, icons=None)
+        )
         if workspace.name == new_name:
             continue
-        i3.command(
-            'rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        i3.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
     i3.main_quit()
     sys.exit(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Rename workspaces dynamically to show icons for running programs.")
-    parser.add_argument(
-        '--norenumber_workspaces',
-        action='store_true',
-        default=False,
-        help="Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order."
+        description="Rename workspaces dynamically to show icons for running programs."
     )
     parser.add_argument(
-        '--icon_list_format',
+        "--norenumber_workspaces",
+        action="store_true",
+        default=False,
+        help="Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order.",
+    )
+    parser.add_argument(
+        "--icon_list_format",
         type=str,
-        default='default',
+        default="default",
         help="The formatting of the list of icons."
         "Accepted values:"
         "    - default: no formatting,"
         "    - mathematician: factorize with superscripts (e.g. aababa -> a⁴b²),"
-        "    - chemist: factorize with subscripts (e.g. aababa -> a₄b₂)."
+        "    - chemist: factorize with subscripts (e.g. aababa -> a₄b₂).",
     )
     args = parser.parse_args()
 
@@ -220,9 +218,9 @@ if __name__ == '__main__':
 
     # Call rename_workspaces() for relevant window events
     def event_handler(i3, e):
-        if e.change in ['new', 'close', 'move']:
+        if e.change in ["new", "close", "move"]:
             rename_workspaces(i3, icon_list_format=args.icon_list_format)
 
-    i3.on('window', event_handler)
-    i3.on('workspace::move', event_handler)
+    i3.on("window", event_handler)
+    i3.on("workspace::move", event_handler)
     i3.main()
