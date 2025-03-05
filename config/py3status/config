@@ -82,7 +82,7 @@ spotify {
 
 arch_updates {
     hide_if_zero = True
-        format = "ARCH: {pacman}/{aur}"
+        format = "♻ {pacman}/{aur}"
 }
 
 bluetooth {
