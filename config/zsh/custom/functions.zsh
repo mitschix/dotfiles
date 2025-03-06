@@ -1,18 +1,4 @@
-# from archlabs
-# better ls and cd from archlabs
-unalias ls >/dev/null 2>&1
-ls()
-{
-  command ls --color=auto --classify --literal --human-readable "$@"
-}
-
-unalias cd >/dev/null 2>&1
-cd()
-{
-  builtin cd "$@" && command ls --color=auto --classify --literal --human-readable
-}
-
-# useful functions
+# useful functions {{{
 function countdown(){
     date1=$((`date +%s` + $1));
     while [ "$date1" -ge `date +%s` ]; do
@@ -32,6 +18,22 @@ function stopwatch() {
         sleep 0.1
     done
 }
+
+# }}}
+
+# from archlabs - better ls and cd from archlabs {{{
+unalias ls >/dev/null 2>&1
+ls()
+{
+  command ls --color=auto --classify --literal --human-readable "$@"
+}
+
+unalias cd >/dev/null 2>&1
+cd()
+{
+  builtin cd "$@" && command ls --color=auto --classify --literal --human-readable
+}
+# }}}
 
 # extract function from omz
 # usage: ex [-r] <file>
@@ -117,6 +119,7 @@ function ex() {
 	done
 }
 
+# useful functions with fzf {{{
 is_fzf=$(command -v fzf)
 if [ -n "$is_fzf" ];then
     is_arch=$(command -v pacman)
@@ -157,8 +160,9 @@ function nf(){
 }
 fi
 unset is_fzf
+# }}}
 
-# from OMZ plugin
+# from OMZ plugin {{{
 # Remove python compiled byte-code and mypy/pytest cache in either the current
 # directory or in a list of specified directories (including sub directories).
 function pyclean() {
@@ -169,16 +173,56 @@ function pyclean() {
     find ${ZSH_PYCLEAN_PLACES} -depth -type d -name ".pytest_cache" -exec rm -r "{}" +
 }
 
-# from OMZ
-function take() {
+# take functions
+
+# mkcd is equivalent to takedir
+function mkcd takedir() {
   mkdir -p $@ && cd ${@:$#}
+}
+
+function takeurl() {
+  local data thedir
+  data="$(mktemp)"
+  curl -L "$1" > "$data"
+  tar xf "$data"
+  thedir="$(tar tf "$data" | head -n 1)"
+  rm "$data"
+  cd "$thedir"
+}
+
+function takezip() {
+  local data thedir
+  data="$(mktemp)"
+  curl -L "$1" > "$data"
+  unzip "$data" -d "./"
+  thedir="$(unzip -l "$data" | awk 'NR==4 {print $4}' | sed 's/\/.*//')"
+  rm "$data"
+  cd "$thedir"
+}
+
+function takegit() {
+  git clone "$1"
+  cd "$(basename ${1%%.git})"
+}
+
+function take() {
+  if [[ $1 =~ ^(https?|ftp).*\.(tar\.(gz|bz2|xz)|tgz)$ ]]; then
+    takeurl "$1"
+  elif [[ $1 =~ ^(https?|ftp).*\.(zip)$ ]]; then
+    takezip "$1"
+  elif [[ $1 =~ ^([A-Za-z0-9]\+@|https?|git|ssh|ftps?|rsync).*\.git/?$ ]]; then
+    takegit "$1"
+  else
+    takedir "$@"
+  fi
 }
 
 # from omz/lib/clipboard -> only xsel used
 function clipcopy() { xsel --clipboard --input < "${1:-/dev/stdin}"; }
 function clippaste() { xsel --clipboard --output; }
+# }}}
 
-# https://github.com/shibumi/dotfiles/blob/master/.zshrc
+# https://github.com/shibumi/dotfiles/blob/master/.zshrc {{{
 toggleSingleString() {
   LBUFFER=`echo $LBUFFER | sed "s/\(.*\) /\1 '/"`
   RBUFFER=`echo $RBUFFER | sed "s/\($\| \)/' /"`
@@ -209,3 +253,4 @@ function sudo-command-line () {
     fi
 }
 zle -N sudo-command-line
+# }}}
