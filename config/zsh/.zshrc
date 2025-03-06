@@ -42,12 +42,8 @@ fi
 
 # == source files/folders
 
-# source omz files
-source ~/.config/zsh/omz-conf/omz-completion.zsh
-source ~/.config/zsh/omz-conf/omz-directories.zsh
-source ~/.config/zsh/omz-conf/omz-grep.zsh
-source ~/.config/zsh/omz-conf/omz-history.zsh
-source ~/.config/zsh/omz-conf/omz-key-bindings.zsh
+# source omz config and plugins
+for f (~/.config/zsh/omz-config/**/*.zsh(N.)) source $f
 
 # source config files
 source ~/.config/zsh/custom/zplug.zsh
