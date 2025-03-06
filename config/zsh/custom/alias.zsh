@@ -83,3 +83,7 @@ alias wetter='curl wttr.in/austria'
 alias xp='xprop | awk -F\"'" '/CLASS/ {printf \"NAME = %s\nCLASS = %s\n\", \$2, \$4}'"
 alias capmap="setxkbmap -option caps:escape"
 alias remove-color="sed 's/\x1b\[[0-9;]\{1,\}[a-za-z]//g'"
+
+# stolen from omz urltools plugin (only two lines that matter)
+alias urlencode='python3 -c "import sys; del sys.path[0]; import urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
+alias urldecode='python3 -c "import sys; del sys.path[0]; import urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
