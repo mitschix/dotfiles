@@ -43,19 +43,17 @@ fi
 # == source files/folders
 
 # source omz files
-source ~/.config/zsh/omz-conf/omz-clipboard.zsh
 source ~/.config/zsh/omz-conf/omz-completion.zsh
 source ~/.config/zsh/omz-conf/omz-directories.zsh
+source ~/.config/zsh/omz-conf/omz-grep.zsh
 source ~/.config/zsh/omz-conf/omz-history.zsh
 source ~/.config/zsh/omz-conf/omz-key-bindings.zsh
-source ~/.config/zsh/omz-conf/omz-spectrum.zsh
 
 # source config files
 source ~/.config/zsh/custom/zplug.zsh
 source ~/.config/zsh/custom/vim-conf.zsh
 source ~/.config/zsh/custom/alias.zsh
 source ~/.config/zsh/custom/functions.zsh
-source ~/.config/zsh/custom/grep-config.zsh
 source ~/.config/zsh/custom/keybinds.zsh
 
 # source omz plugins
