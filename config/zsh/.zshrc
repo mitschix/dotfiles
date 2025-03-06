@@ -44,28 +44,14 @@ fi
 
 # source omz config and plugins
 for f (~/.config/zsh/omz-config/**/*.zsh(N.)) source $f
+for f (~/.config/zsh/omz-plugins/used/**/*.zsh(N.)) source $f
 
-# source config files
+# source config files (after omz to overwrite e.g. alias)
 source ~/.config/zsh/custom/zplug.zsh
 source ~/.config/zsh/custom/vim-conf.zsh
 source ~/.config/zsh/custom/alias.zsh
 source ~/.config/zsh/custom/functions.zsh
 source ~/.config/zsh/custom/keybinds.zsh
-
-# source omz plugins
-source ~/.config/zsh/omz-plugs/copybuffer/copybuffer.plugin.zsh
-source ~/.config/zsh/omz-plugs/copydir/copydir.plugin.zsh
-source ~/.config/zsh/omz-plugs/cp/cp.plugin.zsh
-source ~/.config/zsh/omz-plugs/dircycle/dircycle.plugin.zsh
-source ~/.config/zsh/omz-plugs/dirhistory/dirhistory.plugin.zsh
-source ~/.config/zsh/omz-plugs/encode64/encode64.plugin.zsh
-# source ~/.config/zsh/omz-plugs/git-auto-fetch/git-auto-fetch.plugin.zsh
-source ~/.config/zsh/omz-plugs/globalias/globalias.plugin.zsh
-source ~/.config/zsh/omz-plugs/jsontools/jsontools.plugin.zsh
-source ~/.config/zsh/omz-plugs/magic-enter/magic-enter.plugin.zsh
-source ~/.config/zsh/omz-plugs/urltools/urltools.plugin.zsh
-source ~/.config/zsh/omz-plugs/zsh_reload/zsh_reload.plugin.zsh
-source ~/.config/zsh/omz-plugs/kubectl/kubectl.plugin.zsh
 
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"
