@@ -174,6 +174,10 @@ function take() {
   mkdir -p $@ && cd ${@:$#}
 }
 
+# from omz/lib/clipboard -> only xsel used
+function clipcopy() { xsel --clipboard --input < "${1:-/dev/stdin}"; }
+function clippaste() { xsel --clipboard --output; }
+
 # https://github.com/shibumi/dotfiles/blob/master/.zshrc
 toggleSingleString() {
   LBUFFER=`echo $LBUFFER | sed "s/\(.*\) /\1 '/"`
