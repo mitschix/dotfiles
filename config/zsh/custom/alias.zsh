@@ -37,7 +37,7 @@ unset is_dragon
 # package manager alias {{{
 is_arch=$(command -v pacman)
 if [ -n "$is_arch" ];then
-  alias pls="$pkg -Ql"        # list files
+  alias pls="pacman -Ql"        # list files
   alias pup="sudo pacman -Syyu" # update
   alias pin="sudo pacman -S"    # install
   alias pun="sudo pacman -Rs"   # remove
