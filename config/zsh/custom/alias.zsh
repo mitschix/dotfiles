@@ -8,12 +8,6 @@ alias cl='clear'
 alias za='zathura'
 alias _='sudo '
 
-
-# history alias
-alias h='history'
-alias hg='history | grep'
-alias hgi='history | grep -i'
-
 # nvim alias
 alias nvims="nvr -s"
 alias ve='nvim .'
@@ -84,23 +78,11 @@ alias getip='curl ipinfo.io/ip'
 alias p1='ping 1.1.1.1'
 
 # git alias
-alias g='lazygit' # need lazygit installed
-alias ga='git add'
-alias gaa='git add -A'
-alias gd='git diff'
-alias gp='git pull'
-alias gf='git fetch'
-alias gc='git clone'
-alias gs='git status'
-alias gst='git stash'
-alias gb='git branch'
-alias gm='git merge'
-alias gch='git checkout'
-alias gcm='git commit -m"'
-alias glg='git log --stat'
-alias gpo='git push origin HEAD'
-alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gpall='find . -mindepth 1 -maxdepth 1 -type d -print -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
+has_lazygit=$(command -v lazygit)
+if [ -n "$has_lazygit" ];then
+    alias g='lazygit' # need lazygit installed
+fi
+unset has_lazygit
 
 # other useful stuff
 alias wetter='curl wttr.in/austria'
