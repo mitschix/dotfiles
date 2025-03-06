@@ -8,14 +8,6 @@ alias cl='clear'
 alias za='zathura'
 alias _='sudo '
 
-# nvim alias
-alias nvims="nvr -s"
-alias ve='nvim .'
-alias sv='sudo nvim'
-alias nnvim='VIMRUNTIME=$HOME/.local/opt/neovim/runtime \
-    $HOME/.local/opt/neovim/build/bin/nvim -u \
-    $HOME/.config/nvim-nightly/init.vim'
-
 # show disk info
 alias duh='du -khd1'
 alias du='du -kh'
@@ -40,17 +32,17 @@ is_dragon=$(command -v dragon-drop)
 if [ -n "$is_dragon" ];then
     alias drag="dragon-drop -x -i"
 fi
+unset is_dragon
 
-# package manager alias
+# package manager alias {{{
 is_arch=$(command -v pacman)
-command -v powerpill > /dev/null && pkg="powerpill" || pkg="pacman"
 if [ -n "$is_arch" ];then
   alias pls="$pkg -Ql"        # list files
-  alias pup="sudo $pkg -Syyu" # update
-  alias pin="sudo $pkg -S"    # install
-  alias pun="sudo $pkg -Rs"   # remove
-  alias pcc="sudo $pkg -Scc"  # clear cache
-  alias prm="sudo $pkg -Rnsc" # really remove, configs and all
+  alias pup="sudo pacman -Syyu" # update
+  alias pin="sudo pacman -S"    # install
+  alias pun="sudo pacman -Rs"   # remove
+  alias pcc="sudo pacman -Scc"  # clear cache
+  alias prm="sudo pacman -Rnsc" # really remove, configs and all
   alias plast="tac /var/log/pacman.log | sed -n '/full system upgrade/q;s/.*\[ALPM\] upgraded //p'"
   is_yay=$(command -v yay)
   if [ -n "$is_yay" ];then
@@ -71,11 +63,13 @@ else
   alias arm='sudo apt purge'
 fi
 unset is_arch
-unset pkg
+# }}}
 
 # networking alias
 alias getip='curl ipinfo.io/ip'
 alias p1='ping 1.1.1.1'
+alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+alias sort-by-ip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 
 # git alias
 has_lazygit=$(command -v lazygit)
@@ -87,18 +81,5 @@ unset has_lazygit
 # other useful stuff
 alias wetter='curl wttr.in/austria'
 alias xp='xprop | awk -F\"'" '/CLASS/ {printf \"NAME = %s\nCLASS = %s\n\", \$2, \$4}'"
-alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
-
 alias capmap="setxkbmap -option caps:escape"
-
-# if advanced copy is installed
-# is_advcp=$(command -v cpg)
-# if [ -n "$is_advcp" ];then
-#   alias cp='cpg -g'
-#   alias mv='mvg -g'
-# fi
-# unset is_advcp
-
-alias info_term='echo "curl https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | sudo tic -x -" | xsel -bi'
-alias sort-by-ip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 alias remove-color="sed 's/\x1b\[[0-9;]\{1,\}[a-za-z]//g'"
