@@ -10,5 +10,6 @@ seconds_to_milliseconds() {
     local milliseconds=$(echo "$seconds * 1000" | bc)
     printf "Startup time: %.3f ms\n" $milliseconds
 }
-typeset -F SECONDS
-seconds_to_milliseconds $SECONDS
+# use the following two lines at the end of your .zshrc
+# typeset -F SECONDS
+# seconds_to_milliseconds $SECONDS

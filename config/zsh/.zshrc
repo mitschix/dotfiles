@@ -63,4 +63,8 @@ HISTFILE="$HOME/.config/zsh/zhist"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local ] && \
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zshrc.local
 
+# call the startup timer
+typeset -F SECONDS
+seconds_to_milliseconds $SECONDS
+
 eval "$(starship init zsh)"
