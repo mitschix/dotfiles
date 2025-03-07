@@ -53,6 +53,9 @@ source ~/.config/zsh/custom/alias.zsh
 source ~/.config/zsh/custom/functions.zsh
 source ~/.config/zsh/custom/keybinds.zsh
 
+# source custom/persistent plugins
+for f (~/.config/zsh/plugins/**/*.zsh(N.)) source $f
+
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"
 

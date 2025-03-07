@@ -10,8 +10,6 @@ source /home/$USER/.config/zsh/plugs/init.zsh
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "ael-code/zsh-colored-man-pages"
-zplug "paulmelnikow/zsh-startup-timer"
-zplug "MichaelAquilina/zsh-emojis"
 
 # dont source omz things with zplug -> downloads whole repo
 # # libs
