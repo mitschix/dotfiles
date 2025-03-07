@@ -1,0 +1,22 @@
+# txt file to be used by antidote for plugin management
+zdharma-continuum/fast-syntax-highlighting kind:defer  # Syntax highlighting
+zsh-users/zsh-autosuggestions               # Auto-suggestions
+ael-code/zsh-colored-man-pages kind:defer
+
+# testing
+aloxaf/fzf-tab  # Remove if you don't use fzf
+# jeffreytse/zsh-vi-mode
+
+## zsh utils vs. omz-lib? {{{
+# belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup # Completion styles
+# belak/zsh-utils path:editor # Keybindings
+# belak/zsh-utils path:history # History
+#
+ohmyzsh/ohmyzsh path:lib/completion.zsh
+ohmyzsh/ohmyzsh path:lib/directories.zsh
+ohmyzsh/ohmyzsh path:lib/grep.zsh
+ohmyzsh/ohmyzsh path:lib/history.zsh
+# ohmyzsh/ohmyzsh path:lib/key-bindings.zsh # issue with expndalias + vi-beam
+# }}}
+
+# vim: ft=zsh
