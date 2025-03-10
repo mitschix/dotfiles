@@ -8,7 +8,7 @@ export NNN_TERMINAL='alacritty'
 export NNN_OPTS="Eeao"
 export NNN_PLUG='u:getplugs;p:preview-tui;i:imgview;d:dragdrop;m:nmount;s:suedit'
 
-[ -f ~/.config/zsh/nnn-bookmarks.zsh ] && source ~/.config/zsh//nnn-bookmarks.zsh
+[ -f "$ZDOTDIR"/nnn-bookmarks.zsh ] && source "$ZDOTDIR"/nnn-bookmarks.zsh
 
 n ()
 {
