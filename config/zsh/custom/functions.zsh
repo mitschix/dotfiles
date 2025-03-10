@@ -19,6 +19,12 @@ function stopwatch() {
     done
 }
 
+function ndirdiff() {
+    # Shell-escape each path:
+    DIR1=$(printf '%q' "$1"); shift
+    DIR2=$(printf '%q' "$1"); shift
+    nvim $@ -c "DirDiff $DIR1 $DIR2"
+}
 # }}}
 
 # from archlabs - better ls and cd from archlabs {{{
