@@ -14,7 +14,6 @@ eval `dircolors -b` # needed to load ls colors for completion
 # == source files/folders
 
 # source omz config and plugins
-for f (~/.config/zsh/omz-config/**/*.zsh(N.)) source $f
 for f (~/.config/zsh/omz-plugins/used/**/*.zsh(N.)) source $f
 
 # source custom/persistent plugins
