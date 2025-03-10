@@ -87,3 +87,7 @@ alias remove-color="sed 's/\x1b\[[0-9;]\{1,\}[a-za-z]//g'"
 # stolen from omz urltools plugin (only two lines that matter)
 alias urlencode='python3 -c "import sys; del sys.path[0]; import urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
 alias urldecode='python3 -c "import sys; del sys.path[0]; import urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
+
+# use grep command from OMZ without other magic
+EXC_FOLDERS="{.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv}"
+alias grep="grep --color=auto --exclude-dir=$EXC_FOLDERS"
