@@ -26,12 +26,6 @@ source ~/.config/zsh/custom/clipmenu-conf.zsh
 source ~/.config/zsh/custom/xdgbase-conf.zsh
 source ~/.config/zsh/custom/nnn-conf.zsh
 
-# run once to set server color for prompt
-function set_server_color(){
-    grep -q -e "SERVER_COLOR=[0-9]" /home/$USER/.config/zsh/.zprofile.local &> /dev/null || python -c "import socket; color = sum([ord(ch) for ch in socket.gethostname()])%255; print(f'export SERVER_COLOR={color+100 if color < 100 else color}')" >> /home/$USER/.config/zsh/.zprofile.local
-}
-set_server_color
-
 # load local zprofile file if it exists
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zprofile.local ] && \
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/.zprofile.local
