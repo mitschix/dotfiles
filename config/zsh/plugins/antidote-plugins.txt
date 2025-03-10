@@ -16,7 +16,7 @@ ohmyzsh/ohmyzsh path:lib/completion.zsh
 ohmyzsh/ohmyzsh path:lib/directories.zsh
 ohmyzsh/ohmyzsh path:lib/grep.zsh
 ohmyzsh/ohmyzsh path:lib/history.zsh
-# ohmyzsh/ohmyzsh path:lib/key-bindings.zsh # issue with expndalias + vi-beam
+ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
 # }}}
 
 # vim: ft=zsh

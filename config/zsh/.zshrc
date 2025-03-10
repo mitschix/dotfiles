@@ -46,15 +46,15 @@ fi
 for f (~/.config/zsh/omz-config/**/*.zsh(N.)) source $f
 for f (~/.config/zsh/omz-plugins/used/**/*.zsh(N.)) source $f
 
+# source custom/persistent plugins
+for f (~/.config/zsh/plugins/**/*.zsh(N.)) source $f
+
 # source config files (after omz to overwrite e.g. alias)
 source ~/.config/zsh/custom/zplug.zsh
 source ~/.config/zsh/custom/vim-conf.zsh
 source ~/.config/zsh/custom/alias.zsh
 source ~/.config/zsh/custom/functions.zsh
 source ~/.config/zsh/custom/keybinds.zsh
-
-# source custom/persistent plugins
-for f (~/.config/zsh/plugins/**/*.zsh(N.)) source $f
 
 # overwrite history settings from omz installed with zplug
 HISTFILE="$HOME/.config/zsh/zhist"
