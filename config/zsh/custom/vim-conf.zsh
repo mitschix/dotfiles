@@ -24,7 +24,7 @@ zle -N zle-keymap-select
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
-# Use vim keys in tab complete menu:
+# Use vim keys in tab complete menu (deprecated if used with fzf-tab?):
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 

@@ -1,5 +1,6 @@
 # nnn config file
 export NNN_COLORS='2641'
+export NNN_TERMINAL='alacritty'
 # -a uto-setup temporary NNN_FIFO (described in ENVIRONMENT section)
 # -e open text files in $VISUAL (else $EDITOR, fallback vi)
 # -E use $EDITOR for internal undetached edits
