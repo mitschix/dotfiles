@@ -11,15 +11,10 @@ eval `dircolors -b` # needed to load ls colors for completion
 # fzf installed via nvim
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
-# == source files/folders
-
-# source omz config and plugins
-for f (~/.config/zsh/omz-plugins/used/**/*.zsh(N.)) source $f
-
-# source custom/persistent plugins
+# source plugins custom/persistent + omz lib/plugins
 for f (~/.config/zsh/plugins/**/*.zsh(N.)) source $f
 
-# source config files (after omz to overwrite e.g. alias)
+# source config files (after plugins to overwrite e.g. alias)
 source ~/.config/zsh/custom/vim-conf.zsh
 source ~/.config/zsh/custom/history.zsh
 source ~/.config/zsh/custom/alias.zsh

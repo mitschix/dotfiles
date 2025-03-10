@@ -5,14 +5,30 @@ ael-code/zsh-colored-man-pages kind:defer
 
 # testing
 aloxaf/fzf-tab  # Remove if you don't use fzf
-# jeffreytse/zsh-vi-mode
 
 ## omz lib and plugins {{{
 # lib
 ohmyzsh/ohmyzsh path:lib/completion.zsh
 ohmyzsh/ohmyzsh path:lib/directories.zsh
 ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
-# plugins
+# plugins used
+ohmyzsh/ohmyzsh path:plugins/copybuffer
+ohmyzsh/ohmyzsh path:plugins/copypath
+ohmyzsh/ohmyzsh path:plugins/cp
+ohmyzsh/ohmyzsh path:plugins/dircycle
+ohmyzsh/ohmyzsh path:plugins/dirhistory
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/globalias
+ohmyzsh/ohmyzsh path:plugins/golang
+ohmyzsh/ohmyzsh path:plugins/kubectl
+ohmyzsh/ohmyzsh path:plugins/magic-enter
+ohmyzsh/ohmyzsh path:plugins/rsync
+# plugins useful?
+# ohmyzsh/ohmyzsh path:plugins/singlechar
+# ohmyzsh/ohmyzsh path:plugins/systemadmin
+# ohmyzsh/ohmyzsh path:plugins/systemd
+# ohmyzsh/ohmyzsh path:plugins/vi-mode
 # }}}
 
 # vim: ft=zsh
