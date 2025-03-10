@@ -7,7 +7,6 @@ autoload -U colors && colors
 
 # load configs from ohmyzsh l
 eval `dircolors -b` # needed to load ls colors for completion
-LS_COLORS+=':ow=01;33' # quickfix for windoof folder permissions
 
 # fzf installed via nvim
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
