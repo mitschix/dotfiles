@@ -83,6 +83,7 @@ WINDOW_ICONS = {
     "mupdf": fa.icons["file-pdf"],
     "mysql-workbench-bin": fa.icons["database"],
     "nm-connection-editor": fa.icons["wifi"],
+    "obsidian": fa.icons["paperclip"],
     "org-openstreetmap-josm-gui-mainapplication": fa.icons["map"],
     "pavucontrol": fa.icons["volume-up"],
     "pluma": fa.icons["file-alt"],
