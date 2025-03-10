@@ -11,7 +11,6 @@ aloxaf/fzf-tab  # Remove if you don't use fzf
 # lib
 ohmyzsh/ohmyzsh path:lib/completion.zsh
 ohmyzsh/ohmyzsh path:lib/directories.zsh
-ohmyzsh/ohmyzsh path:lib/history.zsh
 ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
 # plugins
 # }}}
