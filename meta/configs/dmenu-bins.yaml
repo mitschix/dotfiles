@@ -1,11 +1,4 @@
 - link:
-    ~/.local/bin/dm_emoji: bin/dm_emoji
+    ~/.local/bin/dm_configs: bin/dm_configs
     ~/.local/bin/dm_monitors: bin/dm_monitors
     ~/.local/bin/dm_mount: bin/dm_mount
-- shell:
-    -
-        command: mkdir -pv ~/.local/share/ && curl https://raw.githubusercontent.com/mitschix/emoji-short-name-list/master/emoji -o ~/.local/share/emoji
-        description: "Download the emoji file for emoji dmenu"
-        stdin: true
-        stdout: true
-        stderr: true

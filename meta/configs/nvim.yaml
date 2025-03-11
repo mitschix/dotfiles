@@ -4,5 +4,5 @@
 - link:
     ~/.config/nvim: config/nvim
 
-# - shell:
-#     - ["nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'", "Install/Update Plugins"]
+- shell:
+    - ['nvim --headless +qa && nvim --headless "+Lazy! sync" +qa', "Install plugin manager and update Plugins"]
