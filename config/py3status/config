@@ -12,19 +12,15 @@ general {
         output_format = "i3bar"
 }
 
-# order += "i3block news"
-# order += "usbguard"
 order += 'spotify'
 order += "i3block weather"
 order += 'group pomodoro'
-#order += "scratchpad"
 order += "group disks"
 order += "group sysdata"
 order += "group network"
 order += "online_status"
 order += "volume_status mic"
 order += "volume_status default"
-order += "volume_status flybit"
 order += "volume_status crusher"
 order += "bluetooth"
 order += "backlight"
@@ -93,50 +89,33 @@ bluetooth {
 }
 
 volume_status default{
-    device = "alsa_output.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo"
-        command = 'pactl'
-        format = '♪ {percentage}%'
-        format_muted = ' {percentage}%'
-        on_click 2 = "exec pactl set-default-sink alsa_output.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo"
-}
-
-# I also can activate a remote bluetooth speaker by clicking on this,
-# when it connects the sound percentage appears, I can switch output
-# to it by middle clicking or disconnect it by right clicking
-volume_status flybit {
-    command = "pactl"
-        device = "bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
-        format = "[\?if=!percentage=? 🪰♪ {percentage}%][\?if=percentage=? 🪰]"
-        format_muted = '🪰 {percentage}%'
-        on_click 2 = "exec pactl set-default-sink bluez_sink.00_00_AB_CD_59_01.a2dp_sink"
-        on_click 1 = "exec bluetoothctl connect 00:00:AB:CD:59:01"
-        on_click 3 = "exec bluetoothctl disconnect 00:00:AB:CD:59:01"
-        max_volume = 200
-        cache_timeout = 2
-}
-
-volume_status crusher {
-    command = "pactl"
-    device = "bluez_sink.38_F3_2E_25_6B_BA.a2dp_sink"
-    format = "[\?if=!percentage=? 🎧♪ {percentage}%][\?if=percentage=? 🎧]"
-    format_muted = '🎧 {percentage}%'
-    on_click 2 = "exec pactl set-default-sink bluez_sink.38_F3_2E_25_6B_BA.a2dp_sink"
-    on_click 1 = "exec bluetoothctl connect 38:F3:2E:25:6B:BA"
-    on_click 3 = "exec bluetoothctl disconnect 38:F3:2E:25:6B:BA"
-    max_volume = 200
-    cache_timeout = 2
+        format = '🔊 {percentage}%'
+        format_muted = '🔇 {percentage}%'
 }
 
 volume_status mic {
-    format = ' {percentage}%'
-        format_muted = ' {percentage}%'
-        command = 'pactl'
-        device = 'alsa_input.usb-Razer_Inc_Razer_Seiren_X_UC2121L01201827-00.analog-stereo'
+        format = '😦 {percentage}%'
+        format_muted = '🤫 {percentage}%'
         button_down = 5
         button_mute = 1
         button_up = 4
         is_input = true
         thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
+}
+
+# I also can activate a remote bluetooth speaker by clicking on this,
+# when it connects the sound percentage appears, I can switch output
+# to it by middle clicking or disconnect it by right clicking
+volume_status crusher {
+    command = "pactl"
+        device = env(PY3STATUS_BLUETOOTH)
+        format = "[\?if=!percentage=? 🎧♪ {percentage}%][\?if=percentage=? 🎧]"
+        format_muted = '🎧 {percentage}%'
+        on_click 2 = "exec pactl set-default-sink " + env(PY3STATUS_BLUETOOTH)
+        on_click 1 = "exec bluetoothctl connect " + env(PY3STATUS_BLUETOOTH)
+        on_click 3 = "exec bluetoothctl disconnect " + env(PY3STATUS_BLUETOOTH)
+        max_volume = 200
+        cache_timeout = 2
 }
 
 group pomodoro {
