@@ -7,7 +7,6 @@ export PAGER="less -r"
 
 # source env settings from custom config
 source "$ZDOTDIR"/custom/nnn-conf.zsh
-source "$ZDOTDIR"/custom/xdgbase-conf.zsh
 source "$ZDOTDIR"/custom/clipmenu-conf.zsh
 
 # Begin added by argcomplete

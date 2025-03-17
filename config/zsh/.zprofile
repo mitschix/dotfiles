@@ -1,3 +1,7 @@
+# source xdg settings from custom config
+# since they are no longer default?
+source "$ZDOTDIR"/custom/xdgbase-conf.zsh
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
