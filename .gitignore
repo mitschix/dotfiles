@@ -7,3 +7,5 @@ config/zsh/*.local
 config/zsh/.zshrc.zwc
 config/zsh/.antidote
 config/zsh/plugins/antidote-plugins.zsh
+
+config/py3status/config*
