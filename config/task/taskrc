@@ -3,4 +3,5 @@
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 include dark-green-256.theme
-news.version=3.3.1
+# disable news for now
+news.version=9.9.9
