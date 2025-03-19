@@ -1,7 +1,10 @@
-# To use the default location of the XDG directories,
-# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 include dark-green-256.theme
+
+# config for task sync server - store secrets in extra file
+sync.server.url=https://todo.mi0tectis.at/
+include sync-config
+
 # disable news for now
 news.version=9.9.9

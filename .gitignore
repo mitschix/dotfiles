@@ -9,3 +9,4 @@ config/zsh/.antidote
 config/zsh/plugins/antidote-plugins.zsh
 
 config/py3status/config*
+config/task/sync-config
