@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm sxiv htop feh keepassxc picom ripgrep
+        command: sudo pacman -S --needed --noconfirm sxiv htop feh keepassxc picom ripgrep jq
         description: "Install other command line utils"
         stdin: true
         stdout: true
