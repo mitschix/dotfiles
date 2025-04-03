@@ -1,7 +1,7 @@
 - shell:
-    -
-        command: sudo pacman -S --needed --noconfirm sxiv htop feh keepassxc picom ripgrep jq
-        description: "Install other command line utils"
-        stdin: true
-        stdout: true
-        stderr: true
+   -
+    command: sudo pacman -S --needed --noconfirm python python-pip go nodejs npm unzip gcc jq which less make man-pages
+    description: "Install base utility tools for further installation and usage"
+    stdin: true
+    stdout: true
+    stderr: true

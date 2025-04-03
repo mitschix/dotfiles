@@ -1,13 +1,13 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm i3-gaps xorg-xprop xautolock
-        description: "Install i3 gaps"
+        command: sudo pacman -S --needed --noconfirm i3-gaps picom xorg-xprop xautolock xss-lock python-i3ipc
+        description: "Install i3 gaps with lockscreen and compositor + autoname workspace dependencies"
         stdin: true
         stdout: true
         stderr: true
     -
-        command: pip install i3ipc fontawesome
-        description: "Install dependencies for icons in tray"
+        command: pip install --break-system-packages fontawesome
+        description: "Install pip dependencies for icons in autoname workspace"
         stdin: true
         stdout: true
         stderr: true
