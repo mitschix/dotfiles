@@ -1,2 +1,8 @@
+- shell:
+    - command: "cd config/py3status && make && cd -"
+      description: "Run make to install py3status config"
+      stderr: true
+      quiet: true
+
 - link:
     ~/.config/py3status: config/py3status
