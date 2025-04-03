@@ -5,4 +5,4 @@
     ~/.config/nvim: config/nvim
 
 - shell:
-    - ['GOPATH=$HOME/.local/share/go nvim --headless +qa && nvim --headless "+Lazy! sync && nvim --headless "+MasonToolsUpdateSync!" +qa', "Install plugin manager and update Plugins"]
+    - ['GOPATH=$HOME/.local/share/go nvim --headless +qa && nvim --headless "+Lazy! sync && nvim --headless +MasonToolsInstallSync +MasonToolsUpdateSync +qa', "Install plugin manager, update Plugins and install lsps"]
