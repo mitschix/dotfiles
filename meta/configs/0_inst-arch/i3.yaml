@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm i3-gaps picom xorg-xprop xautolock xss-lock python-i3ipc
+        command: sudo pacman -S --needed --noconfirm i3-gaps picom xorg-xprop xss-lock python-i3ipc
         description: "Install i3 gaps with lockscreen and compositor + autoname workspace dependencies"
         stdin: true
         stdout: true
