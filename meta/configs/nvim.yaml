@@ -1,5 +1,5 @@
 - shell:
-    - ["git submodule update --remote --merge --recursive", "Installing submodules"]
+    - ["git submodule update --remote --merge --recursive config/nvim", "Installing submodules"]
 
 - link:
     ~/.config/nvim: config/nvim
