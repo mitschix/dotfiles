@@ -1,7 +1,9 @@
+0_inst-arch/utils
+0_inst-arch/cli-tools
 0_inst-arch/i3
+0_inst-arch/gui-tools
 0_inst-arch/py3status
 0_inst-arch/rofi
 0_inst-arch/zsh
 0_inst-arch/nvim
 0_inst-arch/dunst
-0_inst-arch/utils
