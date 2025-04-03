@@ -1,6 +1,6 @@
 - shell:
     -
-        command: sudo pacman -S --needed --noconfirm starship diskonaut ripgrep htop nnn task udevil ipython lazygit
+        command: sudo pacman -S --needed --noconfirm starship diskonaut ripgrep htop nnn task ipython lazygit
         description: "Install other command line utils"
         stdin: true
         stdout: true
