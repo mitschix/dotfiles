@@ -1,8 +1,13 @@
 - shell:
-    - ["git submodule update --remote --merge --recursive config/nvim", "Installing submodules"]
+  - ["git submodule update --remote --merge --recursive config/nvim", "Installing submodules"]
 
 - link:
-    ~/.config/nvim: config/nvim
+  ~/.config/nvim: config/nvim
 
 - shell:
-    - ['GOPATH=$HOME/.local/share/go nvim --headless +qa && nvim --headless "+Lazy! sync" +qa && nvim --headless +MasonToolsUpdateSync +qa', "Install plugin manager, update Plugins and install lsps"]
+   -
+    command: GOPATH=$HOME/.local/share/go nvim --headless +qa && nvim --headless "+Lazy! sync" +qa && nvim --headless +MasonToolsUpdateSync +qa
+    description: "Install plugin manager, update Plugins and install lsps"
+    stdin: true
+    stdout: true
+    stderr: true
