@@ -1,5 +1,5 @@
-install/dunst
-install/gui-tools
-install/i3
-install/py3status
-install/rofi
+install/gui/dunst
+install/gui/gui-tools
+install/gui/i3
+install/gui/py3status
+install/gui/rofi

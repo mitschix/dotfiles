@@ -1,5 +1,5 @@
-install/utils
-install/cli-tools
-install/nvim
-install/zsh
-install/fasder
+install/cli/utils
+install/cli/cli-tools
+install/cli/nvim
+install/cli/zsh
+install/cli/fasder
