@@ -1,4 +1,4 @@
 install/utils
 install/cli-tools
-install/zsh
 install/nvim
+install/zsh
