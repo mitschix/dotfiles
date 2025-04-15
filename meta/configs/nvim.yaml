@@ -2,7 +2,7 @@
   - ["git submodule update --remote --merge --recursive config/nvim", "Installing submodules"]
 
 - link:
-  ~/.config/nvim: config/nvim
+    ~/.config/nvim: config/nvim
 
 - shell:
    -
