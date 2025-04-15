@@ -1,0 +1,5 @@
+tools/git
+tools/nvim
+tools/starship
+tools/task
+tools/zsh
