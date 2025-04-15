@@ -2,7 +2,7 @@
     ~/.config/zsh: config/zsh
     ~/.zshenv: config/zsh/zshenv
 - shell:
-    - command: "zsh -c 'sleep 5s && exit'"
+    - command: "source ~/.config/zsh && zsh -c 'sleep 5s && exit'"
       description: "Run zsh to install antidote with plugins"
       stderr: true
       quiet: true
