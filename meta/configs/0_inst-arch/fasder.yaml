@@ -1,13 +1,9 @@
 - shell:
-  -
-    command: git clone https://github.com/wyne/fasder /tmp/fasder
-    description: "Cloning fasder directory to tmp"
-  -
-    command: cd /tmp/fasder && go build
-    description: "Building fasder binary in repository"
-  -
-    command: mv /tmp/fasder/fasder $HOME/.local/bin/
-    description: "Move fasder binary to PATH"
-  -
-    command: rm -rf /tmp/fasder
-    description: "Clean up fasder tmp"
+    - command: git clone https://github.com/wyne/fasder /tmp/fasder
+      description: "Cloning fasder directory to tmp"
+    - command: cd /tmp/fasder && go build
+      description: "Building fasder binary in repository"
+    - command: mv /tmp/fasder/fasder $HOME/.local/bin/
+      description: "Move fasder binary to PATH"
+    - command: rm -rf /tmp/fasder
+      description: "Clean up fasder tmp"

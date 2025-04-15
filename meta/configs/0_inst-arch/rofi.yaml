@@ -1,7 +1,6 @@
 - shell:
-    -
-        command: sudo pacman -S --needed --noconfirm rofi rofi-emoji
-        description: "Install rofi"
-        stdin: true
-        stdout: true
-        stderr: true
+    - command: sudo pacman -S --needed --noconfirm rofi rofi-emoji
+      description: "Install rofi"
+      stdin: true
+      stdout: true
+      stderr: true

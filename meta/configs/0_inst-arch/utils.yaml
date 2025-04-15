@@ -1,7 +1,6 @@
 - shell:
-   -
-    command: sudo pacman -S --needed --noconfirm python python-pip tree-sitter-cli go nodejs npm unzip gcc jq which less make man-pages bc
-    description: "Install base utility tools for further installation and usage"
-    stdin: true
-    stdout: true
-    stderr: true
+    - command: sudo pacman -S --needed --noconfirm python python-pip tree-sitter-cli go nodejs npm unzip gcc jq which less make man-pages bc
+      description: "Install base utility tools for further installation and usage"
+      stdin: true
+      stdout: true
+      stderr: true

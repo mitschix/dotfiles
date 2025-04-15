@@ -1,7 +1,6 @@
 - shell:
-    -
-        command: sudo pacman -S --needed --noconfirm keepassxc sxiv feh redshift zathura zathura-pdf-poppler xsel alacritty clipmenu dex networkmanager network-manager-applet nm-connection-editor obsidian
-        description: "Install other command line utils"
-        stdin: true
-        stdout: true
-        stderr: true
+    - command: sudo pacman -S --needed --noconfirm keepassxc sxiv feh redshift zathura zathura-pdf-poppler xsel alacritty clipmenu dex networkmanager network-manager-applet nm-connection-editor obsidian
+      description: "Install other command line utils"
+      stdin: true
+      stdout: true
+      stderr: true

@@ -1,7 +1,6 @@
 - link:
     ~/.config/zsh: config/zsh
     ~/.zshenv: config/zsh/zshenv
-
 - shell:
     - command: "zsh"
       description: "Run zsh to install antidote with plugins"

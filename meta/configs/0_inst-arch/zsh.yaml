@@ -1,9 +1,7 @@
 - shell:
-    -
-      command: sudo pacman -S --needed --noconfirm zsh fasd
+    - command: sudo pacman -S --needed --noconfirm zsh fasd
       description: "Install zsh"
       stdin: true
-    -
-      command: "echo $SHELL | grep zsh || chsh -s $(which zsh)"
+    - command: "echo $SHELL | grep zsh || chsh -s $(which zsh)"
       description: "Change shell to zsh. Please enter password for user."
       stdin: true
