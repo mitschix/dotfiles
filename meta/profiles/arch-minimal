@@ -2,3 +2,4 @@ install/utils
 install/cli-tools
 install/nvim
 install/zsh
+install/fasder
