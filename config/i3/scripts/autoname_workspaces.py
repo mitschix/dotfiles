@@ -36,7 +36,6 @@ import sys
 
 import fontawesome as fa
 import i3ipc
-
 from util import *
 
 # Add icons here for common programs you use.  The keys are the X window class
@@ -89,6 +88,7 @@ WINDOW_ICONS = {
     "pluma": fa.icons["file-alt"],
     "postman": fa.icons["space-shuttle"],
     "qbittorrent": fa.icons["download"],
+    "qutebrowser": fa.icons["newspaper"],
     "shutter": fa.icons["camera"],
     "signal": fa.icons["comment"],
     "spotify": fa.icons["spotify"],
