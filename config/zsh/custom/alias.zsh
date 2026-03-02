@@ -91,3 +91,16 @@ alias urldecode='python3 -c "import sys; del sys.path[0]; import urllib.parse as
 # use grep command from OMZ without other magic
 EXC_FOLDERS="{.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv}"
 alias grep="grep --color=auto --exclude-dir=$EXC_FOLDERS"
+
+# kubectl alias
+has_kubectl=$(command -v kubectl)
+if [ -n "$has_kubectl" ];then
+    alias kg='kubectl get'
+    alias kd='kubectl describe'
+    has_kubecolor=$(command -v kubecolor)
+    if [ -n "$has_kubecolor" ];then
+        alias kubectl='kubecolor'
+    fi
+    unset has_kubecolor
+fi
+unset has_kubectl
