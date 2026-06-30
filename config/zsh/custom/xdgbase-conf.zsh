@@ -11,10 +11,12 @@ export LESSHISTFILE=-
 export GIT_DIR="$XDG_CONFIG_HOME/git"
 # move go home
 export GOPATH="$XDG_DATA_HOME/go"
+export PATH="$XDG_DATA_HOME/go/bin:$PATH"
 # move ruby .cargo dir
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # move .npm/npm -> ! npmrc need to be created and edited
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PATH="$XDG_DATA_HOME/node/bin:$PATH"
 # move .xinitrc -> ! need to be placed at startx >exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 # move .vscode-oss -> ! is not documented and might break unexpectedly
