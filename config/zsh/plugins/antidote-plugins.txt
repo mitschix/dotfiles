@@ -15,7 +15,7 @@ ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
 ohmyzsh/ohmyzsh path:plugins/copybuffer
 ohmyzsh/ohmyzsh path:plugins/copypath
 ohmyzsh/ohmyzsh path:plugins/cp
-# ohmyzsh/ohmyzsh path:plugins/dircycle -> does not work anymore?
+ohmyzsh/ohmyzsh path:plugins/dircycle
 ohmyzsh/ohmyzsh path:plugins/dirhistory
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/git
