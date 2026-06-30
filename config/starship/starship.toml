@@ -1,7 +1,7 @@
 add_newline = false
 format = '''${custom.time_mood}$time$hostname$username$directory$cmd_duration
 $sudo$character'''
-right_format = '$all${custom.docker}'
+right_format = '${custom.kubert}$all${custom.docker}'
 
 [time]
 disabled = false
@@ -53,6 +53,15 @@ format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
 
 [golang]
 format = '[](bold cyan) '
+
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](blue) '
+disabled = false
+
+[custom.kubert]
+description = "Shows the kubernetes symbol if KUBERT_SHELL_ACTIVE is set"
+command = "echo ☸  "
+when = 'test -n "$KUBERT_SHELL_ACTIVE"'
 
 [custom.docker]
 description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
