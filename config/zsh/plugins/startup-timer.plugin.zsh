@@ -2,13 +2,13 @@
 # never merged PR => just use the relevant part
 
 seconds_to_milliseconds() {
-    if [[ -z $1 ]]; then
-        echo "Usage: seconds_to_milliseconds <seconds>"
-        return 1
-    fi
-    local seconds=$1
-    local milliseconds=$(echo "$seconds * 1000" | bc)
-    printf "Startup time: %.3f ms\n" $milliseconds
+  if [[ -z $1 ]]; then
+    echo "Usage: seconds_to_milliseconds <seconds>"
+    return 1
+  fi
+  local seconds=$1
+  local milliseconds=$(echo "$seconds * 1000" | bc)
+  printf "Startup time: %.3f ms\n" $milliseconds
 }
 # use the following two lines at the end of your .zshrc
 # typeset -F SECONDS

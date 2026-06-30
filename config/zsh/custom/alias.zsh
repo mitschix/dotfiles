@@ -22,21 +22,21 @@ alias -g G='| grep'
 alias -g RG='| rg'
 
 # "inspired" by https://github.com/Jxck/dotfiles/blob/master/zsh/common.zsh
-alias -g N="1>/dev/null 2>/dev/null"          # No Output
-alias -g B="1>/dev/null 2>/dev/null &"        # Background
-alias -g A="2>&1"                             # All (merge stdout/err)
-alias -g C="2>&1 | color"                     # Color (All then colorize) --> bin from jxck
-alias -g H="| xxd -g 1 -c 4"                  # Hex
+alias -g N="1>/dev/null 2>/dev/null"   # No Output
+alias -g B="1>/dev/null 2>/dev/null &" # Background
+alias -g A="2>&1"                      # All (merge stdout/err)
+alias -g C="2>&1 | color"              # Color (All then colorize) --> bin from jxck
+alias -g H="| xxd -g 1 -c 4"           # Hex
 
 is_dragon=$(command -v dragon-drop)
-if [ -n "$is_dragon" ];then
-    alias drag="dragon-drop -x -i"
+if [ -n "$is_dragon" ]; then
+  alias drag="dragon-drop -x -i"
 fi
 unset is_dragon
 
 # package manager alias {{{
 is_arch=$(command -v pacman)
-if [ -n "$is_arch" ];then
+if [ -n "$is_arch" ]; then
   alias pls="pacman -Ql"        # list files
   alias pup="sudo pacman -Syyu" # update
   alias pin="sudo pacman -S"    # install
@@ -45,13 +45,13 @@ if [ -n "$is_arch" ];then
   alias prm="sudo pacman -Rnsc" # really remove, configs and all
   alias plast="tac /var/log/pacman.log | sed -n '/full system upgrade/q;s/.*\[ALPM\] upgraded //p'"
   is_yay=$(command -v yay)
-  if [ -n "$is_yay" ];then
-    alias yls='yay -Qqm'        # list files
-    alias yup='yay'             # update
-    alias yin='yay -S'          # install
-    alias yun='yay -Rs'         # remove
-    alias ycc='yay -Scc'        # clear cache
-    alias yrm='yay -Rnsc'       # really remove, configs and all
+  if [ -n "$is_yay" ]; then
+    alias yls='yay -Qqm'  # list files
+    alias yup='yay'       # update
+    alias yin='yay -S'    # install
+    alias yun='yay -Rs'   # remove
+    alias ycc='yay -Scc'  # clear cache
+    alias yrm='yay -Rnsc' # really remove, configs and all
   fi
   unset is_yay
 else
@@ -73,8 +73,8 @@ alias sort-by-ip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 
 # git alias
 has_lazygit=$(command -v lazygit)
-if [ -n "$has_lazygit" ];then
-    alias g='lazygit' # need lazygit installed
+if [ -n "$has_lazygit" ]; then
+  alias g='lazygit' # need lazygit installed
 fi
 unset has_lazygit
 
@@ -94,14 +94,14 @@ alias grep="grep --color=auto --exclude-dir=$EXC_FOLDERS"
 
 # kubectl alias
 has_kubectl=$(command -v kubectl)
-if [ -n "$has_kubectl" ];then
-    alias kg='kubectl get'
-    alias kd='kubectl describe'
-    has_kubecolor=$(command -v kubecolor)
-    if [ -n "$has_kubecolor" ];then
-        alias kubectl='kubecolor'
-        compdef kubecolor=kubectl
-    fi
-    unset has_kubecolor
+if [ -n "$has_kubectl" ]; then
+  alias kg='kubectl get'
+  alias kd='kubectl describe'
+  has_kubecolor=$(command -v kubecolor)
+  if [ -n "$has_kubecolor" ]; then
+    alias kubectl='kubecolor'
+    compdef kubecolor=kubectl
+  fi
+  unset has_kubecolor
 fi
 unset has_kubectl

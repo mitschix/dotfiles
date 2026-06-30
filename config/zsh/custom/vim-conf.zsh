@@ -5,16 +5,16 @@ bindkey -v
 KEYTIMEOUT=5
 
 # Use beam shape cursor for vi insert mode (default)
-make_beam() { echo -ne '\e[5 q' }
+make_beam() { echo -ne '\e[5 q'; }
 # Use block shape cursor for vi normal mode
-make_block() { echo -ne '\e[1 q' }
+make_block() { echo -ne '\e[1 q'; }
 
 # Change cursor shape for different vi modes.
 function zle-line-init zle-keymap-select {
-	case ${KEYMAP} in
-		(vicmd)      make_block ;;
-		(main|viins) make_beam ;;
-	esac
+  case ${KEYMAP} in
+  vicmd) make_block ;;
+  main | viins) make_beam ;;
+  esac
 }
 
 zle -N zle-line-init

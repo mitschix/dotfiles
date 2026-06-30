@@ -4,11 +4,11 @@ compinit
 
 # ls colors
 autoload -U colors && colors
-eval `dircolors -b` # needed to load ls colors for completion
+eval $(dircolors -b) # needed to load ls colors for completion
 
 # fzf installed via nvim
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && \
-    source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] &&
+  source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 # source plugins custom/persistent + omz lib/plugins
 for f ("$ZDOTDIR"/plugins/**/*.zsh(N.)) source $f

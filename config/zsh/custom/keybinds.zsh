@@ -1,8 +1,8 @@
 # custom keybindings -> add/fix to omz keys
 
-bindkey '^F' forward-word                        # [Ctrl-F] - move forward one word
-bindkey '^D' backward-word                       # [Ctrl-D] - move backward one word
-bindkey '^K' forward-char                       # [Ctrl-K] - move forward one char -- accept autosuggestion
+bindkey '^F' forward-word  # [Ctrl-F] - move forward one word
+bindkey '^D' backward-word # [Ctrl-D] - move backward one word
+bindkey '^K' forward-char  # [Ctrl-K] - move forward one char -- accept autosuggestion
 
 # fix for wrong terminfo
 # vim insert mode
@@ -22,4 +22,3 @@ bindkey "^xs" sudo-command-line
 bindkey "^x'" toggleSingleString
 bindkey '^x"' toggleDoubleString
 bindkey '^x;' clearString
-
