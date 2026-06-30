@@ -100,6 +100,7 @@ if [ -n "$has_kubectl" ];then
     has_kubecolor=$(command -v kubecolor)
     if [ -n "$has_kubecolor" ];then
         alias kubectl='kubecolor'
+        compdef kubecolor=kubectl
     fi
     unset has_kubecolor
 fi
