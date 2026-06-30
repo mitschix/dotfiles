@@ -10,5 +10,5 @@ source "$ZDOTDIR"/custom/nnn-conf.zsh
 source "$ZDOTDIR"/custom/clipmenu-conf.zsh
 
 # Begin added by argcomplete
-fpath=( /usr/lib/python3.14/site-packages/argcomplete/bash_completion.d "${fpath[@]}" )
+fpath=(/usr/lib/python3.14/site-packages/argcomplete/bash_completion.d "${fpath[@]}")
 # End added by argcomplete

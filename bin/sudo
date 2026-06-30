@@ -7,14 +7,11 @@ _sudo=$(command -pv sudo)
 cmd=$1
 
 case "$cmd" in
-    $VISUAL|$EDITOR)
-        shift
-        sudoedit $@
-        ;;
-    *)
-        $_sudo $@
-        ;;
+$VISUAL | $EDITOR)
+  shift
+  sudoedit $@
+  ;;
+*)
+  $_sudo $@
+  ;;
 esac
-
-
-
