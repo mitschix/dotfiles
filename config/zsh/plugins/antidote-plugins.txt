@@ -24,6 +24,7 @@ ohmyzsh/ohmyzsh path:plugins/golang
 ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/rsync
+ohmyzsh/ohmyzsh path:plugins/terraform
 # plugins useful?
 # ohmyzsh/ohmyzsh path:plugins/singlechar
 # ohmyzsh/ohmyzsh path:plugins/systemadmin
