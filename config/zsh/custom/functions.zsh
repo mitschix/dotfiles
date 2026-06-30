@@ -176,3 +176,70 @@ function sudo-command-line () {
 }
 zle -N sudo-command-line
 # }}}
+
+# useful kubernetes functions for kustomize and from fzf documentation {{{
+k8s_sort_split_kustomize() {
+  yq -i -p 'sort_keys(..)' "$1"
+  yq -s 'select(.kind != null and .metadata.name != null)|.kind +"-"+ .metadata.name +".yaml"' "$1"
+  kustomize create --autodetect
+  kustomize edit remove resource "$1"
+}
+
+k8s_add_stage() {
+  if [ -z "$1" ]; then
+    echo "usage: add_k8s_stage <stage-name> [namespace]"
+    return 1
+  fi
+  namespace=${2:-$1}
+  echo "adding k8s stage: $1"
+  mkdir -v "$1" && cd "$1" || return
+  echo "creating kustomization in $(pwd)"
+  kustomize create --resources ../base
+  echo "setting namespace to $namespace"
+  kustomize edit set namespace "$namespace"
+  cd .. > /dev/null || return
+}
+
+k8s_get_pw(){
+  if [ -z "$1" ]; then
+    choice=$(kubectl get secret -o name | sed 's|^secret/||' | fzf --prompt="select a secret: " -m)
+    echo "selected secret: $choice"
+    kubectl get secret "$choice" -o yaml | yq .data.password | base64 -d | xsel -bi
+    echo "password for $choice copied to clipboard."
+  else
+    kubectl get secret "$1" -o yaml | yq .data.password | base64 -d | xsel -bi
+    echo "password for $1 copied to clipboard."
+  fi
+}
+
+is_fzf=$(command -v fzf)
+if [ -n "$is_fzf" ];then
+    pods() {
+      fzf \
+        --info=inline --layout=reverse --header-lines=1 \
+        --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
+        --header $'╱ enter (kubectl exec -- bash) ╱ ctrl-o (open log in editor) ╱ ctrl-r (reload) ╱\n\n' \
+        --bind 'start,ctrl-r:reload:kubectl get pods' \
+        --bind 'ctrl-/:change-preview-window(80%,border-bottom|hidden|)' \
+        --bind 'enter:execute:kubectl exec -it {1} -- bash' \
+        --bind 'ctrl-o:execute:${editor:-vim} <(kubectl logs --all-containers {1})' \
+        --preview-window up:follow \
+        --preview 'kubectl logs --follow --all-containers --tail=10000 {1}' "$@"
+    }
+
+    podsa() {
+      command='' fzf \
+        --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
+        --header $'╱ enter (kubectl exec -- bash) ╱ ctrl-o (open log in editor) ╱ ctrl-r (reload) ╱\n\n' \
+        --bind 'start,ctrl-r:reload:kubectl get pods --all-namespaces' \
+        --bind 'ctrl-/:change-preview-window(80%,border-bottom|hidden|)' \
+        --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- bash' \
+        --bind 'ctrl-o:execute:${editor:-vim} <(kubectl logs --all-containers --namespace {1} {2})' \
+        --preview-window up:follow \
+        --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
+    }
+fi
+unset is_fzf
+
+alias kgnr="k get nodes --no-headers | awk '{print \$1}' | xargs -i {} sh -c 'echo {} ; kubectl describe node {} | grep allocated -a 5 | grep -ve event -ve allocated -ve percent -ve -- ; echo '"
+# }}}
