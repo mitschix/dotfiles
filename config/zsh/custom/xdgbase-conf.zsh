@@ -7,13 +7,12 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 # disable less history
 export LESSHISTFILE=-
 
-# add gitdir
-export GIT_DIR="$XDG_CONFIG_HOME/git"
 # move go home
 export GOPATH="$XDG_DATA_HOME/go"
-export PATH="$XDG_DATA_HOME/go/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 # move ruby .cargo dir
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PATH="$CARGO_HOME/bin:$PATH"
 # move .npm/npm -> ! npmrc need to be created and edited
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PATH="$XDG_DATA_HOME/node/bin:$PATH"
