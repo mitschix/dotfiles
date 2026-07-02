@@ -27,5 +27,6 @@ source "$ZDOTDIR"/custom/keybinds.zsh
 typeset -F SECONDS
 seconds_to_milliseconds $SECONDS
 
-eval "$(kubert shell-init zsh)"
+[ -n "$(command -v kubert)" ] && eval "$(kubert shell-init zsh)"
+
 eval "$(starship init zsh)"
