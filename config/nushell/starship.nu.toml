@@ -1,0 +1,22 @@
+add_newline = false
+format = '''$kubernetes${custom.kubert}
+$directory$cmd_duration'''
+
+# TODO: https://github.com/starship/starship/issues/4577
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+truncation_symbol = '.../'
+
+format = '[\[ $path \]]($style)[$read_only]($read_only_style) '
+repo_root_style = 'bold purple'
+repo_root_format = '[\[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path \]]($style)[$read_only]($read_only_style) '
+
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](blue) '
+disabled = false
+
+[custom.kubert]
+description = "Shows the kubernetes symbol if KUBERT_SHELL_ACTIVE is set"
+command = "echo ☸  "
+when = 'if $env.KUBERT_SHELL_ACTIVE? == null { exit 1 }'

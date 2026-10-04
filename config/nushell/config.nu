@@ -1,6 +1,11 @@
 # Nushell configuration
 $env.config.show_banner = false
 
+# configure prompt
+$env.STARSHIP_CONFIG = ($nu.home-dir | path join ".config" "nushell" "starship.nu.toml")
+$env.STARSHIP_SHELL = "nu"
+$env.PROMPT_COMMAND = {starship prompt}
+
 # vi modes
 $env.config.edit_mode = "vi"
 $env.config.cursor_shape = { vi_insert: "line", vi_normal: "block" }
