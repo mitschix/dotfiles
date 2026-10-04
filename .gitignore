@@ -10,3 +10,5 @@ config/zsh/plugins/antidote-plugins.zsh
 
 config/py3status/config*
 config/task/sync-config
+
+/config/nushell/history.*
