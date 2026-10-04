@@ -1,0 +1,7 @@
+- shell:
+    - command: sudo pacman -S --needed --noconfirm nushell
+      description: "Install zsh"
+      stdin: true
+    - command: sudo yay -S carapace-bin
+      description: "Install carapace for completion in nushell"
+      stdin: true

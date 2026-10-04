@@ -1,10 +1,12 @@
 install/cli/utils
 install/cli/cli-tools
 install/cli/fasder
+install/cli/nushell
 install/cli/nvim
 install/cli/zsh
 
 tools/git
+tools/nushell
 tools/nvim
 tools/starship
 tools/task

@@ -1,5 +1,6 @@
 install/cli/utils
 install/cli/cli-tools
+install/cli/nushell
 install/cli/nvim
 install/cli/zsh
 install/cli/fasder

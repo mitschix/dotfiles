@@ -1,4 +1,5 @@
 tools/git
+tools/nushell
 tools/nvim
 tools/starship
 tools/task
