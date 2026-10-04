@@ -1,0 +1,223 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/kimi-k2.7-code",
+  "agents": {
+    "title": {
+      "model": "opencode/qwen3.8-flash#low"
+    }
+  },
+  // ordered: last matching rule wins.
+  // shell patterns end in " *" so they also match the command without arguments.
+  "permissions": [
+    // read - outside of project ("*" spans "/", so this covers ~ too)
+    {
+      "action": "read",
+      "resource": "/*",
+      "effect": "deny"
+    },
+    // read - inside the project
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    // secrets
+    {
+      "action": "read",
+      "resource": "*.env*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.env.example",
+      "effect": "allow"
+    },
+    {
+      "action": "read",
+      "resource": "*secret*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*token*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*password*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "credentials/*",
+      "effect": "deny"
+    },
+    // certificates
+    {
+      "action": "read",
+      "resource": "*.pem",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.key",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.crt",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.p12",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.keystore",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.jks",
+      "effect": "deny"
+    },
+    // other
+    {
+      "action": "read",
+      "resource": ".git/*",
+      "effect": "deny"
+    },
+    // edit - keep the agent from writing secrets in the first place
+    {
+      "action": "edit",
+      "resource": "*.env*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*.env.example",
+      "effect": "allow"
+    },
+    {
+      "action": "edit",
+      "resource": "*secret*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*token*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*password*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "credentials/*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*.pem",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*.key",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*.p12",
+      "effect": "deny"
+    },
+    // shell - be careful as the agent can request for any command (!)
+    // no blanket find allow: "find / -exec rm -rf {} ;" would sail through
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "ls *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "grep *",
+      "effect": "allow"
+    },
+    // git - read-only inspection
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    // git - destructive, destroys uncommitted work or history
+    {
+      "action": "shell",
+      "resource": "rm *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git merge *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git revert *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git reset *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git rebase *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git clean *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git push *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git checkout .",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git restore *",
+      "effect": "deny"
+    },
+  ],
+  "instructions": [
+    "README.md",
+    "CONTRIBUTING.md",
+  ],
+  "plugins": [
+    // graphify=autoloaded - needs `graphify install --platform opencode` run in this dir + moving .ts to plugins
+    "@dietrichgebert/ponytail",
+    "opencode-snip@next",
+    // "./vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
+  ],
+}
