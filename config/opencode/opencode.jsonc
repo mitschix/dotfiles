@@ -218,9 +218,22 @@
     "CONTRIBUTING.md",
   ],
   "plugins": [
-    // graphify=autoloaded - needs `graphify install --platform opencode` run in this dir + moving .ts to plugins
     "@dietrichgebert/ponytail",
     "opencode-snip@next",
     // "./vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
   ],
+  "mcp": {
+    "servers": {
+      "codegraph": {
+        "type": "local",
+        "command": [
+          "codegraph",
+          "serve",
+          "--mcp"
+        ],
+        "disabled": false,
+        "codemode": false
+      }
+    }
+  },
 }
