@@ -20,38 +20,23 @@ he:
 
 blacklist:
 
-```text
-- ".env*"
-- "*secret*"
-- "*password*"
-- "*token*"
-- "**/*secret*"
-- "**/*password*"
-- "**/*token*"
-- "secrets/**"
-- "credentials/**"
-- "*.pem"
-- "*.key"
-- "*.crt"
-- "*.p12"
-- "**/task/sync-config"
-```
+Enforced by the `permissions` block in opencode.jsonc - do not duplicate it here.
+One path it does not cover: `**/task/sync-config`.
 
 ---
 
-- ASK FIRST: Before executing any command.
+- ASK FIRST: Before running any command that changes something.
 - NEVER: Read/write/edit blacklisted files.
 - NEVER: Run database migrations automatically.
 - NEVER: Modify the lock-files.
 - NEVER: Remove comments, docstrings or TODOs from code you did not write.
 - ONLY: Make changes within the source directory.
 - ASK FIRST: `cd` with absolute paths (should not be necessary when staying in directory anyway).
-- ALWAYS: Consider `**/*.md` in the working directory - these will contain background info, guidelines and specs.
 - ALWAYS: create tmp folders prefixed with .tmp- in the source directory for testing/debugging
 
 ## TDD Only
 
-RED → GREEN → REFACTOR for every feature/bug fix. Tests first. No exceptions.
+RED → GREEN → REFACTOR for every feature/bug fix. Tests first. No exceptions unless told otherwise.
 
 If the project already contains tests:
 
@@ -80,6 +65,10 @@ Avoid:
 * unnecessary dependencies
 
 The simplest solution that solves the problem is usually the correct one.
+
+Simplification has a floor: preserve behaviour exactly, do not inline away names that
+carry meaning, do not merge unrelated logic, do not remove an abstraction that exists for
+testability, and scope changes to what was asked.
 
 ## Proven solutions
 
@@ -135,6 +124,10 @@ Do not report a result you did not observe.
 - Distinguish exactly: `pass`, `fail`, `not run`, `blocked`. Never round these up.
 - If the evidence does not settle the question, say so and name what would.
 - Abstain rather than infer. "I cannot determine this from the code" is a valid answer.
+- Separate the observed symptom from the inferred cause.
+- Rank hypotheses by evidence and cheap falsification value.
+- Reuse a previous result only if the repository state still matches it.
+- Stop exploring once the evidence names the cause or the exact blocker.
 
 ## Fix discipline
 
@@ -178,11 +171,14 @@ Recommend it.
 
 # When Unsure
 
-Stop.
+Two cases, not one:
 
-Explain the uncertainty.
+- A logical default exists and you can name it - take the default, state it, continue.
+  Do not stall on an answer you can derive yourself.
+- No default, or the evidence does not settle it - stop. Say what you do not know and
+  what would resolve it. Ask.
 
-Ask for clarification instead of making assumptions.
+Never guess to avoid asking. Never ask to avoid deciding.
 
 # Working Style
 
@@ -192,9 +188,8 @@ Prefer understanding before changing.
 
 When multiple implementations are possible:
 
-* explain the trade-offs
-* recommend one
-* ask before making large architectural changes
+explain the trade-offs, recommend one, and ask before making large architectural
+changes.
 
 Do not optimize for cleverness.
 
@@ -207,19 +202,8 @@ Understand the task first.
 
 Read relevant documentation before making changes.
 
-Always consider:
-
-* README
-* CONTRIBUTING
-* AGENTS.md
-* docs/
-* relevant Markdown files in the project
-
-If requirements are ambiguous:
-
-Ask.
-
-Do not guess.
+Always consider: README, CONTRIBUTING, AGENTS.md, docs/, and any `*.md` in the
+working directory.
 
 # Continuity and cost
 
@@ -235,8 +219,7 @@ There is no cross-session memory. `AGENTS.md` is the only thing that persists.
 ## Cache safety
 
 Prompt caches are exact byte-prefix matches, so anything inserted before the message tail
-invalidates every later request in the session. Cached reads are 5-9x cheaper than fresh
-input.
+invalidates every later request in the session. Cached reads are cheaper than fresh input.
 
 - Keep `AGENTS.md` and agent prompts static. Never interpolate timestamps, session IDs,
   counters, or paths-that-change into them.
@@ -254,14 +237,10 @@ Avoid premature optimization.
 
 Prefer POSIX-compatible solutions unless the project clearly targets Bash.
 
-Use:
-
-* descriptive variable names
-* small functions
 * arrays instead of fragile string parsing where appropriate
 * explicit return values
 * local variables whenever possible
 
-Avoid hidden globals.
+Avoid hidden globals. Avoid functions that return many anonymous values.
 
-Avoid functions that return many anonymous values.
+

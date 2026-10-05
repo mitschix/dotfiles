@@ -3,7 +3,9 @@
 # trimmed: dropped the `tools:` frontmatter field (V1-only, invalid in V2 - permissions replace it)
 #         and the "Prompt Defense Baseline" block (ECC's generic injection rules; the
 #         untrusted-input rule now lives in AGENTS.md so it applies to every agent).
-description: Hunts swallowed errors, bad fallbacks and missing error propagation - failures that pass silently.
+description: Audits error handling across a codebase for swallowed errors, bad fallbacks and
+  missing error propagation - failures that pass silently. For a diff-scoped correctness review,
+  use review.
 mode: subagent
 model: opencode/qwen3.8-flash
 permissions:
