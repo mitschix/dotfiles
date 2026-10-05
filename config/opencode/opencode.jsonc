@@ -4,6 +4,9 @@
   "agents": {
     "title": {
       "model": "opencode/qwen3.8-flash#low"
+    },
+    "explore": {
+      "model": "opencode/qwen3.8-flash#low"
     }
   },
   // ordered: last matching rule wins.
