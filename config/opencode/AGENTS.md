@@ -211,8 +211,15 @@ working directory.
 
 There is no cross-session memory. `AGENTS.md` is the only thing that persists.
 
-- When you learn something non-obvious about this project - a decision, a constraint, a
-  convention - offer to write it to `AGENTS.md`, or say clearly that it is not recorded.
+- When you learn something non-obvious - a decision, a constraint, a convention - append
+  it to `~/.local/share/opencode/AGENTS-notes.md`, one line per item, prefixed with the
+  project name.
+- Merge those notes into that project's `AGENTS.md` - never into the global one - only
+  when the user asks, or at the end of a task after showing the exact lines and getting a
+  yes. If the project has no `AGENTS.md`, say so rather than creating one.
+- After merging, delete the merged lines. The notes file is a queue, not a log: if it
+  grows past a screen, drop anything a project `AGENTS.md` already covers or that the
+  repo now answers on its own.
 - When a task ends, summarize: what was decided, what was rejected and why, what is next.
   That summary is the only handoff that survives.
 
@@ -221,8 +228,10 @@ There is no cross-session memory. `AGENTS.md` is the only thing that persists.
 Prompt caches are exact byte-prefix matches, so anything inserted before the message tail
 invalidates every later request in the session. Cached reads are cheaper than fresh input.
 
-- Keep `AGENTS.md` and agent prompts static. Never interpolate timestamps, session IDs,
-  counters, or paths-that-change into them.
+- Editing `AGENTS.md` or an agent file mid-session rebuilds the prefix for the rest of
+  that session. Worth it when it earns its cost, waste when it is reflex.
+- Never regenerate values per request. Timestamps, session IDs and counters are fine
+  when they differ between sessions, not within one.
 - Per-turn state belongs at the very end of the message list, never in the system prompt.
 
 # Performance

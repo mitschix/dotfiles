@@ -212,6 +212,12 @@
       "resource": "git restore *",
       "effect": "deny"
     },
+    // session notes - the staging queue for AGENTS.md learnings (see Session continuity)
+    {
+      "action": "external_directory",
+      "resource": "/home/mitschix/.local/share/opencode/AGENTS-notes.md",
+      "effect": "allow"
+    },
   ],
   "instructions": [
     "README.md",
