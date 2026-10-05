@@ -1,7 +1,7 @@
 # Provenance and maintenance
 
-Where every agent, skill and command in this directory came from, and how to keep them
-current. Read this before adding a fourth source.
+Where the agents in this directory came from, and how to keep them current.
+Read this before adding a fourth source.
 
 ## The rule
 
@@ -36,9 +36,6 @@ copyright notice. These configs are personal, but if they ever ship, carry the n
 | `agents/fixer.md` | omo-slim `src/agents/role-prompts.ts` | `ba9af2dd86eb` | MIT | trimmed |
 | `agents/review.md` | gsd-core `gsd-core/contexts/review.md` | `b5dc98a4c748` | MIT | trimmed |
 | `agents/silent-failure-hunter.md` | ECC `agents/silent-failure-hunter.md` | `ef648e01899b` | MIT | trimmed |
-| `skills/investigate-first/SKILL.md` | caveman | `6571943370f7` | Apache-2.0 | verbatim |
-| `skills/verify-and-stop/SKILL.md` | caveman | `6571943370f7` | Apache-2.0 | verbatim |
-| `skills/simplify/SKILL.md` | omo-slim `src/skills/simplify/SKILL.md` | `ba9af2dd86eb` | MIT | trimmed |
 | `commands/init-project.md` | original (inverted) | - | - | new |
 
 Every vendored file carries its source and SHA in a YAML comment in its frontmatter, so
@@ -48,17 +45,16 @@ the table can be regenerated rather than hand-maintained.
 
 These are deliberate divergences from upstream. Do not "restore" them without reading why.
 
-- **`oracle.md`** — kept the delegate / don't-delegate contract, which is the part most
-  orchestration setups omit and the reason the orchestrator over-delegates.
+- **`oracle.md`** — `role-routing.ts` is the *orchestrator's* routing table, not the
+  agent's prompt, and there is no orchestrator here; oracle is also `subagent: deny`. The
+  block was 47% of the prompt it actually receives and told it to use a capability it is
+  denied. Removed, and folded into `description` — the only oracle text the parent sees.
 - **`fixer.md`** — removed the orchestrator framing; there is no orchestrator here.
 - **`review.md`** — dropped gsd-core's `<structural_findings>` (fallow) block. It is
   injected by gsd-core, which we do not run.
 - **`silent-failure-hunter.md`** — dropped the `tools:` frontmatter field. It is a V1
   field and V2 rejects it; `permissions` replaces it. Also dropped ECC's "Prompt Defense
   Baseline", now covered once in `AGENTS.md` for every agent instead.
-- **`simplify`** — dropped "Guidance for This Repository" (repo-local TypeScript advice
-  inside a generic skill) and the trailing verification section, which duplicated the
-  evidence rule in `AGENTS.md`.
 
 ## Plugins
 
@@ -69,17 +65,11 @@ These are deliberate divergences from upstream. Do not "restore" them without re
 
 ## Re-checking upstream
 
-There is no sync script and there should not be. Check by hand, and only for files
-marked *verbatim* — those are the only ones where upstream has anything to give.
-
-```sh
-curl -sL https://raw.githubusercontent.com/juliusbrussee/caveman/main/skills/investigate-first/SKILL.md \
-  | diff - skills/investigate-first/SKILL.md
-```
-
-Worth a look roughly quarterly. Do not adopt upstream changes to *your* AGENTS.md rules —
-those encode your standards, not theirs, and an upstream "improvement" would be a
-regression.
+There is no sync script and there should not be. The three skills that were still
+*verbatim* have been deleted, so nothing here is upstream-clean any more: every vendored
+file has diverged, and an upstream change is no longer adoptable. Only check by hand if
+you vendor something new — and never against your own `AGENTS.md` rules, which encode your
+standards, not theirs.
 
 ## Traps hit while building this
 
@@ -120,12 +110,13 @@ Recorded so the same evaluation does not get repeated.
 
 | Candidate | Why not |
 | --- | --- |
-| oh-my-opencode-slim (plugin) | Replaces agent routing wholesale and re-implements what the vendored prompts already do. Orthogonal to context management, not a magic-context substitute. Its `EXPLORER_PROMPT` was vendored and then dropped once the builtin agent's shipped permissions turned out to cover it. |
+| caveman `investigate-first` + `verify-and-stop`, omo-slim `simplify` | Vendored, then deleted. Each held 1-3 lines not already in `AGENTS.md`; those are now in `## Evidence before claims` and `## KISS`. A skill body costs nothing until loaded, but its description is advertised on every step forever — keeping a skill whose content is already injected is pure overhead. |
+| oh-my-opencode-slim (plugin) | Replaces agent routing wholesale and re-implements what the vendored prompts already do. Orthogonal to context management, not a magic-context substitute. Its `EXPLORER_PROMPT` was vendored and then dropped once the builtin agent's shipped permissions turned out to cover it. Its `role-routing.ts` is what proved the oracle block was orchestrator-facing. |
 | vendored `explore.md` | Superseded by a 3-line `agents.explore.model` override in `opencode.jsonc`. The builtin's read-only boundary is already enforced; only the model was worth changing. |
 | superpowers | 15 skills, largest 32.5 KB, plus an always-on bootstrap injection. `verification-before-completion` and `receiving-code-review` were absorbed into `AGENTS.md`; the rest duplicated rules already here. |
 | caveman gateway / engine | Rewires provider config through a proxy. Its own `HONEST-NUMBERS.md` retracts the 75% token claim and documents net-loss cases. |
 | ECC `rules/common/*` | Arbitrary numeric thresholds (<50-line functions, <800-line files, <4 nesting). Contradicts the KISS stance in `AGENTS.md`. |
-| ECC `code-simplifier.md` | Duplicated `AGENTS.md` verbatim. Superseded by the `simplify` skill, which has the over-simplification guardrails ECC lacked. |
+| ECC `code-simplifier.md` | Duplicated `AGENTS.md` verbatim. The over-simplification guardrails that justified the `simplify` skill are now one paragraph in `AGENTS.md` KISS. |
 | `expert.md`, `autonomous.md` agents | Both duplicated `oracle.md` and the existing `build` agent respectively. |
 | `surgical-patch`, `safe-refactor` skills | Unique content was 2-3 lines each; absorbed into the fix-discipline rule in `AGENTS.md`. |
 | `verification-planning` skill | Same intent as the evidence rule, 10x the size. Its best line — build the smallest affordance that makes the state observable — is in `AGENTS.md`. |
