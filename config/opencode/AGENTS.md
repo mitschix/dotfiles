@@ -262,7 +262,6 @@ Prefer POSIX-compatible solutions unless the project clearly targets Bash.
 
 Avoid hidden globals. Avoid functions that return many anonymous values.
 
-<!-- needs `npx @colbymchenry/codegraph install` for MCP which inserts snippet: -->
 <!-- CODEGRAPH_START -->
 ## CodeGraph
 

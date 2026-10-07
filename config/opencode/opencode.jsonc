@@ -236,6 +236,7 @@
   ],
   "mcp": {
     "servers": {
+      // `npx @colbymchenry/codegraph install` for MCP  - inserts snippet in AGENTS.md -->
       "codegraph": {
         "type": "local",
         "command": [
