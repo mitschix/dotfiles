@@ -226,6 +226,7 @@
   "plugins": [
     "@dietrichgebert/ponytail",
     "opencode-snip@next",
+    "@upstash/context7-opencode",
     // "./vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
   ],
   "mcp": {
@@ -239,7 +240,11 @@
         ],
         "disabled": false,
         "codemode": false
+      },
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp"
       }
     }
-  },
+  }
 }
