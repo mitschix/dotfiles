@@ -222,16 +222,16 @@
       "action": "external_directory",
       "resource": "/home/mitschix/.local/share/opencode/AGENTS-notes.md",
       "effect": "allow"
-    },
+    }
   ],
   "instructions": [
     "README.md",
-    "CONTRIBUTING.md",
+    "CONTRIBUTING.md"
   ],
   "plugins": [
     "@dietrichgebert/ponytail",
     "opencode-snip@next",
-    "@upstash/context7-opencode",
+    "@upstash/context7-opencode"
     // "./vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
   ],
   "mcp": {
@@ -247,9 +247,15 @@
         "disabled": false,
         "codemode": false
       },
+      // `npx ctx7 setup --opencode` for MCP (after oauth) + skill (moved to correct location)
+      // inserts snippet in AGENTS.md
       "context7": {
         "type": "remote",
-        "url": "https://mcp.context7.com/mcp"
+        "url": "https://mcp.context7.com/mcp",
+        "enabled": true,
+        "headers": {
+          "Authorization": "Bearer ctx7sk-d3f1ef2a-2f35-49d9-9e0e-1252b53bd353"
+        }
       }
     }
   }
