@@ -21,7 +21,6 @@ he:
 blacklist:
 
 Enforced by the `permissions` block in opencode.jsonc - do not duplicate it here.
-One path it does not cover: `**/task/sync-config`.
 
 ---
 

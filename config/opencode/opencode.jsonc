@@ -55,6 +55,11 @@
       "resource": "credentials/*",
       "effect": "deny"
     },
+    {
+      "action": "read",
+      "resource": "**/task/sync-config",
+      "effect": "deny"
+    },
     // certificates
     {
       "action": "read",
