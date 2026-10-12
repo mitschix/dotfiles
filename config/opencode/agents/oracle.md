@@ -2,7 +2,6 @@
 # source: alvinunreal/oh-my-opencode-slim @ ba9af2dd86eb
 description: Expensive reasoning on demand - architecture, root-cause debugging, risky decisions, and simplification. An escalation, not a default step - use explore to find things, fixer to implement them, oracle when being wrong is costly.
 mode: subagent
-model: opencode/glm-5.3
 permissions:
   # Pure advisor: no mutation, no shell, no further delegation. A cheaper model can do the searching.
   - action: edit

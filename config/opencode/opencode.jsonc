@@ -7,6 +7,18 @@
     },
     "explore": {
       "model": "opencode/qwen3.8-flash#low"
+    },
+    "fixer":{
+      "model": "opencode/qwen3.8-flash#low"
+    },
+    "review":{
+      "model": "opencode/qwen3.8-flash"
+    },
+    "silent-failure-hunter":{
+      "model": "opencode/qwen3.8-flash"
+    },
+    "oracle":{
+      "model": "opencode/glm-5.3"
     }
   },
   // ordered: last matching rule wins.

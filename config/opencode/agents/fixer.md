@@ -3,7 +3,6 @@
 # trimmed: removed orchestrator-task framing (no orchestrator here) and the design refusal block.
 description: Implements a specified change. Given a plan, it writes code - it does not re-plan or research.
 mode: subagent
-model: opencode/qwen3.8-flash#low
 permissions:
   # The one writable agent in the set. Everything else still comes from global permissions.
   - action: subagent

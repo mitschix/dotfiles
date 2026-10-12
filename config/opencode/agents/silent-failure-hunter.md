@@ -7,7 +7,6 @@ description: Audits error handling across a codebase for swallowed errors, bad f
   missing error propagation - failures that pass silently. For a diff-scoped correctness review,
   use review.
 mode: subagent
-model: opencode/qwen3.8-flash
 permissions:
   - action: edit
     resource: "*"

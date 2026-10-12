@@ -4,7 +4,6 @@
 description: Reviews the current diff for correctness, security and regressions. Findings in
   severity order. For error-handling audits across a codebase, use silent-failure-hunter.
 mode: subagent
-model: opencode/qwen3.8-flash
 permissions:
   # Read and run checks, never modify. Shell stays governed by the global permission
   # block, so a reviewer cannot reach a mutating command without an ask.
