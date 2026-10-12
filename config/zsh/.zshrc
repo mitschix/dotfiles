@@ -23,6 +23,9 @@ source "$ZDOTDIR"/custom/keybinds.zsh
 # load local zshrc file if it exists
 [ -f "$ZDOTDIR"/.zshrc.local ] && source "$ZDOTDIR"/.zshrc.local
 
+# load direnvs
+[ -n "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
+
 # call the startup timer
 typeset -F SECONDS
 seconds_to_milliseconds $SECONDS
