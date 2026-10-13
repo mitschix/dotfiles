@@ -2,3 +2,4 @@
     ~/.config/i3:
       path: config/i3
       force: true # overwrite existing i3
+    ~/.config/i3wsr: config/i3wsr

@@ -1,11 +1,11 @@
 - shell:
-    - command: sudo pacman -S --needed --noconfirm i3-gaps picom xorg-xprop xss-lock python-i3ipc
-      description: "Install i3 gaps with lockscreen and compositor + autoname workspace dependencies"
+    - command: sudo pacman -S --needed --noconfirm i3-gaps picom xss-lock
+      description: "Install i3 gaps with lockscreen and compositor"
       stdin: true
       stdout: true
       stderr: true
-    - command: pip install --break-system-packages fontawesome
-      description: "Install pip dependencies for icons in autoname workspace"
+    - command: yay -S i3wsr
+      description: "Install autoname workspace tool"
       stdin: true
       stdout: true
       stderr: true
