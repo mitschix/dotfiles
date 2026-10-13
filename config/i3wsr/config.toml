@@ -1,0 +1,49 @@
+[icons]
+Alacritty = ""
+Gimp = ""
+TelegramDesktop = ""
+blueman-manager = ""
+bruno = ""
+chromium = ""
+code = ""
+discord = ""
+opencode = ""
+feh = ""
+firefox = ""
+flameshot = ""
+google-chrome = ""
+keepassxc = ""
+libreoffice = ""
+mail = ""
+mpv = ""
+mysql-workbench-bin = ""
+nm-connection-editor = ""
+nvim = ""
+obsidian = ""
+pavucontrol = ""
+pcmanfm = ""
+postman = ""
+qutebrowser = ""
+signal = ""
+spotify = ""
+steam = ""
+telegramdesktop = ""
+thunderbird = ""
+virt-manager = ""
+vscodium = ""
+wine = ""
+xournal = ""
+zathura = ""
+
+[aliases.name]
+"Gimp-\\d\\.\\d\\d" = "Gimp"
+"Nvim" = "nvim"
+"OC" = "opencode"
+
+[general]
+default_icon = ""
+
+[options]
+# remove_duplicates = true
+no_names = true
+focus_fix = true
