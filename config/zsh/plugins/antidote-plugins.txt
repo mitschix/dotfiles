@@ -5,6 +5,7 @@ ael-code/zsh-colored-man-pages kind:defer
 
 # testing
 aloxaf/fzf-tab  # Remove if you don't use fzf
+roosta/fif
 
 ## omz lib and plugins {{{
 # lib
