@@ -42,8 +42,10 @@ zathura = ""
 
 [general]
 default_icon = ""
+separator = "|"
 
 [options]
 # remove_duplicates = true
+factorize = true
 no_names = true
 focus_fix = true
