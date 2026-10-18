@@ -43,6 +43,7 @@ zathura = ""
 [general]
 default_icon = ""
 separator = "|"
+factorize_notation = "chemist"
 
 [options]
 # remove_duplicates = true
