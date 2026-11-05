@@ -12,5 +12,8 @@
     "thinking": "show",
     "tps": true
   },
-  "animations": true
+  "animations": true,
+  "plugins": [
+    "opencode-vim@latest"
+  ]
 }
