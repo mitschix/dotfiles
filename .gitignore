@@ -12,3 +12,5 @@ config/py3status/config*
 config/task/sync-config
 
 /config/nushell/history.*
+/config/opencode/service.json
+/config/opencode/vendor
