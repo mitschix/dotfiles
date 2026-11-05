@@ -242,7 +242,7 @@
   ],
   "plugins": [
     "@dietrichgebert/ponytail",
-    "opencode-snip@next",
+    "opencode-snip@latest",
     "@upstash/context7-opencode"
     // "./vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
   ],
